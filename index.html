@@ -3,42 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WikiChan | Home</title>
+    <title>WikiChan 維基百科 | Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="bg-ink text-silver">
-    <!-- HEADER -->
-    <header class="site-header">
-      <div class="container">
-        <a href="index.html" class="brand-link">
-          <span class="brand-icon">♠</span>
-          WikiChan
-        </a>
-        <nav class="site-nav">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="portfolio.html" class="nav-link">Portfolio</a>
-          <a href="blog.html" class="nav-link">Blog</a>
-          <a href="math.html" class="nav-link">Math</a>
-        </nav>
-      </div>
-    </header>
+    <div class="page-shell">
+      <div id="navbar-placeholder"></div>
 
-    <!-- HERO -->
-    <main class="container py-12">
-      <section class="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-        <div class="space-y-6">
-          <div class="hero-pill">
-            <span>➗</span>
-            Math teacher portfolio
+      <!-- HERO -->
+      <main class="container py-12">
+      <section class="hero-section">
+        <div class="hero-left-column">
+          <div class="top-illustration-card">
+            <div class="illustration-frame">
+              <img
+                src="photos/p1.jpeg"
+                alt="Illustration"
+                class="illustration-image"
+              />
+            </div>
+            <div class="image-slot-label">i drew this in cuhk library</div>
           </div>
-          <h1 class="hero-title">Classroom Style with Elegant Math</h1>
-          <p class="hero-copy">
-            A polished math teacher website that blends dark academic aesthetic with clear learning tools, lesson resources, and student-friendly visuals.
-          </p>
-          <div class="hero-actions">
-            <a href="portfolio.html" class="button-primary">View Teaching Work</a>
-            <a href="blog.html" class="button-secondary">Teacher Journal</a>
+
+          <div class="hero-copy-block">
+            <div class="hero-pill">
+              <span>➗</span>
+              Math teacher portfolio
+            </div>
+            <h1 class="hero-title">Classroom Style with Elegant Math</h1>
+            <div class="ornament-row" aria-label="Decorative labels">
+              <span class="ornament-pill">Elegant</span>
+              <span class="ornament-pill">Romantic</span>
+              <span class="ornament-pill">Academic</span>
+            </div>
+            <p class="hero-copy">
+              A polished math teacher website that blends dark academic aesthetic with clear learning tools, lesson resources, and student-friendly visuals.
+            </p>
+            <div class="hero-actions">
+              <a href="portfolio.html" class="button-primary">View Teaching Work</a>
+              <a href="blog.html" class="button-secondary">Teacher Journal</a>
+            </div>
           </div>
         </div>
 
@@ -47,11 +52,7 @@
             <span class="hero-symbol">♛</span>
             <p class="hero-tag">Math Educator</p>
           </div>
-          <img
-            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80"
-            alt="Portrait avatar"
-            class="hero-image"
-          />
+
           <div class="hero-card-body">
             <p class="hero-card-title">WikiChan</p>
             <p class="hero-card-text">
@@ -111,17 +112,21 @@
 
       <!-- ABOUT -->
       <section class="mt-20 grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-        <div class="glass-panel">
+        <div class="glass-panel gothic-about-panel">
+          <div class="panel-corner-mark left"></div>
+          <div class="panel-corner-mark right"></div>
           <p class="section-label">About Me</p>
           <h2 class="section-title">Math Teacher, Creative Educator</h2>
           <p>
             I design calm, student-centered math resources that support conceptual understanding and classroom confidence.
             My work blends structure with subtle style so learning feels both polished and approachable.
           </p>
-        </div>
-
-        <div class="grid gap-4 sm:grid-cols-2">
-          <div class="info-card">
+        <div class="profile-side-stack">
+          <div class="info-card profile-card">
+            <div class="profile-card-header">
+              <span class="profile-mark">♕</span>
+              <span>Profile</span>
+            </div>
             <h3>Classroom Focus</h3>
             <ul>
               <li>Lesson design</li>
@@ -130,8 +135,12 @@
               <li>Reach every learner</li>
             </ul>
           </div>
-          <div class="info-card">
-            <h3>Toolkit</h3>
+          <div class="info-card tool-card">
+            <div class="profile-card-header small-header">
+              <span class="profile-mark">✧</span>
+              <span>Toolkit</span>
+            </div>
+            <h3>Creative Setup</h3>
             <ul>
               <li>HTML & CSS</li>
               <li>Tailwind</li>
@@ -142,5 +151,29 @@
         </div>
       </section>
     </main>
+
+    <footer class="container py-8" aria-label="Secret Garden link">
+      <div class="text-center">
+        <a
+          href="secret garden.html"
+          style="
+            display: inline-block;
+            font-size: 0.68rem;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: rgba(170, 145, 196, 0.8);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.2s ease, color 0.2s ease;
+          "
+          onmouseover="this.style.opacity='1'; this.style.color='rgba(214, 190, 255, 0.95)';"
+          onmouseout="this.style.opacity='0.8'; this.style.color='rgba(170, 145, 196, 0.8)';"
+        >
+          Secret Garden
+        </a>
+      </div>
+    </footer>
+    <script src="nav.js"></script>
+    </div>
   </body>
 </html>
