@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
       label: "Works",
       submenu: [
         { href: "math.html", label: "Teaching Materials" },
-        { href: "portfolio.html", label: "Art / Drawing" }
+        { href: "art.html", label: "Art / Drawing" },
+        { href: "word.html", label: "Writing" }
+
       ]
     },
     { href: "blog.html", label: "Blog" },
@@ -26,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="brand-wrap">
           <h1 class="brand-title">
             <span class="brand-mark">✧</span>
-            WikiChan 維基百科
+            WikiChan | 維基百科
           </h1>
           <div class="brand-sub">A little side project of Wiki</div>
         </div>
