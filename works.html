@@ -8,17 +8,55 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="bg-ink text-silver">
-    <div id="navbar-placeholder"></div>
+    <div class="page-shell">
+      <div id="navbar-placeholder"></div>
 
-    <main class="container py-12">
-      <section class="space-y-6">
-        <p class="section-label">Works</p>
-        <h1 class="section-title">Projects and Resources</h1>
-        <p class="section-description">
-          A place to showcase lesson pages, teaching ideas, and design work.
-        </p>
-      </section>
-    </main>
+      <div class="reference-shell">
+        <div class="reference-grid">
+          <div class="shadow-band" aria-hidden="true"></div>
+
+          <main class="main-panel">
+            <div class="inner">
+              <section class="space-y-6">
+                <p class="section-label">Works</p>
+                <h1 class="section-title">Projects and Resources</h1>
+                <p class="section-description">
+                  A place to showcase lesson pages, teaching ideas, and design work.
+                </p>
+              </section>
+
+              <section class="mt-12 grid gap-6 lg:grid-cols-2">
+                <article class="feature-card">
+                  <span class="feature-pill">Lesson Pages</span>
+                  <h3>Teaching Materials</h3>
+                  <p>Examples of clear, calm teaching pages designed to support students with thoughtful structure and visual rhythm.</p>
+                </article>
+
+                <article class="feature-card">
+                  <span class="feature-pill">Design</span>
+                  <h3>Creative Systems</h3>
+                  <p>Layouts and visual explorations shaped around gentle editorial composition, soft color, and decorative detail.</p>
+                </article>
+
+                <article class="feature-card">
+                  <span class="feature-pill">Resources</span>
+                  <h3>Classroom Tools</h3>
+                  <p>Practical resources for lesson planning, student handouts, and visual references for a welcoming classroom experience.</p>
+                </article>
+
+                <article class="feature-card">
+                  <span class="feature-pill">Practice</span>
+                  <h3>Working Notes</h3>
+                  <p>Short reflections and experiments on learning design, page composition, and the balance between clarity and personality.</p>
+                </article>
+              </section>
+            </div>
+          </main>
+
+          <div class="shadow-band right" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
 
     <script src="nav.js"></script>
   </body>
