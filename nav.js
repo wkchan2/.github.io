@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
       submenu: [
         { href: "works.html", label: "Teaching Materials" },
         { href: "art.html", label: "Art / Drawing" },
-        { href: "word.html", label: "Writing" }
 
       ]
     },
