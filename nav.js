@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
       href: "works.html",
       label: "Works",
       submenu: [
-        { href: "math.html", label: "Teaching Materials" },
+        { href: "works.html", label: "Teaching Materials" },
         { href: "art.html", label: "Art / Drawing" },
         { href: "word.html", label: "Writing" }
 

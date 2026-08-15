@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="bg-ink text-silver">
+  <body>
     <div class="page-shell">
       <div id="navbar-placeholder"></div>
 
@@ -19,79 +19,17 @@
             <div class="inner">
               <section class="space-y-6">
                 <p class="section-label">Artwork</p>
-                <h1 class="section-title">Creative Expressions</h1>
-                <p class="section-description">
-                I happen to copy arts that i like,  I also draw some original arts. 
-                </p>
+                <h1 class="section-title">Imitation</h1>
+                <div class="art-intro-panel">
+                  <p class="section-description art-subtitle">
+                    A quiet archive of study copies of other artists' works.
+                  </p>
+                </div>
               </section>
 
-              <section class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                <article class="feature-card">
-                  <span class="feature-pill">Lesson</span>
-                  <h3>Algebra Gallery</h3>
-                  <p>A lesson page for algebra concepts with clear examples, structured problem sets, and soft visual cues.</p>
-                  <div class="tag-row">
-                    <span>Tailwind</span>
-                    <span>Responsive</span>
-                    <span>UI</span>
-                  </div>
-                </article>
-
-                <article class="feature-card">
-                  <span class="feature-pill">Resource</span>
-                  <h3>Geometry Guide</h3>
-                  <p>An interactive geometry reference with labeled diagrams and student-friendly explanations.</p>
-                  <div class="tag-row">
-                    <span>JavaScript</span>
-                    <span>Animation</span>
-                    <span>Design</span>
-                  </div>
-                </article>
-
-                <article class="feature-card">
-                  <span class="feature-pill">Curriculum</span>
-                  <h3>Study Kit</h3>
-                  <p>A teaching toolkit for math review sessions, with printable cards, warm textures, and structured content.</p>
-                  <div class="tag-row">
-                    <span>Curriculum</span>
-                    <span>Typography</span>
-                    <span>Style</span>
-                  </div>
-                </article>
-
-                <article class="feature-card">
-                  <span class="feature-pill">Editorial</span>
-                  <h3>Gilded Journal</h3>
-                  <p>A blog-style reading experience with soft card layouts, elegant hover states, and subtle glow details.</p>
-                  <div class="tag-row">
-                    <span>UX</span>
-                    <span>Layout</span>
-                    <span>Story</span>
-                  </div>
-                </article>
-
-                <article class="feature-card">
-                  <span class="feature-pill">Interactive</span>
-                  <h3>Charm Cards</h3>
-                  <p>A playful interface that reveals details through card flips, pastel highlights, and accessible motion.</p>
-                  <div class="tag-row">
-                    <span>CSS</span>
-                    <span>Interaction</span>
-                    <span>Accessible</span>
-                  </div>
-                </article>
-
-                <article class="feature-card">
-                  <span class="feature-pill">Landing</span>
-                  <h3>Velvet Parlor</h3>
-                  <p>A luxe landing page preview featuring strong contrast, lodge-inspired textures, and call-to-action ribbons.</p>
-                  <div class="tag-row">
-                    <span>Marketing</span>
-                    <span>Visual</span>
-                    <span>Brand</span>
-                  </div>
-                </article>
-              </section>
+              <div class="art-gallery-wrap">
+                <div id="art-gallery" class="art-gallery-grid" aria-label="Copy studies gallery"></div>
+              </div>
             </div>
           </main>
 
@@ -99,6 +37,66 @@
         </div>
       </div>
     </div>
+
+    <div id="art-lightbox" class="art-lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+      <button class="lightbox-close" type="button" aria-label="Close artwork">✕</button>
+      <div class="lightbox-panel">
+        <img id="lightbox-image" src="" alt="Expanded artwork" />
+      </div>
+    </div>
+
+    <script>
+      const artImages = Array.from({ length: 30 }, (_, index) => `${index + 1}.jpg`);
+      const gallery = document.getElementById("art-gallery");
+      const lightbox = document.getElementById("art-lightbox");
+      const lightboxImage = document.getElementById("lightbox-image");
+      const closeButton = document.querySelector(".lightbox-close");
+
+      artImages.forEach((fileName, index) => {
+        const card = document.createElement("figure");
+        card.className = "art-card";
+
+        const img = document.createElement("img");
+        img.src = `photos/copy/${fileName}`;
+        img.alt = `Copy study ${index + 1}`;
+        img.loading = "lazy";
+        img.dataset.full = `photos/copy/${fileName}`;
+
+        const caption = document.createElement("figcaption");
+        caption.textContent = `Study ${index + 1}`;
+
+        img.addEventListener("click", () => {
+          lightboxImage.src = img.dataset.full;
+          lightboxImage.alt = img.alt;
+          lightbox.classList.add("is-open");
+          lightbox.setAttribute("aria-hidden", "false");
+          document.body.classList.add("lightbox-open");
+        });
+
+        card.appendChild(img);
+        card.appendChild(caption);
+        gallery.appendChild(card);
+      });
+
+      const closeLightbox = () => {
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("lightbox-open");
+      };
+
+      closeButton.addEventListener("click", closeLightbox);
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+          closeLightbox();
+        }
+      });
+    </script>
     <script src="nav.js"></script>
   </body>
 </html>
