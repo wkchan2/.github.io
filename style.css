@@ -630,7 +630,8 @@ body::after {
 
 .piano-list {
   margin: 0;
-  padding-left: 1.2rem;
+  padding-left: 1.5rem; /* Slightly increased padding so bullet points aren't cut off */
+  list-style-type: disc; /* Ensures a standard filled-circle bullet point */
   color: var(--text);
   line-height: 1.9;
 }
@@ -647,7 +648,13 @@ body::after {
 .piano-list a:hover {
   text-decoration: underline;
 }
-
+.text {
+  margin: 0;
+  padding-left: 1.5rem; /* Keeps bullet points aligned and visible */
+  list-style-type: disc; /* Enables bullet points for list items */
+  color: #000000; /* High-visibility black text */
+  line-height: 1.9;
+}
 .nav-link {
   color: var(--muted);
   font-weight: 500;
@@ -1060,7 +1067,22 @@ main {
   letter-spacing: 0.08em;
   color: var(--text);
 }
-
+.session-title2 {
+  margin: 1.1rem 0 0.8rem;
+  font-size: 2rem;
+  color: var(--accent); /* Uses your theme's deep purple variable (#5a43a5) */
+  font-family: 'Cormorant Garamond', serif;
+}
+.article-quote-text {
+  margin: 0.8rem 0 0;
+  padding: 0.85rem 1rem;
+  color: #000000; /* Pure high-visibility black */
+  line-height: 1.7;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-left: 3px solid var(--accent-soft);
+  border-radius: 0 0.75rem 0.75rem 0;
+}
 .section-description,
 .glass-panel p,
 .info-card p,
@@ -1367,16 +1389,30 @@ main {
   border-color: rgba(141, 106, 222, 0.3);
 }
 
-.feature-pill {
+/* Base styles shared by both pills */
+.feature-pill,
+.feature-pill2 {
   display: inline-flex;
   padding: 0.55rem 0.95rem;
   border-radius: 999px;
   background: rgba(184, 148, 239, 0.12);
   color: var(--accent-soft);
-  text-transform: uppercase;
   letter-spacing: 0.18em;
   font-size: 0.72rem;
   font-weight: 700;
+}
+/* Add this to style.css */
+a:hover {
+  text-decoration: underline;
+}
+/* Original: ALWAYS UPPERCASE */
+.feature-pill {
+  text-transform: uppercase;
+}
+
+/* New: Preserves exact text casing as written in HTML */
+.feature-pill2 {
+  text-transform: none;
 }
 
 .feature-card h3,
@@ -1589,7 +1625,7 @@ main {
   color: var(--muted);
   font-size: 0.72rem;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .art-lightbox {

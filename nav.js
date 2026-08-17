@@ -109,16 +109,29 @@ document.addEventListener("DOMContentLoaded", function () {
       top: 20px;
       right: 20px;
       z-index: 9999;
-      max-width: 320px;
-      padding: 10px 14px;
-      background: rgba(255, 255, 255, 0.9);
+      max-width: 340px;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(8px);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      font-size: 0.85rem;
+      
+      /* Ornate inner double-frame border */
+      border: 1px solid #c29ef5;
+      outline: 1px solid rgba(194, 158, 245, 0.4);
+      outline-offset: -4px;
+      border-radius: 4px;
+      box-shadow: 0 4px 16px rgba(194, 158, 245, 0.25);
+      
+      /* High readability classical serif font stack */
+      font-family: 'Cinzel Decorative', 'Cinzel', 'Baskerville', 'Georgia Pro', 'Garamond', Georgia, serif;
+      font-size: 1.5rem;
       font-style: italic;
-      color: #333333;
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+      text-align: center;
+      
+      /* Light Purple Text */
+      color: #9d6ee8;
+      
       transition: opacity 0.15s ease-out;
       pointer-events: none;
     }

@@ -45,58 +45,94 @@
       </div>
     </div>
 
-    <script>
-      const artImages = Array.from({ length: 30 }, (_, index) => `${index + 1}.jpg`);
-      const gallery = document.getElementById("art-gallery");
-      const lightbox = document.getElementById("art-lightbox");
-      const lightboxImage = document.getElementById("lightbox-image");
-      const closeButton = document.querySelector(".lightbox-close");
+   <script>
+  // Define each artwork with its filename and custom caption:
+  const artData = [
+    { file: "1.jpg", caption: "@fruitsrabbit" },
+    { file: "2.jpg", caption: "@栗海原" },
+    { file: "3.jpg", caption: "My mascot for Youtube" },
+    { file: "4.jpg", caption: "" },
+    { file: "5.jpg", caption: "i like this so much" },
+    { file: "6.jpg", caption: "i tried creating this" },
+    { file: "7.jpg", caption: "same" },
+    { file: "8.jpg", caption: "EBF5 characters" },
+    { file: "9.jpg", caption: "cartoon" },
+    { file: "10.jpg", caption: "cartoon" },
+    { file: "11.jpg", caption: "cartoon" },
+    { file: "12.jpg", caption: "cartoon" },
+    { file: "13.jpg", caption: "Great one" },
+    { file: "14.jpg", caption: "she looks angry" },
+    { file: "15.jpg", caption: "not as good as original" },
+    { file: "16.jpg", caption: "i tried to copy without ipad and its terrible" },
+    { file: "17.jpg", caption: "My friend Kenneth " },
+    { file: "18.jpg", caption: "This is great" },
+    { file: "19.jpg", caption: "First time copying" },
+    { file: "20.jpg", caption: "Cartoon" },
+    { file: "22.jpg", caption: "@marhoroba" },
+    { file: "23.jpg", caption: "@CJY" },
+    { file: "24.jpg", caption: "creation" },
+    { file: "25.jpg", caption: "Kogepan" },
+    { file: "26.jpg", caption: "" },
+    { file: "27.jpg", caption: "@Good Dream" },
+    { file: "28.jpg", caption: "@CJY" },
+    { file: "29.jpg", caption: "" },
+    { file: "30.jpg", caption: "" },
+  ];
 
-      artImages.forEach((fileName, index) => {
-        const card = document.createElement("figure");
-        card.className = "art-card";
+  const gallery = document.getElementById("art-gallery");
+  const lightbox = document.getElementById("art-lightbox");
+  const lightboxImage = document.getElementById("lightbox-image");
+  const closeButton = document.querySelector(".lightbox-close");
 
-        const img = document.createElement("img");
-        img.src = `photos/copy/${fileName}`;
-        img.alt = `Copy study ${index + 1}`;
-        img.loading = "lazy";
-        img.dataset.full = `photos/copy/${fileName}`;
+  artData.forEach((item, index) => {
+    const card = document.createElement("figure");
+    card.className = "art-card";
 
-        const caption = document.createElement("figcaption");
-        caption.textContent = `Study ${index + 1}`;
+    const img = document.createElement("img");
+    img.src = `photos/copy/${item.file}`;
+    img.alt = item.caption || `Copy study ${index + 1}`;
+    img.loading = "lazy";
+    img.dataset.full = `photos/copy/${item.file}`;
 
-        img.addEventListener("click", () => {
-          lightboxImage.src = img.dataset.full;
-          lightboxImage.alt = img.alt;
-          lightbox.classList.add("is-open");
-          lightbox.setAttribute("aria-hidden", "false");
-          document.body.classList.add("lightbox-open");
-        });
+    card.appendChild(img);
 
-        card.appendChild(img);
-        card.appendChild(caption);
-        gallery.appendChild(card);
-      });
+    // Only create and add the <figcaption> if item.caption has text
+    if (item.caption && item.caption.trim() !== "") {
+      const caption = document.createElement("figcaption");
+      caption.textContent = item.caption;
+      card.appendChild(caption);
+    }
 
-      const closeLightbox = () => {
-        lightbox.classList.remove("is-open");
-        lightbox.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("lightbox-open");
-      };
+    img.addEventListener("click", () => {
+      lightboxImage.src = img.dataset.full;
+      lightboxImage.alt = img.alt;
+      lightbox.classList.add("is-open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("lightbox-open");
+    });
 
-      closeButton.addEventListener("click", closeLightbox);
-      lightbox.addEventListener("click", (event) => {
-        if (event.target === lightbox) {
-          closeLightbox();
-        }
-      });
+    gallery.appendChild(card);
+  });
 
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
-          closeLightbox();
-        }
-      });
-    </script>
+  const closeLightbox = () => {
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("lightbox-open");
+  };
+
+  closeButton.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+      closeLightbox();
+    }
+  });
+</script>
     <script src="nav.js"></script>
   </body>
 </html>
