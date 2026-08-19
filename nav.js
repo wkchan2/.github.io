@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="brand-wrap">
             <h1 class="brand-title">
               <span class="brand-mark">✧</span>
-              WikiChan | 維基百科
+              WikiChan | 維基百科🕮
             </h1>
             <div class="brand-sub">A little side project of Wiki</div>
           </div>
