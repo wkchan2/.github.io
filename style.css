@@ -1405,6 +1405,15 @@ main {
 a:hover {
   text-decoration: underline;
 }
+.click-hint {
+  color: var(--muted); /* Normal text color */
+  transition: color 0.2s ease; /* Makes the color change smooth */
+}
+
+/* Changes text color when hovering over the image block */
+.group:hover .click-hint {
+  color: var(--accent-deep); /* Hover text color */
+}
 /* Original: ALWAYS UPPERCASE */
 .feature-pill {
   text-transform: uppercase;
