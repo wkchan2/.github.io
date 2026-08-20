@@ -11,13 +11,15 @@ document.addEventListener("DOMContentLoaded", function () {
         submenu: [
           { href: "works.html", label: "Teaching Materials" },
           { href: "art.html", label: "Art / Drawing" },
-        ]
+        ],
       },
       { href: "blog.html", label: "Blog" },
       { href: "links.html", label: "Links" },
       { href: "math.html", label: "Math" },
       { href: "piano.html", label: "Piano" },
-      { href: "contacts.html", label: "Contact" }
+      { href: "contacts.html", label: "Contact" },
+      { href: "gallery.html", label: "Gallery" },
+      { href: "mathtrivial.html", label: "Game" },
     ];
 
     navContainer.innerHTML = `
@@ -86,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "知之為知之，不知為不知，是知也",
     "最有趣的問題是無解的",
     "數學就是給異物起同名稱的藝術。",
+    "teamwork makes the dream work", // <-- Added missing comma here
     "對我來說，學數學就像是探訪那些數學家們的思想世界，去理解他們如何看待這個世界，如何解決問題，如何創造出美麗的數學結構。"
   ];
 

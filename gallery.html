@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WikiChan | Life Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div id="navbar-placeholder"></div>
+
+      <div class="reference-shell">
+        <div class="reference-grid">
+          <div class="shadow-band" aria-hidden="true"></div>
+
+          <main class="main-panel">
+            <div class="inner">
+              <section class="space-y-6">
+                <p class="section-label">Moments & Memories</p>
+                <h1 class="section-title">Life Gallery</h1>
+                <p class="section-description">
+                  A collection of snapshots from university life, campus moments, and personal memories.
+                </p>
+              </section>
+
+              <!-- Photo Grid Container (Populated via JS) -->
+              <section id="gallery-grid" class="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Dynamically populated -->
+              </section>
+            </div>
+          </main>
+
+          <div class="shadow-band right" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox Slider Modal -->
+    <div 
+      id="lightbox" 
+      class="fixed inset-0 bg-black/90 hidden z-50 flex items-center justify-center p-4 backdrop-blur-sm select-none"
+      onclick="closeLightbox()"
+    >
+      <div class="relative max-w-4xl w-full flex flex-col items-center justify-center" onclick="event.stopPropagation()">
+        
+        <button 
+          onclick="closeLightbox()" 
+          class="absolute -top-10 right-0 text-white text-3xl font-bold hover:text-purple-400 transition-colors cursor-pointer"
+        >
+          &times;
+        </button>
+
+        <div class="relative flex items-center justify-center w-full min-h-[50vh]">
+          <img 
+            id="lightbox-active-img" 
+            src="" 
+            alt="Enlarged photo" 
+            class="max-w-full max-h-[80vh] object-contain rounded-lg shadow-2xl transition-all duration-200"
+          />
+
+          <button 
+            id="lightbox-prev" 
+            onclick="prevImage()" 
+            class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-purple-700 text-white p-3 rounded-full text-2xl transition-all cursor-pointer hidden"
+          >
+            &#10094;
+          </button>
+
+          <button 
+            id="lightbox-next" 
+            onclick="nextImage()" 
+            class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-purple-700 text-white p-3 rounded-full text-2xl transition-all cursor-pointer hidden"
+          >
+            &#10095;
+          </button>
+        </div>
+
+        <div id="lightbox-counter" class="mt-3 text-white/80 text-sm font-medium tracking-wide hidden"></div>
+      </div>
+    </div>
+
+    <script src="nav.js"></script>
+    <script>
+      // 1. Photos already used in other sections to filter out
+      const usedPhotos = [80, 122, 130, 132, 133, 139, 148];
+
+      // 2. Custom Captions Mapping (Images 80 through 130)
+      //    - Write your caption string inside quotes to show it below the photo.
+      //    - Leave as "" or omit the line completely to leave it BLANK (no caption container).
+      const photoCaptions = {
+        81: "Library study spot during finals week",
+        82: "Campus sunset near the science building",
+        83: "", // Blank -> No caption shown
+        84: "Late night coding in the lab",
+        85: "", // Blank -> No caption shown
+        86: "Coffee break with friends",
+        // Add or edit captions for any photo number (80-130) here:
+        // 90: "My favorite spot on campus",
+        // 105: "Rainy day walk",
+      };
+
+      // 3. Build filtered image objects array
+      const galleryData = [];
+      for (let i = 80; i <= 130; i++) {
+        if (!usedPhotos.includes(i)) {
+          galleryData.push({
+            src: `photos/life/${i}.jpg`,
+            id: i,
+            caption: photoCaptions[i] ? photoCaptions[i].trim() : ""
+          });
+        }
+      }
+
+      // 4. Render gallery cards dynamically
+      const gridContainer = document.getElementById('gallery-grid');
+      const lightboxImages = galleryData.map(item => item.src);
+
+      galleryData.forEach((item, idx) => {
+        const article = document.createElement('article');
+        article.className = 'feature-card p-3 text-center flex flex-col justify-between';
+        
+        // Conditionally render <figcaption> only if a caption exists
+        const captionHTML = item.caption 
+          ? `<figcaption class="mt-3 text-xs italic text-[var(--muted)]">${item.caption}</figcaption>` 
+          : '';
+
+        article.innerHTML = `
+          <div class="overflow-hidden rounded-lg border border-[var(--border)]">
+            <img 
+              src="${item.src}" 
+              alt="Life photo ${item.id}" 
+              class="w-full h-48 object-cover cursor-pointer hover:scale-105 transition-transform duration-200"
+              onclick="openLightbox(lightboxImages, ${idx})"
+            />
+          </div>
+          ${captionHTML}
+        `;
+        gridContainer.appendChild(article);
+      });
+
+      // 5. Lightbox functionality
+      let currentGallery = [];
+      let currentIndex = 0;
+
+      function openLightbox(images, startIndex = 0) {
+        currentGallery = images;
+        currentIndex = startIndex;
+        updateLightboxImage();
+
+        const prevBtn = document.getElementById('lightbox-prev');
+        const nextBtn = document.getElementById('lightbox-next');
+        const counter = document.getElementById('lightbox-counter');
+
+        if (currentGallery.length > 1) {
+          prevBtn.classList.remove('hidden');
+          nextBtn.classList.remove('hidden');
+          counter.classList.remove('hidden');
+        } else {
+          prevBtn.classList.add('hidden');
+          nextBtn.classList.add('hidden');
+          counter.classList.add('hidden');
+        }
+
+        document.getElementById('lightbox').classList.remove('hidden');
+      }
+
+      function updateLightboxImage() {
+        const imgEl = document.getElementById('lightbox-active-img');
+        const counterEl = document.getElementById('lightbox-counter');
+        
+        imgEl.src = currentGallery[currentIndex];
+        counterEl.textContent = `${currentIndex + 1} / ${currentGallery.length}`;
+      }
+
+      function nextImage() {
+        if (currentGallery.length <= 1) return;
+        currentIndex = (currentIndex + 1) % currentGallery.length;
+        updateLightboxImage();
+      }
+
+      function prevImage() {
+        if (currentGallery.length <= 1) return;
+        currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+        updateLightboxImage();
+      }
+
+      function closeLightbox() {
+        document.getElementById('lightbox').classList.add('hidden');
+      }
+
+      document.addEventListener('keydown', (e) => {
+        const lightbox = document.getElementById('lightbox');
+        if (lightbox.classList.contains('hidden')) return;
+
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+      });
+    </script>
+  </body>
+</html>

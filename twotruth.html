@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WikiChan | Math Two Truths & A Lie</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div id="navbar-placeholder"></div>
+
+      <div class="reference-shell">
+        <div class="reference-grid">
+          <div class="shadow-band" aria-hidden="true"></div>
+
+          <main class="main-panel">
+            <div class="inner">
+              <section class="space-y-6">
+                <p class="section-label">Interactive Game</p>
+                <h1 class="section-title">Two Truths & A Lie</h1>
+                <p class="section-description">
+                  Inspired by <strong>WebGoatGuy</strong>! Two of these mathematical claims are true, but one is a completely fabricated lie. Can you spot it?
+                </p>
+              </section>
+
+              <!-- Game Card Container -->
+              <div class="feature-card mt-8" id="game-card">
+                
+                <!-- Round Selector / Quick Jump Bar -->
+                <div class="flex flex-wrap items-center justify-between gap-3 pb-4 mb-4 border-b border-[var(--border)]">
+                  <div class="flex items-center gap-2">
+                    <span class="feature-pill" id="round-pill">ROUND 1</span>
+                    <span class="text-xs text-[var(--muted)] font-medium" id="score-tracker">Score: 0 / 0</span>
+                  </div>
+                  
+                  <!-- Quick Jump Buttons -->
+                  <div class="flex items-center gap-1" id="jump-bar">
+                    <!-- Populated dynamically via JS -->
+                  </div>
+                </div>
+
+                <h2 class="session-title2 mb-4" id="topic-title">Topic: Loading...</h2>
+
+                <!-- Options List -->
+                <div class="space-y-3" id="options-container">
+                  <!-- Generated via JS -->
+                </div>
+
+                <!-- Explanation Box (Hidden initially until answered) -->
+                <div id="explanation-box" class="hidden mt-6 p-4 rounded-lg bg-purple-50/50 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-800/50 space-y-3">
+                  <h3 class="font-bold text-purple-800 dark:text-purple-300" id="result-status"></h3>
+                  <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed" id="explanation-text"></p>
+                </div>
+
+                <!-- Bottom Navigation Controls -->
+                <div class="flex justify-between items-center mt-6 pt-4 border-t border-[var(--border)]">
+                  <button 
+                    id="prev-btn" 
+                    onclick="prevRound()" 
+                    class="button-secondary text-xs cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed"
+                  >
+                    ← Previous Question
+                  </button>
+
+                  <button 
+                    id="next-btn" 
+                    onclick="nextRound()" 
+                    class="button-secondary text-xs cursor-pointer"
+                  >
+                    Next Round →
+                  </button>
+                </div>
+
+              </div>
+
+            </div>
+          </main>
+
+          <div class="shadow-band right" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="nav.js"></script>
+    <script>
+      const quizQuestions = [
+        {
+          topic: "1. Infinite Volumes & Gabriel's Horn",
+          statements: [
+            { text: "Gabriel's Horn (revolving y = 1/x for x ≥ 1 around the x-axis) has infinite surface area but finite volume.", isLie: false },
+            { text: "A 3-dimensional sphere with radius r = π has a total volume equal to exactly π³.", isLie: true },
+            { text: "It is mathematically possible to paint the entire inside of Gabriel's Horn with a finite amount of paint, but impossible to paint the outside.", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> The volume of a sphere is $V = \\frac{4}{3}\\pi r^3$. If $r = \\pi$, the volume is $\\frac{4}{3}\\pi^4$, not $\\pi^3$! Gabriel's Horn is a famous calculus paradox: integrating $\\pi \\int (1/x)^2 dx$ gives a finite volume of $\\pi$, yet its surface area integral diverges to infinity."
+        },
+        {
+          topic: "2. Polyominoes & Grid Shapes",
+          statements: [
+            { text: "Polyominoes (like Tetris blocks) always have an even number of total edges.", isLie: false },
+            { text: "Every polyomino without holes can tile an infinite plane endlessly using only copies of itself.", isLie: true },
+            { text: "All polyominoes have an even perimeter length.", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> While most simple polyominoes tile smoothly, certain symmetric shapes (like a 3D-style plus sign or specific heptominoes) cannot tile the infinite plane seamlessly without leaving gaps."
+        },
+        {
+          topic: "3. Higher Dimensions & Hypercubes",
+          statements: [
+            { text: "A 4-dimensional hypercube (tesseract) consists of 8 three-dimensional cube 'faces'.", isLie: false },
+            { text: "As the dimension n of a unit hypercube increases to infinity, the distance between opposite corners grows without bound.", isLie: false },
+            { text: "A 4-dimensional sphere has a smaller 4D volume than a 3-dimensional sphere with the same radius.", isLie: true }
+          ],
+          explanation: "<strong>Statement #3 is the Lie!</strong> For a unit radius $r = 1$, the 3D volume is $\\frac{4}{3}\\pi \\approx 4.189$, whereas the 4D volume (hypersphere) is $\\frac{1}{2}\\pi^2 \\approx 4.935$, which is larger!"
+        },
+        {
+          topic: "4. Geometry & Circles",
+          statements: [
+            { text: "If you wrap a rope tightly around Earth's equator and add 1 meter to its length, it lifts ~16 cm off the ground everywhere.", isLie: false },
+            { text: "A square and a circle with equal perimeters will always enclose the exact same surface area.", isLie: true },
+            { text: "The ratio of any circle's circumference to its diameter is strictly defined as π.", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> By the Isoperimetric Inequality, a circle always encloses the maximum possible area for a given perimeter length. A square with the same perimeter will always enclose less area."
+        },
+        {
+          topic: "5. Numbers & Primes",
+          statements: [
+            { text: "The number 1 is formally classified as a prime number.", isLie: true },
+            { text: "2 is the only even prime number in existence.", isLie: false },
+            { text: "There are infinitely many prime numbers.", isLie: false }
+          ],
+          explanation: "<strong>Statement #1 is the Lie!</strong> By definition (Fundamental Theorem of Arithmetic), 1 is not a prime number because prime numbers must have exactly two distinct positive factors (1 and itself)."
+        }
+      ];
+
+      let currentRound = 0;
+      // Track user choices per question: { selectedIndex, isCorrect }
+      const userAnswers = new Array(quizQuestions.length).fill(null);
+
+      function renderJumpBar() {
+        const jumpBar = document.getElementById('jump-bar');
+        jumpBar.innerHTML = '';
+
+        quizQuestions.forEach((_, idx) => {
+          const btn = document.createElement('button');
+          btn.textContent = idx + 1;
+          
+          let stateClass = "bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300";
+          if (userAnswers[idx] !== null) {
+            stateClass = userAnswers[idx].isCorrect 
+              ? "bg-green-600 text-white font-bold" 
+              : "bg-red-600 text-white font-bold";
+          }
+
+          const activeBorder = (idx === currentRound) ? "ring-2 ring-purple-500 font-bold" : "opacity-80 hover:opacity-100";
+
+          btn.className = `w-7 h-7 rounded-md text-xs transition-all cursor-pointer ${stateClass} ${activeBorder}`;
+          btn.onclick = () => jumpToRound(idx);
+          jumpBar.appendChild(btn);
+        });
+      }
+
+      function updateScore() {
+        const answeredCount = userAnswers.filter(a => a !== null).length;
+        const correctCount = userAnswers.filter(a => a !== null && a.isCorrect).length;
+        document.getElementById('score-tracker').textContent = `Score: ${correctCount} / ${answeredCount}`;
+      }
+
+      function loadRound() {
+        const q = quizQuestions[currentRound];
+        
+        document.getElementById('round-pill').textContent = `ROUND ${currentRound + 1} OF ${quizQuestions.length}`;
+        document.getElementById('topic-title').textContent = q.topic;
+
+        // Toggle prev/next button states
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        
+        prevBtn.disabled = (currentRound === 0);
+        nextBtn.textContent = (currentRound === quizQuestions.length - 1) ? "View Summary →" : "Next Round →";
+
+        const container = document.getElementById('options-container');
+        container.innerHTML = '';
+
+        const explanationBox = document.getElementById('explanation-box');
+        const existingAnswer = userAnswers[currentRound];
+
+        q.statements.forEach((stmt, index) => {
+          const btn = document.createElement('button');
+          btn.className = 'w-full text-left p-4 rounded-lg border border-[var(--border)] transition-colors text-sm font-medium flex items-start gap-3 cursor-pointer hover:bg-purple-500/10';
+          btn.innerHTML = `<span class="font-bold text-purple-600">${index + 1}.</span> <span>${stmt.text}</span>`;
+
+          if (existingAnswer !== null) {
+            btn.classList.remove('hover:bg-purple-500/10');
+            if (index === existingAnswer.selectedIndex) {
+              btn.classList.add(stmt.isLie ? 'bg-green-500/20' : 'bg-red-500/20', 'border-purple-500');
+            }
+            btn.disabled = true;
+          } else {
+            btn.onclick = () => checkAnswer(stmt, index);
+          }
+
+          container.appendChild(btn);
+        });
+
+        if (existingAnswer !== null) {
+          showExplanation(existingAnswer.isCorrect);
+        } else {
+          explanationBox.classList.add('hidden');
+        }
+
+        renderJumpBar();
+        updateScore();
+      }
+
+      function checkAnswer(selectedStmt, selectedIndex) {
+        if (userAnswers[currentRound] !== null) return;
+
+        const isCorrect = selectedStmt.isLie;
+        userAnswers[currentRound] = { selectedIndex, isCorrect };
+
+        showExplanation(isCorrect);
+        loadRound(); // re-render to lock choices and update jump bar
+      }
+
+      function showExplanation(isCorrect) {
+        const q = quizQuestions[currentRound];
+        const explanationBox = document.getElementById('explanation-box');
+        const statusEl = document.getElementById('result-status');
+        const textEl = document.getElementById('explanation-text');
+
+        if (isCorrect) {
+          statusEl.textContent = "🎉 Correct! You spotted the lie.";
+          statusEl.className = "font-bold text-green-700 dark:text-green-400";
+        } else {
+          statusEl.textContent = "❌ Wrong! That statement was actually true.";
+          statusEl.className = "font-bold text-red-700 dark:text-red-400";
+        }
+
+        textEl.innerHTML = q.explanation;
+        explanationBox.classList.remove('hidden');
+      }
+
+      function nextRound() {
+        if (currentRound < quizQuestions.length - 1) {
+          currentRound++;
+          loadRound();
+        } else {
+          showFinalScore();
+        }
+      }
+
+      function prevRound() {
+        if (currentRound > 0) {
+          currentRound--;
+          loadRound();
+        }
+      }
+
+      function jumpToRound(idx) {
+        currentRound = idx;
+        loadRound();
+      }
+
+      function showFinalScore() {
+        const correctCount = userAnswers.filter(a => a !== null && a.isCorrect).length;
+        const gameCard = document.getElementById('game-card');
+        gameCard.innerHTML = `
+          <div class="text-center space-y-4 py-6">
+            <span class="feature-pill">GAME COMPLETE</span>
+            <h2 class="session-title2 text-purple-600">Final Score: ${correctCount} / ${quizQuestions.length}</h2>
+            <p class="article-body">You've completed all rounds!</p>
+            <button onclick="location.reload()" class="button-secondary mt-4 inline-block text-xs cursor-pointer">
+              🔄 Play Again
+            </button>
+          </div>
+        `;
+      }
+
+      // Initialize game
+      loadRound();
+    </script>
+  </body>
+</html>

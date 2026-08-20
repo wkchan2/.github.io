@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation & Creative Media Game</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f172a; color: #f8fafc; display: flex; justify-content: center; padding: 20px; }
+        .game-card { background: #1e293b; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); width: 100%; max-width: 600px; }
+        h1 { color: #38bdf8; margin-bottom: 5px; }
+        .subtitle { color: #94a3b8; font-size: 0.9em; margin-bottom: 20px; }
+        .question-box { font-size: 1.1em; font-weight: 600; margin-bottom: 20px; min-height: 50px; }
+        .options-grid { display: grid; gap: 10px; }
+        .btn { padding: 12px; border: 2px solid #334155; background: #0f172a; color: #f8fafc; border-radius: 8px; cursor: pointer; font-size: 1em; text-align: left; transition: all 0.2s; }
+        .btn:hover { background: #1e293b; border-color: #38bdf8; }
+        .btn.correct { background: #064e3b; border-color: #10b981; color: #a7f3d0; }
+        .btn.incorrect { background: #7f1d1d; border-color: #ef4444; color: #fecaca; }
+        .status-bar { display: flex; justify-content: space-between; margin-top: 20px; font-weight: bold; color: #94a3b8; }
+        .next-btn { margin-top: 20px; width: 100%; padding: 12px; background: #0284c7; color: white; border: none; border-radius: 8px; font-size: 1em; cursor: pointer; display: none; }
+        .next-btn:hover { background: #0369a1; }
+    </style>
+</head>
+<body>
+
+<div class="game-card">
+    <h1>Animation & Web Culture</h1>
+    <div class="subtitle">Category: Digital Storytelling & Web Gaming</div>
+    <div class="status-bar">
+        <span id="progress">Question 1/4</span>
+        <span id="score">Score: 0</span>
+    </div>
+    <hr style="margin: 15px 0; border: none; border-top: 1px solid #334155;">
+    <div id="question" class="question-box">Loading question...</div>
+    <div id="options" class="options-grid"></div>
+    <button id="next-btn" class="next-btn" onclick="nextQuestion()">Next Question</button>
+</div>
+
+<script>
+const triviaData = [
+    {
+        question: "In stick-figure web animation lore (such as 'Animator vs. Animation'), what is the name of the main stick figure antagonist created by Noanimator?",
+        options: ["The Chosen One", "The Dark Lord", "Victim", "Second Coming"],
+        answer: 1
+    },
+    {
+        question: "In web development and browser-based gaming, what technology replaced Adobe Flash to allow high-performance 2D/3D physics animations directly in HTML canvas?",
+        options: ["WebGL / HTML5 Canvas", "Silverlight", "Java Applets", "Shockwave"],
+        answer: 0
+    },
+    {
+        question: "What genre of real-time multiplayer browser games popularized simple graphics, growing mechanic mechanics, and domain names ending in '.io'?",
+        options: ["Text MMORPGs", ".io Games (e.g., Agar.io)", "Flash Platformers", "MUDs"],
+        answer: 1
+    },
+    {
+        question: "Which popular educational YouTube channel uses minimalist animations featuring stick figures and simple maps to explain geographical anomalies and country borders?",
+        options: ["Kurzgesagt", "CGP Grey", "Veritasium", "3Blue1Brown"],
+        answer: 1
+    }
+];
+
+let currentIdx = 0;
+let score = 0;
+
+function loadQuestion() {
+    const q = triviaData[currentIdx];
+    document.getElementById("question").textContent = q.question;
+    document.getElementById("progress").textContent = `Question ${currentIdx + 1}/${triviaData.length}`;
+    
+    const optionsContainer = document.getElementById("options");
+    optionsContainer.innerHTML = "";
+    document.getElementById("next-btn").style.display = "none";
+
+    q.options.forEach((opt, idx) => {
+        const btn = document.createElement("button");
+        btn.className = "btn";
+        btn.textContent = opt;
+        btn.onclick = () => selectAnswer(btn, idx, q.answer);
+        optionsContainer.appendChild(btn);
+    });
+}
+
+function selectAnswer(selectedBtn, selectedIdx, correctIdx) {
+    const buttons = document.querySelectorAll(".btn");
+    buttons.forEach(btn => btn.onclick = null);
+
+    if (selectedIdx === correctIdx) {
+        selectedBtn.classList.add("correct");
+        score += 10;
+        document.getElementById("score").textContent = `Score: ${score}`;
+    } else {
+        selectedBtn.classList.add("incorrect");
+        buttons[correctIdx].classList.add("correct");
+    }
+
+    if (currentIdx < triviaData.length - 1) {
+        document.getElementById("next-btn").style.display = "block";
+    } else {
+        document.getElementById("next-btn").textContent = "Game Complete!";
+        document.getElementById("next-btn").style.display = "block";
+        document.getElementById("next-btn").onclick = () => alert(`Game Over! Final Score: ${score}`);
+    }
+}
+
+function nextQuestion() {
+    currentIdx++;
+    loadQuestion();
+}
+
+loadQuestion();
+</script>
+
+</body>
+</html>
