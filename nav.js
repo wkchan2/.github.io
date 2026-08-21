@@ -159,3 +159,65 @@ document.addEventListener("DOMContentLoaded", function () {
     quoteBox.style.opacity = opacity;
   });
 });
+const DISCORD_ID = "589019948375080961";
+
+async function fetchDiscordStatus() {
+  try {
+    const response = await fetch(`https://api.lanyard.rest/v1/users/${DISCORD_ID}`);
+    const result = await response.json();
+
+    if (!result.success) return;
+
+    const { discord_status, activities, discord_user } = result.data;
+
+    // 1. Update Username
+    const usernameEl = document.getElementById("discord-username");
+    if (usernameEl) usernameEl.textContent = discord_user.display_name || discord_user.username;
+
+    // 2. Update Status Text & Dot Indicator Color
+    const statusTextEl = document.getElementById("discord-status-text");
+    const statusDotEl = document.getElementById("discord-avatar-dot");
+
+    if (statusTextEl) {
+      statusTextEl.textContent = discord_status.toUpperCase();
+    }
+
+    if (statusDotEl) {
+      // Clear previous background classes
+      statusDotEl.className = "w-2.5 h-2.5 rounded-full inline-block mr-1";
+      
+      switch (discord_status) {
+        case "online":
+          statusDotEl.classList.add("bg-emerald-500");
+          break;
+        case "idle":
+          statusDotEl.classList.add("bg-amber-500");
+          break;
+        case "dnd":
+          statusDotEl.classList.add("bg-rose-500");
+          break;
+        default:
+          statusDotEl.classList.add("bg-gray-400");
+          break;
+      }
+    }
+
+    // 3. Update Custom Status Message
+    const customStatusEl = document.getElementById("discord-custom-status");
+    if (customStatusEl) {
+      const customActivity = activities.find(act => act.type === 4); // Type 4 is Custom Status
+      if (customActivity && customActivity.state) {
+        customStatusEl.textContent = `“${customActivity.state}”`;
+      } else {
+        customStatusEl.textContent = "";
+      }
+    }
+
+  } catch (error) {
+    console.error("Error fetching Discord presence:", error);
+  }
+}
+
+// Fetch immediately and update every 30 seconds
+fetchDiscordStatus();
+setInterval(fetchDiscordStatus, 30000);
