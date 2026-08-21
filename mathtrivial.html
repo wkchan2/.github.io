@@ -6,6 +6,19 @@
     <title>WikiChan | Math Two Truths & A Lie</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
+    <!-- Include MathJax for rendering LaTeX expressions properly -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        svg: {
+          fontCache: 'global'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </head>
   <body>
     <div class="page-shell">
@@ -85,45 +98,11 @@
 
     <script src="nav.js"></script>
     <script>
+      // Sorted from Secondary School Level -> High School/Pre-Calc -> University Level
       const quizQuestions = [
+        // --- SECONDARY SCHOOL LEVEL ---
         {
-          topic: "1. Infinite Volumes & Gabriel's Horn",
-          statements: [
-            { text: "Gabriel's Horn (revolving y = 1/x for x ≥ 1 around the x-axis) has infinite surface area but finite volume.", isLie: false },
-            { text: "A 3-dimensional sphere with radius r = π has a total volume equal to exactly π³.", isLie: true },
-            { text: "It is mathematically possible to paint the entire inside of Gabriel's Horn with a finite amount of paint, but impossible to paint the outside.", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> The volume of a sphere is $V = \\frac{4}{3}\\pi r^3$. If $r = \\pi$, the volume is $\\frac{4}{3}\\pi^4$, not $\\pi^3$! Gabriel's Horn is a famous calculus paradox: integrating $\\pi \\int (1/x)^2 dx$ gives a finite volume of $\\pi$, yet its surface area integral diverges to infinity."
-        },
-        {
-          topic: "2. Polyominoes & Grid Shapes",
-          statements: [
-            { text: "Polyominoes (like Tetris blocks) always have an even number of total edges.", isLie: false },
-            { text: "Every polyomino without holes can tile an infinite plane endlessly using only copies of itself.", isLie: true },
-            { text: "All polyominoes have an even perimeter length.", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> While most simple polyominoes tile smoothly, certain symmetric shapes (like a 3D-style plus sign or specific heptominoes) cannot tile the infinite plane seamlessly without leaving gaps."
-        },
-        {
-          topic: "3. Higher Dimensions & Hypercubes",
-          statements: [
-            { text: "A 4-dimensional hypercube (tesseract) consists of 8 three-dimensional cube 'faces'.", isLie: false },
-            { text: "As the dimension n of a unit hypercube increases to infinity, the distance between opposite corners grows without bound.", isLie: false },
-            { text: "A 4-dimensional sphere has a smaller 4D volume than a 3-dimensional sphere with the same radius.", isLie: true }
-          ],
-          explanation: "<strong>Statement #3 is the Lie!</strong> For a unit radius $r = 1$, the 3D volume is $\\frac{4}{3}\\pi \\approx 4.189$, whereas the 4D volume (hypersphere) is $\\frac{1}{2}\\pi^2 \\approx 4.935$, which is larger!"
-        },
-        {
-          topic: "4. Geometry & Circles",
-          statements: [
-            { text: "If you wrap a rope tightly around Earth's equator and add 1 meter to its length, it lifts ~16 cm off the ground everywhere.", isLie: false },
-            { text: "A square and a circle with equal perimeters will always enclose the exact same surface area.", isLie: true },
-            { text: "The ratio of any circle's circumference to its diameter is strictly defined as π.", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> By the Isoperimetric Inequality, a circle always encloses the maximum possible area for a given perimeter length. A square with the same perimeter will always enclose less area."
-        },
-        {
-          topic: "5. Numbers & Primes",
+          topic: "1. Numbers & Primes",
           statements: [
             { text: "The number 1 is formally classified as a prime number.", isLie: true },
             { text: "2 is the only even prime number in existence.", isLie: false },
@@ -132,115 +111,25 @@
           explanation: "<strong>Statement #1 is the Lie!</strong> By definition (Fundamental Theorem of Arithmetic), 1 is not a prime number because prime numbers must have exactly two distinct positive factors (1 and itself)."
         },
         {
-          topic: "6. Calculus & Infinity",
+          topic: "2. Geometry & Circles",
           statements: [
-            { text: "The harmonic series 1 + 1/2 + 1/3 + 1/4 + ... diverges to infinity.", isLie: false },
-            { text: "The sum of all positive integers 1 + 2 + 3 + 4 + ... strictly equals -1/12 in standard real analysis.", isLie: true },
-            { text: "The alternating harmonic series 1 - 1/2 + 1/3 - 1/4 + ... converges to ln(2).", isLie: false }
+            { text: "If you wrap a rope tightly around Earth's equator and add 1 meter to its length, it lifts ~16 cm off the ground everywhere.", isLie: false },
+            { text: "A square and a circle with equal perimeters will always enclose the exact same surface area.", isLie: true },
+            { text: "The ratio of any circle's circumference to its diameter is strictly defined as π.", isLie: false }
           ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> In standard real analysis, $1+2+3+\\dots$ diverges to $+\\infty$. The value $-1/12$ only arises in analytical continuation and Riemann zeta function regularization ($\ z(-1)$)."
+          explanation: "<strong>Statement #2 is the Lie!</strong> By the Isoperimetric Inequality, a circle always encloses the maximum possible area for a given perimeter length. A square with the same perimeter will always enclose less area."
         },
         {
-          topic: "7. Trigonometry & Angles",
+          topic: "3. Euclidean Geometry",
           statements: [
-            { text: "sin²(x) + cos²(x) = 1 for all real numbers x.", isLie: false },
-            { text: "tan(90°) is equal to zero.", isLie: true },
-            { text: "The period of sin(x) is 2π radians.", isLie: false }
+            { text: "The sum of interior angles in any triangle on a flat plane is always 180°.", isLie: false },
+            { text: "On a spherical surface, a triangle's interior angles always sum to strictly less than 180°.", isLie: true },
+            { text: "The Pythagorean Theorem holds strictly in Euclidean space.", isLie: false }
           ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> $\\tan(90^\\circ) = \\frac{\\sin(90^\\circ)}{\\cos(90^\\circ)} = \\frac{1}{0}$, which is undefined (tends toward infinity)."
+          explanation: "<strong>Statement #2 is the Lie!</strong> On a sphere (elliptic geometry), interior angles sum to <em>greater</em> than $180^\\circ$."
         },
         {
-          topic: "8. Probability & Monty Hall",
-          statements: [
-            { text: "In the Monty Hall problem, switching doors increases your probability of winning to 2/3.", isLie: false },
-            { text: "If you flip a fair coin 10 times and get heads every time, the 11th flip is more likely to be tails.", isLie: true },
-            { text: "In a room of 23 people, there is a greater than 50% chance that two people share a birthday.", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> This is the Gambler's Fallacy. Each flip of a fair coin is an independent event with a constant 50% probability."
-        },
-        {
-          topic: "9. Complex Numbers",
-          statements: [
-            { text: "i² = -1 by definition of the imaginary unit.", isLie: false },
-            { text: "e^(iπ) + 1 = 0 is known as Euler's Identity.", isLie: false },
-            { text: "Complex numbers can be ordered linearly such that for any z1 and z2, z1 > z2 or z2 > z1.", isLie: true }
-          ],
-          explanation: "<strong>Statement #3 is the Lie!</strong> The complex number system $\\mathbb{C}$ cannot be made into an ordered field while preserving standard arithmetic properties."
-        },
-        {
-          topic: "10. Set Theory & Infinities",
-          statements: [
-            { text: "The set of rational numbers (fractions) is the same size (cardinality) as the set of positive integers.", isLie: false },
-            { text: "There are strictly more real numbers than integer numbers.", isLie: false },
-            { text: "Cantor proved that all infinite sets have equal size.", isLie: true }
-          ],
-          explanation: "<strong>Statement #3 is the Lie!</strong> Georg Cantor proved via diagonal argument that there are different sizes of infinity (e.g., $|\mathbb{R}| > |\mathbb{N}|$)."
-        },
-        {
-          topic: "11. Matrix Algebra",
-          statements: [
-            { text: "Matrix multiplication is always commutative (A × B = B × A).", isLie: true },
-            { text: "A square matrix has an inverse if and only if its determinant is non-zero.", isLie: false },
-            { text: "The identity matrix I acts as the multiplicative neutral element for matrices.", isLie: false }
-          ],
-          explanation: "<strong>Statement #1 is the Lie!</strong> Matrix multiplication is generally non-commutative ($AB \\neq BA$ in most cases)."
-        },
-        {
-          topic: "12. Topology & Surfaces",
-          statements: [
-            { text: "A Möbius strip has only one side and one continuous boundary edge.", isLie: false },
-            { text: "A Klein bottle can exist in 3D Euclidean space without self-intersecting.", isLie: true },
-            { text: "Topologically, a coffee mug and a donut are equivalent (homeomorphic).", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> A Klein bottle requires at least 4 spatial dimensions to exist without intersecting itself."
-        },
-        {
-          topic: "13. Polynomials & Roots",
-          statements: [
-            { text: "Every polynomial of degree n with complex coefficients has exactly n complex roots (counting multiplicity).", isLie: false },
-            { text: "There exists a general algebraic formula using radicals to solve any quintic (5th degree) polynomial equation.", isLie: true },
-            { text: "A quadratic equation ax² + bx + c = 0 has real roots if b² - 4ac ≥ 0.", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> The Abel-Ruffini theorem proves there is no general solution in radicals for polynomial equations of degree 5 or higher."
-        },
-        {
-          topic: "14. Graph Theory",
-          statements: [
-            { text: "A planar graph can be colored with at most 4 colors such that no two adjacent regions share a color.", isLie: false },
-            { text: "An Eulerian path passes through every vertex of a graph exactly once.", isLie: true },
-            { text: "The Seven Bridges of Königsberg problem proved it was impossible to cross all 7 bridges without recrossing one.", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> An Eulerian path visits every *edge* exactly once. A path visiting every *vertex* once is a Hamiltonian path."
-        },
-        {
-          topic: "15. Fractals & Dimensions",
-          statements: [
-            { text: "The Mandelbrot set is defined by the iterative formula z_{n+1} = z_n² + c.", isLie: false },
-            { text: "The Koch Snowflake fractal has a finite perimeter but encloses infinite area.", isLie: true },
-            { text: "Fractals can have non-integer Hausdorff dimensions (e.g., ~1.26).", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> The Koch Snowflake has an *infinite perimeter* enclosing a *finite area*."
-        },
-        {
-          topic: "16. Game Theory",
-          statements: [
-            { text: "In a Nash Equilibrium, no player can benefit by unilaterally changing their strategy.", isLie: false },
-            { text: "In the Prisoner's Dilemma, mutual cooperation is the strict Nash Equilibrium.", isLie: true },
-            { text: "A zero-sum game means one player's gain directly equals another player's loss.", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> Mutual *defection* (betrayal) is the dominant strategy and Nash Equilibrium in the standard Prisoner's Dilemma."
-        },
-        {
-          topic: "17. Sequences & Golden Ratio",
-          statements: [
-            { text: "The ratio of consecutive Fibonacci numbers converges to the Golden Ratio φ ≈ 1.618.", isLie: false },
-            { text: "φ is a rational number expressible as the fraction 13/8.", isLie: true },
-            { text: "φ² = φ + 1 is a fundamental algebraic property of the Golden Ratio.", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> The Golden Ratio $\\phi = \\frac{1+\\sqrt{5}}{2}$ is an irrational algebraic number."
-        },
-        {
-          topic: "18. Combinatorics & Factorials",
+          topic: "4. Combinatorics & Factorials",
           statements: [
             { text: "0! is equal to 1 by mathematical convention and definition.", isLie: false },
             { text: "5! (5 factorial) equals 120.", isLie: false },
@@ -249,106 +138,7 @@
           explanation: "<strong>Statement #3 is the Lie!</strong> $10! = 3,628,800$, not $100,000$."
         },
         {
-          topic: "19. Group Theory & Symmetry",
-          statements: [
-            { text: "A group must satisfy closure, associativity, identity, and invertibility.", isLie: false },
-            { text: "All mathematical groups are commutative (abelian).", isLie: true },
-            { text: "The group of rotations of a regular 3D cube contains 24 orientation-preserving symmetries.", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> Non-abelian groups exist (e.g., matrix multiplication groups, permutation groups)."
-        },
-        {
-          topic: "20. Differential Equations",
-          statements: [
-            { text: "The derivative of e^x with respect to x is e^x.", isLie: false },
-            { text: "The solution to dy/dx = y is always a linear function y = mx + c.", isLie: true },
-            { text: "A second-order linear differential equation typically requires two initial conditions to fix constants.", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> The solution to $\\frac{dy}{dx} = y$ is an exponential function $y = C e^x$."
-        },
-        {
-          topic: "21. Prime Number Theorems",
-          statements: [
-            { text: "Every even integer greater than 2 can be expressed as the sum of two primes (Goldbach Conjecture).", isLie: false },
-            { text: "The Goldbach Conjecture has been completely proven for all infinite integers.", isLie: true },
-            { text: "The Prime Number Theorem describes the asymptotic distribution of prime numbers as x/ln(x).", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> The Goldbach Conjecture remains one of the famous unproven open problems in mathematics."
-        },
-        {
-          topic: "22. Logarithms & Exponents",
-          statements: [
-            { text: "log(A × B) = log(A) + log(B) for positive real numbers A and B.", isLie: false },
-            { text: "x⁰ = 1 for any non-zero real number x.", isLie: false },
-            { text: "log(A + B) is equal to log(A) × log(B).", isLie: true }
-          ],
-          explanation: "<strong>Statement #3 is the Lie!</strong> Logarithms convert multiplication to addition, but $\\log(A+B)$ does not split into a simple product."
-        },
-        {
-          topic: "23. Euclidean Geometry",
-          statements: [
-            { text: "The sum of interior angles in any triangle on a flat plane is always 180°.", isLie: false },
-            { text: "On a spherical surface, a triangle's interior angles always sum to strictly less than 180°.", isLie: true },
-            { text: "The Pythagorean Theorem holds strictly in Euclidean space.", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> On a sphere (elliptic geometry), interior angles sum to *greater* than $180^\\circ$."
-        },
-        {
-          topic: "24. Trigonometric Identities",
-          statements: [
-            { text: "sin(2x) = 2 sin(x) cos(x).", isLie: false },
-            { text: "cos(2x) = cos²(x) + sin²(x).", isLie: true },
-            { text: "tan(x) = sin(x) / cos(x).", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> $\\cos(2x) = \\cos^2(x) - \\sin^2(x)$, whereas $\\cos^2(x) + \\sin^2(x) = 1$."
-        },
-        {
-          topic: "25. Limits & Continuity",
-          statements: [
-            { text: "A function can be continuous everywhere but differentiable nowhere.", isLie: false },
-            { text: "If the limit of f(x) as x → a is L, then f(a) must equal L.", isLie: true },
-            { text: "L'Hôpital's Rule applies to indeterminate forms like 0/0 or ∞/∞.", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> A limit evaluates behavior *near* $a$. The function might have a removable discontinuity where $f(a) \\neq L$ or is undefined."
-        },
-        {
-          topic: "26. Vector Calculus",
-          statements: [
-            { text: "The gradient of a scalar field points in the direction of steepest ascent.", isLie: false },
-            { text: "The divergence of a vector field produces another vector field.", isLie: true },
-            { text: "The curl of a conservative vector field is zero.", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> Divergence measures flux out of a point and results in a *scalar field*, not a vector field."
-        },
-        {
-          topic: "27. Modular Arithmetic",
-          statements: [
-            { text: "7 ≡ 2 (mod 5).", isLie: false },
-            { text: "In mod 12 arithmetic, 10 + 4 equals 2.", isLie: false },
-            { text: "Every integer has a multiplicative inverse modulo n for any positive integer n.", isLie: true }
-          ],
-          explanation: "<strong>Statement #3 is the Lie!</strong> An integer $a$ has a multiplicative inverse modulo $n$ if and only if $a$ and $n$ are coprime (gcd(a, n) = 1)."
-        },
-        {
-          topic: "28. Infinite Series",
-          statements: [
-            { text: "The p-series ∑ (1/n^p) converges if p > 1.", isLie: false },
-            { text: "If lim(a_n) = 0 as n → ∞, then the series ∑ a_n must converge.", isLie: true },
-            { text: "A geometric series ∑ r^n converges if |r| < 1.", isLie: false }
-          ],
-          explanation: "<strong>Statement #2 is the Lie!</strong> $a_n \\to 0$ is a necessary condition, but not sufficient (e.g., the harmonic series $1/n$ diverges even though $1/n \\to 0$)."
-        },
-        {
-          topic: "29. Probability & Distributions",
-          statements: [
-            { text: "The normal distribution (bell curve) is completely defined by its mean and variance.", isLie: false },
-            { text: "The total area under any probability density function equals 1.", isLie: false },
-            { text: "The standard deviation is the square of the variance.", isLie: true }
-          ],
-          explanation: "<strong>Statement #3 is the Lie!</strong> Standard deviation is the *square root* of variance (or variance is the square of standard deviation)."
-        },
-        {
-          topic: "30. Binary & Base Systems",
+          topic: "5. Binary & Base Systems",
           statements: [
             { text: "The decimal number 10 is written as 1010 in binary.", isLie: false },
             { text: "Hexadecimal uses base 16 and includes letters A through F.", isLie: false },
@@ -357,43 +147,25 @@
           explanation: "<strong>Statement #3 is the Lie!</strong> $0.1_{10}$ becomes an infinitely repeating binary fraction ($0.0001100110011..._2$)."
         },
         {
-          topic: "31. Integration Techniques",
+          topic: "6. Probability & Coin Flips",
           statements: [
-            { text: "Integration by parts is derived from the product rule of differentiation.", isLie: false },
-            { text: "The integral of 1/x dx is ln|x| + C.", isLie: false },
-            { text: "The definite integral ∫ from -1 to 1 of x³ dx equals 2.", isLie: true }
+            { text: "In the Monty Hall problem, switching doors increases your probability of winning to 2/3.", isLie: false },
+            { text: "If you flip a fair coin 10 times and get heads every time, the 11th flip is more likely to be tails.", isLie: true },
+            { text: "In a room of 23 people, there is a greater than 50% chance that two people share a birthday.", isLie: false }
           ],
-          explanation: "<strong>Statement #3 is the Lie!</strong> $x^3$ is an odd function. Integrating an odd function over symmetric bounds $[-1, 1]$ results in $0$."
+          explanation: "<strong>Statement #2 is the Lie!</strong> This is the Gambler's Fallacy. Each flip of a fair coin is an independent event with a constant 50% probability."
         },
         {
-          topic: "32. Linear Transformations",
+          topic: "7. Polyominoes & Grid Shapes",
           statements: [
-            { text: "A linear transformation must map the zero vector to the zero vector.", isLie: false },
-            { text: "Eigenvalues λ satisfy det(A - λI) = 0.", isLie: false },
-            { text: "Translating a 2D shape by vector (3, 2) is a linear transformation.", isLie: true }
+            { text: "Polyominoes (like Tetris blocks) always have an even number of total edges.", isLie: false },
+            { text: "Every polyomino without holes can tile an infinite plane endlessly using only copies of itself.", isLie: true },
+            { text: "All polyominoes have an even perimeter length.", isLie: false }
           ],
-          explanation: "<strong>Statement #3 is the Lie!</strong> Translation $T(v) = v + c$ is an *affine* transformation, not linear, because $T(0) = c \\neq 0$."
+          explanation: "<strong>Statement #2 is the Lie!</strong> While most simple polyominoes tile smoothly, certain symmetric shapes (like a 3D-style plus sign or specific heptominoes) cannot tile the infinite plane seamlessly without leaving gaps."
         },
         {
-          topic: "33. Mathematical Proofs",
-          statements: [
-            { text: "Proof by contradiction assumes the statement is false and derives a logical impossibility.", isLie: false },
-            { text: "Mathematical induction proves a statement for all integers by checking n=1 and showing P(k) ⇒ P(k+1).", isLie: false },
-            { text: "Checking a mathematical conjecture for the first 1,000,000 cases constitutes a formal proof.", isLie: true }
-          ],
-          explanation: "<strong>Statement #3 is the Lie!</strong> Empirical checking across finite examples is not a formal proof (e.g., Polya Conjecture held up to $1.8 \\times 10^8$ before failing)."
-        },
-        {
-          topic: "34. Famous Theorems",
-          statements: [
-            { text: "Fermat's Last Theorem states aⁿ + bⁿ = cⁿ has no positive integer solutions for n > 2.", isLie: false },
-            { text: "Andrew Wiles proved Fermat's Last Theorem in the 1990s.", isLie: false },
-            { text: "Fermat wrote his full proof neatly in the margin of Arithmetica.", isLie: true }
-          ],
-          explanation: "<strong>Statement #3 is the Lie!</strong> Fermat famously claimed the margin was too narrow to contain his proof, leaving it unwritten."
-        },
-        {
-          topic: "35. Pi & Irrationality",
+          topic: "8. Pi & Irrationality",
           statements: [
             { text: "π is both irrational and transcendental.", isLie: false },
             { text: "The fraction 22/7 is the exact representation of π.", isLie: true },
@@ -401,8 +173,46 @@
           ],
           explanation: "<strong>Statement #2 is the Lie!</strong> $22/7 \\approx 3.142857$, which is an approximation. $\\pi \\approx 3.14159265...$"
         },
+
+        // --- UPPER SECONDARY / HIGH SCHOOL LEVEL ---
         {
-          topic: "36. Conic Sections",
+          topic: "9. Logarithms & Exponents",
+          statements: [
+            { text: "log(A × B) = log(A) + log(B) for positive real numbers A and B.", isLie: false },
+            { text: "x⁰ = 1 for any non-zero real number x.", isLie: false },
+            { text: "log(A + B) is equal to log(A) × log(B).", isLie: true }
+          ],
+          explanation: "<strong>Statement #3 is the Lie!</strong> Logarithms convert multiplication to addition, but $\\log(A+B)$ does not split into a simple product."
+        },
+        {
+          topic: "10. Trigonometry & Angles",
+          statements: [
+            { text: "sin²(x) + cos²(x) = 1 for all real numbers x.", isLie: false },
+            { text: "tan(90°) is equal to zero.", isLie: true },
+            { text: "The period of sin(x) is 2π radians.", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> $\\tan(90^\\circ) = \\frac{\\sin(90^\\circ)}{\\cos(90^\\circ)} = \\frac{1}{0}$, which is undefined (tends toward infinity)."
+        },
+        {
+          topic: "11. Trigonometric Identities",
+          statements: [
+            { text: "sin(2x) = 2 sin(x) cos(x).", isLie: false },
+            { text: "cos(2x) = cos²(x) + sin²(x).", isLie: true },
+            { text: "tan(x) = sin(x) / cos(x).", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> $\\cos(2x) = \\cos^2(x) - \\sin^2(x)$, whereas $\\cos^2(x) + \\sin^2(x) = 1$."
+        },
+        {
+          topic: "12. Sequences & Golden Ratio",
+          statements: [
+            { text: "The ratio of consecutive Fibonacci numbers converges to the Golden Ratio φ ≈ 1.618.", isLie: false },
+            { text: "φ is a rational number expressible as the fraction 13/8.", isLie: true },
+            { text: "φ² = φ + 1 is a fundamental algebraic property of the Golden Ratio.", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> The Golden Ratio $\\phi = \\frac{1+\\sqrt{5}}{2}$ is an irrational algebraic number."
+        },
+        {
+          topic: "13. Conic Sections",
           statements: [
             { text: "An ellipse has eccentricity e strictly between 0 and 1.", isLie: false },
             { text: "A parabola is formed by cutting a cone parallel to its side.", isLie: false },
@@ -411,18 +221,228 @@
           explanation: "<strong>Statement #3 is the Lie!</strong> A hyperbola has eccentricity $e > 1$. A circle has $e = 0$."
         },
         {
-          topic: "37. Game & Mathematical Logic",
+          topic: "14. Polynomials & Roots",
+          statements: [
+            { text: "Every polynomial of degree n with complex coefficients has exactly n complex roots (counting multiplicity).", isLie: false },
+            { text: "There exists a general algebraic formula using radicals to solve any quintic (5th degree) polynomial equation.", isLie: true },
+            { text: "A quadratic equation ax² + bx + c = 0 has real roots if b² - 4ac ≥ 0.", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> The Abel-Ruffini theorem proves there is no general solution in radicals for polynomial equations of degree 5 or higher."
+        },
+        {
+          topic: "15. Limits & Continuity",
+          statements: [
+            { text: "A function can be continuous everywhere but differentiable nowhere.", isLie: false },
+            { text: "If the limit of f(x) as x → a is L, then f(a) must equal L.", isLie: true },
+            { text: "L'Hôpital's Rule applies to indeterminate forms like 0/0 or ∞/∞.", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> A limit evaluates behavior <em>near</em> $a$. The function might have a removable discontinuity where $f(a) \\neq L$ or is undefined."
+        },
+        {
+          topic: "16. Probability & Distributions",
+          statements: [
+            { text: "The normal distribution (bell curve) is completely defined by its mean and variance.", isLie: false },
+            { text: "The total area under any probability density function equals 1.", isLie: false },
+            { text: "The standard deviation is the square of the variance.", isLie: true }
+          ],
+          explanation: "<strong>Statement #3 is the Lie!</strong> Standard deviation is the <em>square root</em> of variance (or variance is the square of standard deviation)."
+        },
+        {
+          topic: "17. Integration Techniques",
+          statements: [
+            { text: "Integration by parts is derived from the product rule of differentiation.", isLie: false },
+            { text: "The integral of 1/x dx is ln|x| + C.", isLie: false },
+            { text: "The definite integral ∫ from -1 to 1 of x³ dx equals 2.", isLie: true }
+          ],
+          explanation: "<strong>Statement #3 is the Lie!</strong> $x^3$ is an odd function. Integrating an odd function over symmetric bounds $[-1, 1]$ results in $0$."
+        },
+        {
+          topic: "18. Mathematical Proofs",
+          statements: [
+            { text: "Proof by contradiction assumes the statement is false and derives a logical impossibility.", isLie: false },
+            { text: "Mathematical induction proves a statement for all integers by checking n=1 and showing P(k) ⇒ P(k+1).", isLie: false },
+            { text: "Checking a mathematical conjecture for the first 1,000,000 cases constitutes a formal proof.", isLie: true }
+          ],
+          explanation: "<strong>Statement #3 is the Lie!</strong> Empirical checking across finite examples is not a formal proof (e.g., Polya Conjecture held up to $1.8 \\times 10^8$ before failing)."
+        },
+
+        // --- INTRODUCTORY UNIVERSITY LEVEL ---
+        {
+          topic: "19. Complex Numbers",
+          statements: [
+            { text: "i² = -1 by definition of the imaginary unit.", isLie: false },
+            { text: "e^(iπ) + 1 = 0 is known as Euler's Identity.", isLie: false },
+            { text: "Complex numbers can be ordered linearly such that for any z1 and z2, z1 > z2 or z2 > z1.", isLie: true }
+          ],
+          explanation: "<strong>Statement #3 is the Lie!</strong> The complex number system $\\mathbb{C}$ cannot be made into an ordered field while preserving standard arithmetic properties."
+        },
+        {
+          topic: "20. Matrix Algebra",
+          statements: [
+            { text: "Matrix multiplication is always commutative (A × B = B × A).", isLie: true },
+            { text: "A square matrix has an inverse if and only if its determinant is non-zero.", isLie: false },
+            { text: "The identity matrix I acts as the multiplicative neutral element for matrices.", isLie: false }
+          ],
+          explanation: "<strong>Statement #1 is the Lie!</strong> Matrix multiplication is generally non-commutative ($AB \\neq BA$ in most cases)."
+        },
+        {
+          topic: "21. Infinite Series",
+          statements: [
+            { text: "The p-series ∑ (1/n^p) converges if p > 1.", isLie: false },
+            { text: "If lim(a_n) = 0 as n → ∞, then the series ∑ a_n must converge.", isLie: true },
+            { text: "A geometric series ∑ r^n converges if |r| < 1.", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> $a_n \\to 0$ is a necessary condition, but not sufficient (e.g., the harmonic series $1/n$ diverges even though $1/n \\to 0$)."
+        },
+        {
+          topic: "22. Calculus & Infinity",
+          statements: [
+            { text: "The harmonic series 1 + 1/2 + 1/3 + 1/4 + ... diverges to infinity.", isLie: false },
+            { text: "The sum of all positive integers 1 + 2 + 3 + 4 + ... strictly equals -1/12 in standard real analysis.", isLie: true },
+            { text: "The alternating harmonic series 1 - 1/2 + 1/3 - 1/4 + ... converges to ln(2).", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> In standard real analysis, $1+2+3+\\dots$ diverges to $+\\infty$. The value $-1/12$ only arises in analytical continuation and Riemann zeta function regularization ($\\zeta(-1)$)."
+        },
+        {
+          topic: "23. Differential Equations",
+          statements: [
+            { text: "The derivative of e^x with respect to x is e^x.", isLie: false },
+            { text: "The solution to dy/dx = y is always a linear function y = mx + c.", isLie: true },
+            { text: "A second-order linear differential equation typically requires two initial conditions to fix constants.", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> The solution to $\\frac{dy}{dx} = y$ is an exponential function $y = C e^x$."
+        },
+        {
+          topic: "24. Infinite Volumes & Gabriel's Horn",
+          statements: [
+            { text: "Gabriel's Horn (revolving y = 1/x for x ≥ 1 around the x-axis) has infinite surface area but finite volume.", isLie: false },
+            { text: "A 3-dimensional sphere with radius r = π has a total volume equal to exactly π³.", isLie: true },
+            { text: "It is mathematically possible to paint the entire inside of Gabriel's Horn with a finite amount of paint, but impossible to paint the outside.", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> The volume of a sphere is $V = \\frac{4}{3}\\pi r^3$. If $r = \\pi$, the volume is $\\frac{4}{3}\\pi^4$, not $\\pi^3$! Gabriel's Horn is a famous calculus paradox: integrating $\\pi \\int_1^\\infty (1/x)^2 dx$ gives a finite volume of $\\pi$, yet its surface area integral diverges to infinity."
+        },
+        {
+          topic: "25. Graph Theory",
+          statements: [
+            { text: "A planar graph can be colored with at most 4 colors such that no two adjacent regions share a color.", isLie: false },
+            { text: "An Eulerian path passes through every vertex of a graph exactly once.", isLie: true },
+            { text: "The Seven Bridges of Königsberg problem proved it was impossible to cross all 7 bridges without recrossing one.", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> An Eulerian path visits every <em>edge</em> exactly once. A path visiting every <em>vertex</em> once is a Hamiltonian path."
+        },
+        {
+          topic: "26. Modular Arithmetic",
+          statements: [
+            { text: "7 ≡ 2 (mod 5).", isLie: false },
+            { text: "In mod 12 arithmetic, 10 + 4 equals 2.", isLie: false },
+            { text: "Every integer has a multiplicative inverse modulo n for any positive integer n.", isLie: true }
+          ],
+          explanation: "<strong>Statement #3 is the Lie!</strong> An integer $a$ has a multiplicative inverse modulo $n$ if and only if $a$ and $n$ are coprime (gcd(a, n) = 1)."
+        },
+        {
+          topic: "27. Linear Transformations",
+          statements: [
+            { text: "A linear transformation must map the zero vector to the zero vector.", isLie: false },
+            { text: "Eigenvalues λ satisfy det(A - λI) = 0.", isLie: false },
+            { text: "Translating a 2D shape by vector (3, 2) is a linear transformation.", isLie: true }
+          ],
+          explanation: "<strong>Statement #3 is the Lie!</strong> Translation $T(v) = v + c$ is an <em>affine</em> transformation, not linear, because $T(0) = c \\neq 0$."
+        },
+
+        // --- ADVANCED UNIVERSITY LEVEL ---
+        {
+          topic: "28. Higher Dimensions & Hypercubes",
+          statements: [
+            { text: "A 4-dimensional hypercube (tesseract) consists of 8 three-dimensional cube 'faces'.", isLie: false },
+            { text: "As the dimension n of a unit hypercube increases to infinity, the distance between opposite corners grows without bound.", isLie: false },
+            { text: "A 4-dimensional sphere has a smaller 4D volume than a 3-dimensional sphere with the same radius.", isLie: true }
+          ],
+          explanation: "<strong>Statement #3 is the Lie!</strong> For a unit radius $r = 1$, the 3D volume is $\\frac{4}{3}\\pi \\approx 4.189$, whereas the 4D volume (hypersphere) is $\\frac{1}{2}\\pi^2 \\approx 4.935$, which is larger!"
+        },
+        {
+          topic: "29. Set Theory & Infinities",
+          statements: [
+            { text: "The set of rational numbers (fractions) is the same size (cardinality) as the set of positive integers.", isLie: false },
+            { text: "There are strictly more real numbers than integer numbers.", isLie: false },
+            { text: "Cantor proved that all infinite sets have equal size.", isLie: true }
+          ],
+          explanation: "<strong>Statement #3 is the Lie!</strong> Georg Cantor proved via diagonal argument that there are different sizes of infinity (e.g., $|\\mathbb{R}| > |\\mathbb{N}|$). "
+        },
+        {
+          topic: "30. Topology & Surfaces",
+          statements: [
+            { text: "A Möbius strip has only one side and one continuous boundary edge.", isLie: false },
+            { text: "A Klein bottle can exist in 3D Euclidean space without self-intersecting.", isLie: true },
+            { text: "Topologically, a coffee mug and a donut are equivalent (homeomorphic).", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> A Klein bottle requires at least 4 spatial dimensions to exist without intersecting itself."
+        },
+        {
+          topic: "31. Fractals & Dimensions",
+          statements: [
+            { text: "The Mandelbrot set is defined by the iterative formula z_{n+1} = z_n² + c.", isLie: false },
+            { text: "The Koch Snowflake fractal has a finite perimeter but encloses infinite area.", isLie: true },
+            { text: "Fractals can have non-integer Hausdorff dimensions (e.g., ~1.26).", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> The Koch Snowflake has an <em>infinite perimeter</em> enclosing a <em>finite area</em>."
+        },
+        {
+          topic: "32. Game Theory",
+          statements: [
+            { text: "In a Nash Equilibrium, no player can benefit by unilaterally changing their strategy.", isLie: false },
+            { text: "In the Prisoner's Dilemma, mutual cooperation is the strict Nash Equilibrium.", isLie: true },
+            { text: "A zero-sum game means one player's gain directly equals another player's loss.", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> Mutual <em>defection</em> (betrayal) is the dominant strategy and Nash Equilibrium in the standard Prisoner's Dilemma."
+        },
+        {
+          topic: "33. Group Theory & Symmetry",
+          statements: [
+            { text: "A group must satisfy closure, associativity, identity, and invertibility.", isLie: false },
+            { text: "All mathematical groups are commutative (abelian).", isLie: true },
+            { text: "The group of rotations of a regular 3D cube contains 24 orientation-preserving symmetries.", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> Non-abelian groups exist (e.g., matrix multiplication groups, permutation groups)."
+        },
+        {
+          topic: "34. Vector Calculus",
+          statements: [
+            { text: "The gradient of a scalar field points in the direction of steepest ascent.", isLie: false },
+            { text: "The divergence of a vector field produces another vector field.", isLie: true },
+            { text: "The curl of a conservative vector field is zero.", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> Divergence measures flux out of a point and results in a <em>scalar field</em>, not a vector field."
+        },
+        {
+          topic: "35. Prime Number Theorems",
+          statements: [
+            { text: "Every even integer greater than 2 can be expressed as the sum of two primes (Goldbach Conjecture).", isLie: false },
+            { text: "The Goldbach Conjecture has been completely proven for all infinite integers.", isLie: true },
+            { text: "The Prime Number Theorem describes the asymptotic distribution of prime numbers as x/ln(x).", isLie: false }
+          ],
+          explanation: "<strong>Statement #2 is the Lie!</strong> The Goldbach Conjecture remains one of the famous unproven open problems in mathematics."
+        },
+        {
+          topic: "36. Famous Theorems",
+          statements: [
+            { text: "Fermat's Last Theorem states aⁿ + bⁿ = cⁿ has no positive integer solutions for n > 2.", isLie: false },
+            { text: "Andrew Wiles proved Fermat's Last Theorem in the 1990s.", isLie: false },
+            { text: "Fermat wrote his full proof neatly in the margin of Arithmetica.", isLie: true }
+          ],
+          explanation: "<strong>Statement #3 is the Lie!</strong> Fermat famously claimed the margin was too narrow to contain his proof, leaving it unwritten."
+        },
+        {
+          topic: "37. Mathematical Logic & Computability",
           statements: [
             { text: "Gödel's Incompleteness Theorems proved that any consistent formal system capable of arithmetic contains unprovable true statements.", isLie: false },
             { text: "The Halting Problem proved that a general algorithm to determine if any computer program halts is impossible.", isLie: false },
             { text: "Boolean logic allows variables to take on continuous values between 0 and 1.", isLie: true }
           ],
-          explanation: "<strong>Statement #3 is the Lie!</strong> Standard Boolean logic is strictly binary (True/1 or False/0). Continuous truth values belong to *Fuzzy Logic*."
+          explanation: "<strong>Statement #3 is the Lie!</strong> Standard Boolean logic is strictly binary (True/1 or False/0). Continuous truth values belong to <em>Fuzzy Logic</em>."
         }
       ];
 
       let currentRound = 0;
-      // Track user choices per question: { selectedIndex, isCorrect }
       const userAnswers = new Array(quizQuestions.length).fill(null);
 
       function renderJumpBar() {
@@ -460,7 +480,6 @@
         document.getElementById('round-pill').textContent = `ROUND ${currentRound + 1} OF ${quizQuestions.length}`;
         document.getElementById('topic-title').textContent = q.topic;
 
-        // Toggle prev/next button states
         const prevBtn = document.getElementById('prev-btn');
         const nextBtn = document.getElementById('next-btn');
         
@@ -499,6 +518,11 @@
 
         renderJumpBar();
         updateScore();
+
+        // Re-render MathJax expressions dynamically after loading round/explanations
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          window.MathJax.typesetPromise();
+        }
       }
 
       function checkAnswer(selectedStmt, selectedIndex) {
@@ -508,7 +532,7 @@
         userAnswers[currentRound] = { selectedIndex, isCorrect };
 
         showExplanation(isCorrect);
-        loadRound(); // re-render to lock choices and update jump bar
+        loadRound(); 
       }
 
       function showExplanation(isCorrect) {
@@ -527,6 +551,11 @@
 
         textEl.innerHTML = q.explanation;
         explanationBox.classList.remove('hidden');
+
+        // Re-run MathJax rendering on explanation block
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          window.MathJax.typesetPromise([explanationBox]);
+        }
       }
 
       function nextRound() {
@@ -551,18 +580,69 @@
       }
 
       function showFinalScore() {
+        const answeredCount = userAnswers.filter(a => a !== null).length;
         const correctCount = userAnswers.filter(a => a !== null && a.isCorrect).length;
+        const isComplete = answeredCount === quizQuestions.length;
+
         const gameCard = document.getElementById('game-card');
-        gameCard.innerHTML = `
-          <div class="text-center space-y-4 py-6">
-            <span class="feature-pill">GAME COMPLETE</span>
-            <h2 class="session-title2 text-purple-600">Final Score: ${correctCount} / ${quizQuestions.length}</h2>
-            <p class="article-body">You've completed all 37 rounds!</p>
-            <button onclick="location.reload()" class="button-secondary mt-4 inline-block text-xs cursor-pointer">
-              🔄 Play Again
+        
+        if (isComplete) {
+          gameCard.innerHTML = `
+            <div class="text-center space-y-4 py-6">
+              <span class="feature-pill">GAME COMPLETE</span>
+              <h2 class="session-title2 text-purple-600">Final Score: ${correctCount} / ${quizQuestions.length}</h2>
+              <p class="article-body">You answered every question! Nice work.</p>
+              <button onclick="location.reload()" class="button-secondary mt-4 inline-block text-xs cursor-pointer">
+                🔄 Play Again
+              </button>
+            </div>
+          `;
+        } else {
+          gameCard.innerHTML = `
+            <div class="text-center space-y-4 py-6">
+              <span class="feature-pill">TRIVIA INCOMPLETE</span>
+              <h2 class="session-title2 text-purple-600">Current Progress: ${correctCount} / ${answeredCount} Correct</h2>
+              <p class="article-body">You have answered ${answeredCount} out of ${quizQuestions.length} questions so far.</p>
+              <div class="flex justify-center gap-3 mt-4">
+                <button onclick="location.reload()" class="button-secondary text-xs cursor-pointer">
+                  🔄 Restart
+                </button>
+                <button onclick="resumeQuiz(${currentRound})" class="button-secondary text-xs cursor-pointer border-purple-500 text-purple-600">
+                  ↩ Back to Questions
+                </button>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      function resumeQuiz(roundIdx) {
+        // Re-render original card HTML structure to resume playing
+        document.getElementById('game-card').innerHTML = `
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-4 mb-4 border-b border-[var(--border)]">
+            <div class="flex items-center gap-2">
+              <span class="feature-pill" id="round-pill">ROUND 1</span>
+              <span class="text-xs text-[var(--muted)] font-medium" id="score-tracker">Score: 0 / 0</span>
+            </div>
+            <div class="flex items-center gap-1 flex-wrap max-w-full" id="jump-bar"></div>
+          </div>
+          <h2 class="session-title2 mb-4" id="topic-title">Topic: Loading...</h2>
+          <div class="space-y-3" id="options-container"></div>
+          <div id="explanation-box" class="hidden mt-6 p-4 rounded-lg bg-purple-50/50 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-800/50 space-y-3">
+            <h3 class="font-bold text-purple-800 dark:text-purple-300" id="result-status"></h3>
+            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed" id="explanation-text"></p>
+          </div>
+          <div class="flex justify-between items-center mt-6 pt-4 border-t border-[var(--border)]">
+            <button id="prev-btn" onclick="prevRound()" class="button-secondary text-xs cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed">
+              ← Previous Question
+            </button>
+            <button id="next-btn" onclick="nextRound()" class="button-secondary text-xs cursor-pointer">
+              Next Round →
             </button>
           </div>
         `;
+        currentRound = roundIdx;
+        loadRound();
       }
 
       // Initialize game

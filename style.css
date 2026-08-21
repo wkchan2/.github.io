@@ -16,6 +16,9 @@
   --soft-shadow: rgba(129, 103, 196, 0.12);
   --lace: rgba(141, 106, 222, 0.12);
 }
+html {
+  background-color: #f9f4ff; /* Matches your --bg variable */
+}
 
 * {
   box-sizing: border-box;
@@ -25,6 +28,7 @@ body {
   margin: 0;
   min-height: 100vh;
   position: relative;
+    background-color: #f9f4ff;
   background:
     radial-gradient(circle at top left, rgba(194, 158, 245, 0.2), transparent 18%),
     radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.92), rgba(242, 235, 255, 0.92)),
@@ -1800,86 +1804,23 @@ body.lightbox-open {
     flex-wrap: wrap;
   }
 }
-/* --- Gothic Lolita Aesthetic Enhancements --- */
 
-/* Deep Twilight Background Overrides */
-body {
-  background: 
-    radial-gradient(circle at top left, rgba(90, 67, 165, 0.25), transparent 25%),
-    radial-gradient(circle at bottom right, rgba(45, 35, 66, 0.15), rgba(240, 232, 255, 0.95)),
-    linear-gradient(180deg, #fdfbff 0%, var(--bg) 100%);
+
+@view-transition {
+  navigation: auto;
 }
 
-/* Ornate Double Border & Subtle Lace Shadow for Shells */
-.page-shell,
-.main-panel {
-  border: 1px solid rgba(90, 67, 165, 0.35) !important;
-  box-shadow: 
-    0 24px 80px rgba(45, 35, 66, 0.22),
-    inset 0 0 0 2px rgba(255, 255, 255, 0.8),
-    inset 0 0 0 4px rgba(141, 106, 222, 0.2) !important;
+/* Customizes cross-document transition to blend background seamlessly */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.25s;
+  animation-timing-function: ease-in-out;
 }
 
-/* Ornate Gothic Card Framing */
-.hero-card,
-.side-card,
-.news-card,
-.mini-card,
-.feature-card {
-  position: relative;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(245, 238, 255, 0.94)) !important;
-  border: 1px dashed rgba(90, 67, 165, 0.3) !important;
-  box-shadow: 0 12px 32px rgba(45, 35, 66, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.9) !important;
+/* Ensure the Cusdis iframe expands fully and doesn't show scrollbars */
+#cusdis_thread iframe {
+  width: 100% !important;
+  min-height: 450px !important;
+  height: auto !important;
+  overflow: visible !important;
 }
-
-/* Elegant Gothic Portrait Frame */
-.portrait-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0.75rem;
-  border: 2px solid var(--accent);
-  padding: 0.25rem;
-  background: #ffffff;
-  box-shadow: inset 0 0 10px rgba(90, 67, 165, 0.3), 0 8px 20px rgba(45, 35, 66, 0.15);
-}
-
-/* Gothic Typography Polish */
-h2, h3, h4, .brand-title {
-  font-family: 'Cormorant Garamond', Georgia, serif !important;
-  letter-spacing: 0.06em !important;
-  text-shadow: 0 1px 2px rgba(194, 158, 245, 0.3);
-}
-
-/* Ornate Ribbon Feature Pills */
-.feature-pill {
-  border: 1px solid rgba(90, 67, 165, 0.25) !important;
-  background: linear-gradient(135deg, rgba(194, 158, 245, 0.25), rgba(141, 106, 222, 0.15)) !important;
-  color: var(--accent-deep) !important;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
-}
-
-/* Secret Garden Mystical Link Glow */
-.secret-garden-link {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.85rem !important;
-  letter-spacing: 0.35em !important;
-}
-
-.secret-garden-link:hover {
-  color: var(--accent-deep) !important;
-  text-shadow: 0 0 12px rgba(194, 158, 245, 0.8);
-}
-/* Discord Status Bar Custom Styling */
-.discord-status-pill {
-  background: rgba(45, 35, 66, 0.05);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(141, 106, 222, 0.3);
-  box-shadow: inset 0 0 6px rgba(194, 158, 245, 0.2);
-}
-
-/* Status Indicator Colors */
-.status-online { bg-color: #10b981; }
-.status-idle { bg-color: #f59e0b; }
-.status-dnd { bg-color: #ef4444; }
-.status-offline { bg-color: #6b7280; }
