@@ -1,944 +1,380 @@
-<html>
-
-<head>
-<meta http-equiv=Content-Type content="text/html; charset=big5">
-<meta name=Generator content="Microsoft Word 15 (filtered)">
-
-<style id="dynCom" type="text/css"><!-- --></style>
-<script language="JavaScript"><!--
-function msoCommentShow(anchor_id, com_id)
-{
-	if(msoBrowserCheck()) 
-		{
-		c = document.all(com_id);
-		a = document.all(anchor_id);
-		if (null != c && null == c.length && null != a && null == a.length)
-			{
-			var cw = c.offsetWidth;
-			var ch = c.offsetHeight;
-			var aw = a.offsetWidth;
-			var ah = a.offsetHeight;
-			var x  = a.offsetLeft;
-			var y  = a.offsetTop;
-			var el = a;
-			while (el.tagName != "BODY") 
-				{
-				el = el.offsetParent;
-				x = x + el.offsetLeft;
-				y = y + el.offsetTop;
-				}
-			var bw = document.body.clientWidth;
-			var bh = document.body.clientHeight;
-			var bsl = document.body.scrollLeft;
-			var bst = document.body.scrollTop;
-			if (x + cw + ah / 2 > bw + bsl && x + aw - ah / 2 - cw >= bsl ) 
-				{ c.style.left = x + aw - ah / 2 - cw; }
-			else 
-				{ c.style.left = x + ah / 2; }
-			if (y + ch + ah / 2 > bh + bst && y + ah / 2 - ch >= bst ) 
-				{ c.style.top = y + ah / 2 - ch; }
-			else 
-				{ c.style.top = y + ah / 2; }
-			c.style.visibility = "visible";
-}	}	}
-function msoCommentHide(com_id) 
-{
-	if(msoBrowserCheck())
-		{
-		c = document.all(com_id);
-		if (null != c && null == c.length)
-		{
-		c.style.visibility = "hidden";
-		c.style.left = -1000;
-		c.style.top = -1000;
-		} } 
-}
-function msoBrowserCheck()
-{
-	ms = navigator.appVersion.indexOf("MSIE");
-	vers = navigator.appVersion.substring(ms + 5, ms + 6);
-	ie4 = (ms > 0) && (parseInt(vers) >= 4);
-	return ie4;
-}
-if (msoBrowserCheck())
-{
-	document.styleSheets.dynCom.addRule(".msocomanchor","background: infobackground");
-	document.styleSheets.dynCom.addRule(".msocomoff","display: none");
-	document.styleSheets.dynCom.addRule(".msocomtxt","visibility: hidden");
-	document.styleSheets.dynCom.addRule(".msocomtxt","position: absolute");
-	document.styleSheets.dynCom.addRule(".msocomtxt","top: -1000");
-	document.styleSheets.dynCom.addRule(".msocomtxt","left: -1000");
-	document.styleSheets.dynCom.addRule(".msocomtxt","width: 33%");
-	document.styleSheets.dynCom.addRule(".msocomtxt","background: infobackground");
-	document.styleSheets.dynCom.addRule(".msocomtxt","color: infotext");
-	document.styleSheets.dynCom.addRule(".msocomtxt","border-top: 1pt solid threedlightshadow");
-	document.styleSheets.dynCom.addRule(".msocomtxt","border-right: 2pt solid threedshadow");
-	document.styleSheets.dynCom.addRule(".msocomtxt","border-bottom: 2pt solid threedshadow");
-	document.styleSheets.dynCom.addRule(".msocomtxt","border-left: 1pt solid threedlightshadow");
-	document.styleSheets.dynCom.addRule(".msocomtxt","padding: 3pt 3pt 3pt 3pt");
-	document.styleSheets.dynCom.addRule(".msocomtxt","z-index: 100");
-}
-// --></script>
-<style>
-<!--
- /* Font Definitions */
- @font-face
-	{font-family:新細明體;
-	panose-1:2 2 5 0 0 0 0 0 0 0;}
-@font-face
-	{font-family:"Cambria Math";
-	panose-1:2 4 5 3 5 4 6 3 2 4;}
-@font-face
-	{font-family:Aptos;}
-@font-face
-	{font-family:"Aptos Display";}
-@font-face
-	{font-family:"\@新細明體";
-	panose-1:2 1 6 1 0 1 1 1 1 1;}
- /* Style Definitions */
- p.MsoNormal, li.MsoNormal, div.MsoNormal
-	{margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:8.0pt;
-	margin-left:0cm;
-	line-height:115%;
-	font-size:12.0pt;
-	font-family:"Aptos",sans-serif;}
-p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
-	{margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:8.0pt;
-	margin-left:36.0pt;
-	line-height:115%;
-	font-size:12.0pt;
-	font-family:"Aptos",sans-serif;}
-p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
-	{margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:0cm;
-	margin-left:36.0pt;
-	line-height:115%;
-	font-size:12.0pt;
-	font-family:"Aptos",sans-serif;}
-p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
-	{margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:0cm;
-	margin-left:36.0pt;
-	line-height:115%;
-	font-size:12.0pt;
-	font-family:"Aptos",sans-serif;}
-p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
-	{margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:8.0pt;
-	margin-left:36.0pt;
-	line-height:115%;
-	font-size:12.0pt;
-	font-family:"Aptos",sans-serif;}
-p.1, li.1, div.1
-	{mso-style-name:樣式1;
-	mso-style-link:"樣式1 字元";
-	margin-top:24.0pt;
-	margin-right:0cm;
-	margin-bottom:4.0pt;
-	margin-left:0cm;
-	line-height:115%;
-	page-break-after:avoid;
-	font-size:20.0pt;
-	font-family:"Aptos Display",sans-serif;
-	color:black;}
-span.10
-	{mso-style-name:"樣式1 字元";
-	mso-style-link:樣式1;
-	font-family:"Aptos Display",sans-serif;
-	color:black;}
-p.2, li.2, div.2
-	{mso-style-name:樣式2;
-	mso-style-link:"樣式2 字元";
-	margin-top:24.0pt;
-	margin-right:0cm;
-	margin-bottom:4.0pt;
-	margin-left:0cm;
-	line-height:115%;
-	page-break-after:avoid;
-	font-size:22.0pt;
-	font-family:"Aptos Display",sans-serif;
-	color:black;
-	font-weight:bold;}
-span.20
-	{mso-style-name:"樣式2 字元";
-	mso-style-link:樣式2;
-	font-family:"Aptos Display",sans-serif;
-	color:black;
-	font-weight:bold;}
-.MsoChpDefault
-	{font-family:"Aptos",sans-serif;}
-.MsoPapDefault
-	{margin-bottom:8.0pt;
-	line-height:115%;}
- /* Page Definitions */
- @page WordSection1
-	{size:595.3pt 841.9pt;
-	margin:72.0pt 90.0pt 72.0pt 90.0pt;
-	layout-grid:18.0pt;}
-div.WordSection1
-	{page:WordSection1;}
- /* List Definitions */
- ol
-	{margin-bottom:0cm;}
-ul
-	{margin-bottom:0cm;}
--->
-</style>
-
-</head>
-
-<body lang=ZH-TW style='word-wrap:break-word;text-justify-trim:punctuation'>
-
-<div class=WordSection1 style='layout-grid:18.0pt'>
-
-<p class=MsoNormal><span lang=EN-US>This video aims to showcase wiki’s life in
-university as a math major, if you want English subtitle, you can use the
-youtube subtitle</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>哇就快中六畢業啦，大學讀啊好呢，我&#22021;將來又要做咩工作呢？哇屌仲要考</span><span
-lang=EN-US>DSE</span><span style='font-family:"新細明體",serif'>，成個中學生涯好似得數理科係叻。。。</span></p>
-
-<p class=MsoNormal><span lang=EN-US>My Form 6 class teacher</span><span
-style='font-family:"新細明體",serif'>：你想做數學老師？讀精研好啊，比數教仲好！</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>（</span><span
-lang=EN-US>chose </span><span style='font-family:"新細明體",serif'>數精</span><span
-lang=EN-US>for</span><span style='font-family:"新細明體",serif'>面試）</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>數學精研面試：</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Dr Chan Hin Ning</span><span
-style='font-family:"新細明體",serif'>：</span><span lang=EN-US>Do you know what is
-differentiable</span><span style='font-family:"新細明體",serif'>？</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Do you know what function is not
-differentiable</span><span style='font-family:"新細明體",serif'>？</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Wiki</span><span style='font-family:"新細明體",serif'>：</span><span
-lang=EN-US>errrrr</span><span style='font-family:"新細明體",serif'>。</span><span
-lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Aptos",sans-serif;
-position:relative;top:6.0pt'><img width=76 height=28
-src="math%20major%20in%20a%20nutshell.files/image001.png"></span><span
-lang=EN-US>&nbsp;?</span></p>
-
-<p class=MsoNormal><span lang=EN-US>What is the point of non differentiability?</span></p>
-
-<p class=MsoNormal><span lang=EN-US>X=0?</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Why?</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Idk why?</span></p>
-
-<p class=MsoNormal><span lang=EN-US>You get bonus marks</span><span
-style='font-family:"新細明體",serif'>！</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>（</span><span
-lang=EN-US>not get stars in HKDSE</span><span style='font-family:"新細明體",serif'>，</span><span
-lang=EN-US> fails to enter math enrichment</span><span style='font-family:"新細明體",serif'>）</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Into the university</span></p>
-
-<p class=2><span lang=EN-US>Year1 Sem 1</span></p>
-
-<p class=1><span lang=EN-US>MATH1010 &nbsp;University mathematics  </span></p>
-
-<p class=MsoNormal><span lang=EN-US>Hugo is a nice guy but NDS kills you</span></p>
-
-<p class=MsoNormal><span lang=EN-US>I studied M2 so no big deal</span><span
-style='font-family:"新細明體",serif'>，</span><span lang=EN-US> but wow taylor
-series is cool</span><span style='font-family:"新細明體",serif'>，</span> <span
-lang=EN-US>I now know how to </span><span style='font-family:"新細明體",serif'>送人入醫院，</span><span
-lang=EN-US> wow sandwich theroem</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Hea wiki</span></p>
-
-<p class=1><span lang=EN-US>MATH1030 &nbsp;Linear Algebra I &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
-
-<p class=MsoNormal><span lang=EN-US>What</span><span style='font-family:"新細明體",serif'>？</span>
-<span lang=EN-US>Is this M2</span><span style='font-family:"新細明體",serif'>？</span>
-<span lang=EN-US>All about matrix </span></p>
-
-<p class=MsoNormal><span lang=EN-US>Wow I now know how to find determinant of
-nxn matrix</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Professor uses a course website</span><span
-style='font-family:"新細明體",serif'>，</span><span lang=EN-US> is cool</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Professor is very stylish</span><span
-style='font-family:"新細明體",serif'>！</span> </p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>示意圖</span></p>
-
-<p class=MsoNormal><span lang=EN-US><img width=278 height=208 id="圖片 1"
-src="math%20major%20in%20a%20nutshell.files/image002.png"
-alt="grad din 毒 撚 | Whatscap"></span></p>
-
-<p class=MsoNormal><span lang=EN-US>No talking in class </span></p>
-
-<p class=MsoNormal><span lang=EN-US>Stop playing with panels</span><span
-style='font-family:"新細明體",serif'>（</span><span lang=EN-US>in the mid term</span><span
-style='font-family:"新細明體",serif'>）</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Suppose blah blah blah</span><span
-style='font-family:"新細明體",serif'>，</span><span lang=EN-US> then bleh bleh bleh</span><span
-style='font-family:"新細明體",serif'>，</span><span lang=EN-US> then blih blih blih</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Contradiction arise</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Hence blah blah blah is not true</span></p>
-
-<p class=1><span lang=EN-US>STAT1011 Introduction to Statistics &nbsp;&nbsp; </span></p>
-
-<p class=MsoNormal><span lang=EN-US>Wa very hea course</span><span
-style='font-family:"新細明體",serif'>，</span><span lang=EN-US> it</span><span
-style='font-family:"新細明體",serif'>‘</span><span lang=EN-US>s M1</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Statistics is very easy</span><span
-style='font-family:"新細明體",serif'>──</span><span lang=EN-US> Chan Chun Man</span></p>
-
-<p class=MsoNormal><span lang=EN-US>If you need help going to the stat major</span><span
-style='font-family:"新細明體",serif'>，</span> <span lang=EN-US>I can help you</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Lack of We</span><span style='font-family:
-"新細明體",serif'>梳實士</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Please do the course E I don’t want to do
-in mcdonald</span></p>
-
-<p class=2><span lang=EN-US>Year 1 sem 2</span></p>
-
-<p class=1><span lang=EN-US>MATH1050 Foundation of Modern Mathematics&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
-
-<p class=MsoNormal><span lang=EN-US>Wow it</span><span style='font-family:"新細明體",serif'>‘</span><span
-lang=EN-US>s Dr fong again</span><span style='font-family:"新細明體",serif'>！少林掃地憎</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Go to his office to get mid term paper</span><span
-style='font-family:"新細明體",serif'>，</span><span lang=EN-US> if you poor grade</span><span
-style='font-family:"新細明體",serif'>，</span><span lang=EN-US> you poor </span><span
-style='font-family:"新細明體",serif'>街，</span><span lang=EN-US> he will scold you</span></p>
-
-<p class=MsoNormal><span lang=EN-GB>First forbiddence and second forbiddence is
-like magic fordbiddens for function</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>寫</span><span
-lang=EN-US>proof </span><span style='font-family:"新細明體",serif'>好難</span></p>
-
-<p class=MsoNormal><span lang=EN-US>A friend</span><span style='font-family:
-"新細明體",serif'>‘</span><span lang=EN-US>s story</span><span style='font-family:
-"新細明體",serif'>：入去之前見到有一排人排除拎卷，仲有個&#21873;&#21873;畀</span><span lang=EN-US>DF</span><span
-style='font-family:"新細明體",serif'>照肺，喊住咁行出&#22175;</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>個</span><span
-lang=EN-US>friend</span><span style='font-family:"新細明體",serif'>入左去之後：</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>你禁左制未啊？</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>未啊……</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>咁你要再唸唸喎！</span><span
-lang=EN-US> MI</span><span style='font-family:"新細明體",serif'>又寫錯，你</span><span
-lang=EN-US>M2</span><span style='font-family:"新細明體",serif'>點讀番&#22175;&#13774;？</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>我讀</span><span
-lang=EN-US>M1</span><span style='font-family:"新細明體",serif'>。。。</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>你英文&#25886;幾多啊？</span></p>
-
-<p class=MsoNormal><span lang=EN-US>4</span><span style='font-family:"新細明體",serif'>……</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>你要學好&#21874;英文喎，有冇唸住睇咩書咁啊？</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>冇啊……</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>睇&#21523;本</span><span
-lang=EN-US>How to Study for a Mathematics Degree,</span><span style='font-family:
-"新細明體",serif'>吧！</span></p>
-
-<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>讀書會：</span><span
-lang=EN-GB>Dr fong</span><span style='font-family:"新細明體",serif'>人突然入左&#22175;</span><span
-lang=EN-GB>: Euclid </span><span style='font-family:"新細明體",serif'>第一章</span> <span
-style='font-family:"新細明體",serif'>踏單車</span> <span style='font-family:"新細明體",serif'>第五章：</span>
-<span style='font-family:"新細明體",serif'>買左法拉里</span> <span style='font-family:
-"新細明體",serif'>講</span><span lang=EN-GB>ratio</span><span style='font-family:
-"新細明體",serif'>講左成個章，</span><span lang=EN-GB>ratio </span><span
-style='font-family:"新細明體",serif'>唔簡單十的第六章用法拉里渣車</span> </p>
-
-<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
-
-<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
-
-<p class=1><span lang=EN-US>MATH2010 Advanced Calculus I&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
-
-<p class=MsoNormal><span lang=EN-US>Chan Kai Leung</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>聽閒之前係中學老師，為</span><span
-lang=EN-US>math1010</span><span style='font-family:"新細明體",serif'>同中學數學整左兩個遊戲</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>口頭禪係“</span><span
-lang=EN-US>Still remember</span><span style='font-family:"新細明體",serif'>？”</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>少數會用</span><span
-lang=EN-US>Geogebra</span><span style='font-family:"新細明體",serif'>教書&#22021;</span><span
-lang=EN-US>Dr</span></p>
-
-<p class=1><span lang=EN-US>Optional</span><span style='font-family:"新細明體",serif'>：</span><span
-lang=EN-US> FYHS 0001 First Year honours Scheme</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>免費補習問功課班，有師兄教你數</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>學番大學教授</span><span
-lang=EN-US>expect</span><span style='font-family:"新細明體",serif'>你識&#22021;“</span><span
-lang=EN-US>school maths</span><span style='font-family:"新細明體",serif'>“</span> <span
-style='font-family:"新細明體",serif'>即是一&#21874;</span><span lang=EN-US>Pure maths</span><span
-style='font-family:"新細明體",serif'>的內容，</span><span lang=EN-US> you learnt this
-in high school maths</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>好人的</span><span
-lang=EN-US>Dr Ng </span><span style='font-family:"新細明體",serif'>會用廣東話教你</span><span
-lang=EN-US>pure maths</span><span style='font-family:"新細明體",serif'>&#21874;野，補番冇讀</span><span
-lang=EN-US>M2</span><span style='font-family:"新細明體",serif'>仔&#22021;殘缺，講&#21523;</span><span
-lang=EN-US>Dr Fong</span><span style='font-family:"新細明體",serif'>壞話</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Dr Fong</span><span style='font-family:
-"新細明體",serif'>會不定時探訪，小心唔好講佢壞話</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>有個試考，考得好可以有</span><span
-lang=EN-US>4</span><span style='font-family:"新細明體",serif'>位數字&#22021;錢收</span></p>
-
-<p class=2><span lang=EN-US>Year2 sem 1</span></p>
-
-<p class=1><span lang=EN-US>MATH2020 Advanced Calculus II  </span></p>
-
-<p class=MsoNormal><span lang=EN-US>Tom Wan</span><span style='font-family:
-"新細明體",serif'>係我中學某</span><span lang=EN-US>Miss</span><span style='font-family:
-"新細明體",serif'>&#22021;偶像</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>個個都話佢考</span><span
-lang=EN-US>mid term</span><span style='font-family:"新細明體",serif'>難，但係係我少數考</span><span
-lang=EN-US>mid term</span><span style='font-family:"新細明體",serif'>高過</span><span
-lang=EN-US>mean</span><span style='font-family:"新細明體",serif'>的教授</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>口頭禪係“</span><span
-lang=EN-US>easy right</span><span style='font-family:"新細明體",serif'>？”</span></p>
-
-<p class=1><span lang=EN-US>MATH2040 Linear Algebra II&nbsp;&nbsp;&nbsp;&nbsp; </span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>第一堂佢係度教點做</span><span
-lang=EN-US>RREF</span><span style='font-family:"新細明體",serif'>，之後就走左了</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>第二堂佢畀左幾個教</span><span
-lang=EN-US>2040</span><span style='font-family:"新細明體",serif'>&#22021;</span><span
-lang=EN-US>condition</span><span style='font-family:"新細明體",serif'>：</span></p>
-
-<p class=MsoListParagraphCxSpFirst style='margin-left:24.0pt;text-indent:-24.0pt'><span
-lang=EN-US>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span lang=EN-US>I have not use linear algebra for 5 years</span></p>
-
-<p class=MsoListParagraphCxSpMiddle style='margin-left:24.0pt;text-indent:-24.0pt'><span
-lang=EN-US>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span lang=EN-US>This is my first time teaching this course</span></p>
-
-<p class=MsoListParagraphCxSpMiddle style='margin-left:24.0pt;text-indent:-24.0pt'><span
-lang=EN-US>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span lang=EN-US>The TA is more experienced than I am</span></p>
-
-<p class=MsoListParagraphCxSpLast style='margin-left:24.0pt;text-indent:-24.0pt'><span
-lang=EN-US>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span lang=EN-US>Let</span><span style='font-family:"新細明體",serif'>‘</span><span
-lang=EN-US>s learn together</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>教授是一個特工，考</span><span
-lang=EN-US>mid term</span><span style='font-family:"新細明體",serif'>我地成班係度等，佢遲左</span><span
-lang=EN-US>20</span><span style='font-family:"新細明體",serif'>分鐘，&#25886;住個萬寧袋入去，仲話，份卷係佢今朝新鮮整完的，係仲暖的，後來就開始考</span><span
-lang=EN-US>mid term</span><span style='font-family:"新細明體",serif'>啦，之後我個朋友係度唸，咩叫</span><span
-lang=EN-US>linear product</span><span style='font-family:"新細明體",serif'>？佢考完</span><span
-lang=EN-US>mid term</span><span style='font-family:"新細明體",serif'>之後上山下海，左搵搵右搵搵，發現份卷係上網抄的，而</span><span
-lang=EN-US>linear product</span><span style='font-family:"新細明體",serif'>原來係</span><span
-lang=EN-US>inner product</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>而且會出現未教完就考（未教）&#22021;情況</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>佢成日叫我地“</span><span
-lang=EN-US>take a guess</span><span style='font-family:"新細明體",serif'>”，教識我地估&#21523;估&#21523;就計到數&#22021;道理</span></p>
-
-<p class=1><span lang=EN-US>MATH2050 Mathematical Analysis I </span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>細文俊（兩個教授都叫李文俊，一個叫</span><span
-lang=EN-US>Martin Lee</span><span style='font-family:"新細明體",serif'>（大），一個叫細文俊）</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>學識左</span><span
-lang=EN-US>Real number</span><span style='font-family:"新細明體",serif'>係一個</span><span
-lang=EN-US>completely ordered field</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>學識左點證明</span><span
-lang=EN-US>a</span><span style='font-family:"新細明體",serif'>＋</span><span
-lang=EN-US>a</span><span style='font-family:"新細明體",serif'>＝</span><span
-lang=EN-US>2a</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>只要知</span><span
-lang=EN-US>lim sup</span><span style='font-family:"新細明體",serif'>好似啊媽煲比你飲&#21874;湯咁，</span><span
-lang=EN-US>always exists</span><span style='font-family:"新細明體",serif'>就夠</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>我朋友發明左</span><span
-lang=EN-US>fundamental law of math major</span><span style='font-family:"新細明體",serif'>：</span><span
-lang=EN-US> proof by contradiction</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>學到</span><span
-lang=EN-US>Supermum</span><span lang=EN-US style='font-size:12.0pt;line-height:
-115%;font-family:"Aptos",sans-serif;position:relative;top:6.0pt'><img width=17
-height=28 src="math%20major%20in%20a%20nutshell.files/image003.png"></span><span
-lang=EN-US>supremum</span></p>
-
-<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
-
-<p class=1><span lang=EN-US>STAT2005 Programming Languages for Statistics</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>水</span><span
-lang=EN-US>course</span><span style='font-family:"新細明體",serif'>，</span> <span
-style='font-family:"新細明體",serif'>教你用</span><span lang=EN-US>R</span><span
-style='font-family:"新細明體",serif'>同</span><span lang=EN-US>SARS</span><span
-style='font-family:"新細明體",serif'>打</span><span lang=EN-US>Stat code </span></p>
-
-<p class=2><span lang=EN-US>Year 2 sem 2</span></p>
-
-<p class=1><span lang=EN-US>MATH2060 Mathematical Analysis II </span></p>
-
-<p class=MsoNormal><span lang=EN-US>Anal battle</span><span style='font-family:
-"新細明體",serif'>（</span><span lang=EN-US>anaylsis by bartle</span><span
-style='font-family:"新細明體",serif'>）</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Tom Wan</span><span style='font-family:
-"新細明體",serif'>係我中學某</span><span lang=EN-US>Miss</span><span style='font-family:
-"新細明體",serif'>&#22021;偶像</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>學會了</span><span
-lang=EN-US>Tom wan</span><span style='font-family:"新細明體",serif'>的另一個口頭禪</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>“</span><span
-lang=EN-US>depends on your high school skill</span><span style='font-family:
-"新細明體",serif'>，</span><span lang=EN-US> complicated enough right</span><span
-style='font-family:"新細明體",serif'>”</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>當我地學緊</span><span
-lang=EN-US>test for convergence</span><span style='font-family:"新細明體",serif'>&#22021;時候，有好多</span><span
-lang=EN-US>test</span><span style='font-family:"新細明體",serif'>，例如</span><span
-lang=EN-US> root test</span><span style='font-family:"新細明體",serif'>，</span><span
-lang=EN-US> ratio test</span><span style='font-family:"新細明體",serif'>，</span><span
-lang=EN-US>integral test</span><span style='font-family:"新細明體",serif'>，</span><span
-lang=EN-US>raabe</span><span style='font-family:"新細明體",serif'>‘</span><span
-lang=EN-US>s test</span><span style='font-family:"新細明體",serif'>，</span> <span
-style='font-family:"新細明體",serif'>跟住</span><span lang=EN-US>Tom wan</span><span
-style='font-family:"新細明體",serif'>就話：</span><span lang=EN-US>I cannot calculate
-it</span><span style='font-family:"新細明體",serif'>，</span><span lang=EN-US> feel
-it</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>為左同朋友一齊上堂，朝早去聽一次，晏就又去聽另一個教授教多次（周軍），可以理解做，</span><span
-lang=EN-US>wiki</span><span style='font-family:"新細明體",serif'>強迫自己入腦的方法，而周軍的口音比較有趣</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Darboux integral</span><span
-lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Aptos",sans-serif;
-position:relative;top:6.0pt'><img width=134 height=28
-src="math%20major%20in%20a%20nutshell.files/image004.png"></span></p>
-
-<p class=MsoNormal><span lang=EN-US>Convergence of cereals </span><span
-lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Aptos",sans-serif;
-position:relative;top:6.0pt'><img width=17 height=28
-src="math%20major%20in%20a%20nutshell.files/image003.png"></span><span
-lang=EN-US>&nbsp;convergence of series</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Fourier analysis</span><span
-lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Aptos",sans-serif;
-position:relative;top:6.0pt'><img width=17 height=28
-src="math%20major%20in%20a%20nutshell.files/image003.png"></span><span
-lang=EN-US>&nbsp;foolier analysis</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>太拿</span><span
-lang=EN-US>series</span><span lang=EN-US style='font-size:12.0pt;line-height:
-115%;font-family:"Aptos",sans-serif;position:relative;top:6.0pt'><img width=17
-height=28 src="math%20major%20in%20a%20nutshell.files/image003.png"></span><span
-lang=EN-US>&nbsp;Taylor series</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>終於學識左</span><span
-lang=EN-US>integral</span><span style='font-family:"新細明體",serif'>&#22021;另一種</span><span
-lang=EN-US>in</span><span style='font-family:"新細明體",serif'>法</span><span
-lang=EN-US>, </span></p>
-
-<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Log </span><span style='font-family:"新細明體",serif'>同</span><span
-lang=EN-US>trig function</span><span style='font-family:"新細明體",serif'>&#22021;</span><span
-lang=EN-US>definition</span></p>
-
-<p class=1><span lang=EN-US>MATH2070 Algebraic Structures </span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>學左</span><span
-lang=EN-US>group theory</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Charles Lee</span><span style='font-family:
-"新細明體",serif'>：</span><span lang=EN-US>Charles</span><span style='font-family:
-"新細明體",serif'>係一個有好多故仔講&#22021;教授，成日會有一&#21874;數學故仔</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>例如</span><span
-lang=EN-US>fermat</span><span style='font-family:"新細明體",serif'>如何透過</span><span
-lang=EN-US>number theory</span><span style='font-family:"新細明體",serif'>防止自己自殺，成立左一個基金，以此獎勵一&#21874;數學發現，後來因為法郎貶值而蒸發。</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>或者係數學</span><span
-lang=EN-US>algebra</span><span style='font-family:"新細明體",serif'>人通常短命，但有</span><span
-lang=EN-US>girlfriend</span><span style='font-family:"新細明體",serif'>，而</span><span
-lang=EN-US>analysis</span><span style='font-family:"新細明體",serif'>的人，通常會好長命，但</span><span
-lang=EN-US>A0 dead</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>理想</span><span
-lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Aptos",sans-serif;
-position:relative;top:6.0pt'><img width=17 height=28
-src="math%20major%20in%20a%20nutshell.files/image003.png"></span><span
-lang=EN-US>ideal</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>場</span><span
-lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Aptos",sans-serif;
-position:relative;top:6.0pt'><img width=58 height=28
-src="math%20major%20in%20a%20nutshell.files/image005.png"></span><span
-style='font-family:"新細明體",serif'>，明白原來可以擴張個場</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>愛因斯坦定理</span><span
-lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Aptos",sans-serif;
-position:relative;top:6.0pt'><img width=178 height=28
-src="math%20major%20in%20a%20nutshell.files/image006.png"></span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>我朋友是一個超人：佢</span><span
-lang=EN-US>mid term</span><span style='font-family:"新細明體",serif'>得一個</span><span
-lang=EN-US>sd</span><span style='font-family:"新細明體",serif'>，教授甚至想同佢開私人補習班，經此一事，個</span><span
-lang=EN-US>friend</span><span style='font-family:"新細明體",serif'>發奮圖強，最後成功係</span><span
-lang=EN-US>final</span><span lang=ZH-HK style='font-family:"新細明體",serif'>力挽狂瀾，拎到個</span><span
-lang=EN-US>B</span><span style='font-family:"新細明體",serif'>－</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>我另一個朋友認為佢番屋企自己睇書仲學得好，因為教授通常教好快</span></p>
-
-<p class=1><span lang=EN-US>MATH2221 Mathematics Laboratory II </span></p>
-
-<p class=MsoNormal><span lang=EN-US>Hugo</span><span style='font-family:"新細明體",serif'>係一個好人，佢會係</span><span
-lang=EN-US>closed book exam</span><span style='font-family:"新細明體",serif'>問你我要幫依幅代表溫度&#22021;</span><span
-lang=EN-US>graph</span><span style='font-family:"新細明體",serif'>上咩色</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Sample</span><span style='font-family:"新細明體",serif'>：</span></p>
-
-<p class=MsoListParagraphCxSpFirst style='margin-left:24.0pt;text-indent:-24.0pt'><span
-lang=EN-US>A.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span lang=EN-US>Turbo</span></p>
-
-<p class=MsoListParagraphCxSpMiddle style='margin-left:24.0pt;text-indent:-24.0pt'><span
-lang=EN-US>B.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span lang=EN-US>Parula</span></p>
-
-<p class=MsoListParagraphCxSpMiddle style='margin-left:24.0pt;text-indent:-24.0pt'><span
-lang=EN-US>C.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span lang=EN-US>Jet</span></p>
-
-<p class=MsoListParagraphCxSpMiddle style='margin-left:24.0pt;text-indent:-24.0pt'><span
-lang=EN-US>D.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-</span></span><span lang=EN-US>Hsv</span></p>
-
-<p class=MsoListParagraphCxSpMiddle style='margin-left:24.0pt'><span
-style='font-family:"新細明體",serif'>冇背書&#22021;我第一次，都係最後一次考</span><span lang=EN-US>final</span><span
-style='font-family:"新細明體",serif'>因為唔識做而早左半但鐘出去</span></p>
-
-<p class=MsoListParagraphCxSpLast style='margin-left:24.0pt'><span lang=EN-US>&nbsp;</span></p>
-
-<p class=1><span lang=EN-US>MATH2230 Complex Variables with Applications </span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>終於學識點計</span><span
-lang=EN-US>complex number</span><span style='font-family:"新細明體",serif'>&#22021;</span><span
-lang=EN-US>integral </span><span style='font-family:"新細明體",serif'>同</span><span
-lang=EN-US style='font-size:12.0pt;line-height:115%;font-family:"Aptos",sans-serif;
-position:relative;top:6.0pt'><img width=63 height=28
-src="math%20major%20in%20a%20nutshell.files/image007.png"></span></p>
-
-<p class=1><span lang=EN-US>STAT2001 Basic Concepts in Statistics and
-Probability I</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Easy course</span><span style='font-family:
-"新細明體",serif'>，學識左</span><span lang=EN-US>MGF PDF</span><span style='font-family:
-"新細明體",serif'>之類基本</span><span lang=EN-US>probability</span><span
-style='font-family:"新細明體",serif'>&#22021;詞語</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>讀</span><span
-lang=EN-US>stat2001</span><span style='font-family:"新細明體",serif'>&#22021;朋友可以同時讀</span><span
-lang=EN-US>math3280</span><span style='font-family:"新細明體",serif'>，學&#22021;野差唔多</span></p>
-
-<p class=2><span lang=EN-US>Year3 sem 1</span></p>
-
-<p class=1><span lang=EN-US>CHEM1070 Principles of Modern Chemistry</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>中學</span><span
-lang=EN-US>chem</span><span style='font-family:"新細明體",serif'>加&#21874;野，大學生涯唯一有</span><span
-lang=EN-US>A grade</span><span style='font-family:"新細明體",serif'>&#22021;</span><span
-lang=EN-US>course</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>&#21874;</span><span
-lang=EN-US>TA</span><span style='font-family:"新細明體",serif'>唔識整網站，佢地有個網站係好有問題的，例如無</span><span
-lang=EN-US>save function</span><span style='font-family:"新細明體",serif'>，我要一次過做曬佢，唔覺意禁左</span><span
-lang=EN-US>F5</span><span style='font-family:"新細明體",serif'>就會</span><span
-lang=EN-US>bye bye</span><span style='font-family:"新細明體",serif'>。（真係試過）</span></p>
-
-<p class=1><span lang=EN-US>MATH3020 Axiomatic Set Theory and Applications </span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>懷疑教授係一邊教一邊學，份</span><span
-lang=EN-US>Notes</span><span style='font-family:"新細明體",serif'>不定時更新</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>有次出面落雨，佢好</span><span
-lang=EN-US>chill</span><span style='font-family:"新細明體",serif'>咁著住對白襪好乾淨咁行入&#22175;</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>學識左</span><span
-lang=EN-US>1</span><span style='font-family:"新細明體",serif'>＋</span><span
-lang=EN-US>1</span><span style='font-family:"新細明體",serif'>＝</span><span
-lang=EN-US>2</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Turing machine</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>我同一個朋友是一個超人：佢</span><span
-lang=EN-US>mid term</span><span style='font-family:"新細明體",serif'>得個位分數，</span><span
-lang=EN-US> Mr Bean</span><span style='font-family:"新細明體",serif'>話佢會&#25886;</span><span
-lang=EN-US>F</span><span style='font-family:"新細明體",serif'>，經此一事，個</span><span
-lang=EN-US>friend</span><span style='font-family:"新細明體",serif'>發奮圖強，最後成功係</span><span
-lang=EN-US>final</span><span style='font-family:"新細明體",serif'>靠寫一篇向非數學系解釋咩叫</span><span
-lang=EN-US>turing machine</span><span style='font-family:"新細明體",serif'>同</span><span
-lang=EN-US>Godel incompleteness theroem</span><span style='font-family:"新細明體",serif'>&#22021;</span><span
-lang=EN-US>essay</span><span lang=ZH-HK style='font-family:"新細明體",serif'>力挽狂瀾，拎到個</span><span
-lang=EN-US>B</span><span style='font-family:"新細明體",serif'>－</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>學左</span><span
-lang=EN-US>Principal of explosion</span><span style='font-family:"新細明體",serif'>，</span>
-<span style='font-family:"新細明體",serif'>又學多次</span><span lang=EN-US>MI</span><span
-style='font-family:"新細明體",serif'>，</span><span lang=EN-US>MI inside MI</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>上堂試左一次</span><span
-lang=EN-US>prove by voting</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Attractive &amp; stable function</span></p>
-
-<p class=MsoNormal><span lang=EN-US>growth lemma</span></p>
-
-<p class=1><span lang=EN-US>MATH3270 Ordinary Differential Equations </span></p>
-
-<p class=MsoNormal><span lang=EN-US>Xiao JJ </span><span style='font-family:
-"新細明體",serif'>教得好好，但有朋友話佢把聲好沉好舒服，好適合訓教</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>將</span><span
-lang=EN-US>M2 solve </span><span style='font-family:"新細明體",serif'>&#22021;</span><span
-lang=EN-US>diff equation</span><span style='font-family:"新細明體",serif'>更</span><span
-lang=EN-US>general</span><span style='font-family:"新細明體",serif'>化，好</span><span
-lang=EN-US>grade course</span></p>
-
-<p class=1><span lang=EN-US>MATH3280 Introductory Probability</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>妖邊個話</span><span
-lang=EN-US>3280</span><span style='font-family:"新細明體",serif'>靚龜，邊個話數學系唔識計數，我係咁計</span><span
-lang=EN-US>probability </span><span style='font-family:"新細明體",serif'>&#22021;</span><span
-lang=EN-US>integral</span><span style='font-family:"新細明體",serif'>，個個都識計數計到個</span><span
-lang=EN-US>mean 80</span><span style='font-family:"新細明體",serif'>幾，我反而因為計錯</span><span
-lang=EN-US>integral</span><span style='font-family:"新細明體",serif'>而成為食</span><span
-lang=EN-US>C range</span><span style='font-family:"新細明體",serif'>&#22021;</span><span
-lang=EN-US>course</span></p>
-
-<p class=2><span lang=EN-US>Year 3 sem 2</span></p>
-
-<p class=1><img width=291 height=223
-src="math%20major%20in%20a%20nutshell.files/image008.jpg" align=left hspace=12
-alt="Flipped String Weak Doge Meme Blank Template - Imgflip"><span lang=EN-US>&nbsp;</span><span
-lang=EN-US>MATH4250 Game Theory </span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>一開始當你識咩叫黃金比例，用&#22175;嚇你，其實係數學系讀完</span><span
-lang=EN-US>1050</span><span style='font-family:"新細明體",serif'>就可以讀&#22021;</span><span
-lang=EN-US>course</span><span lang=EN-US> </span></p>
-
-<p class=MsoNormal><span lang=ZH-HK style='font-family:"新細明體",serif'>學識左點樣解決一個望落好複雜&#22021;問題，窮舉法</span></p>
-
-<p class=1><span lang=EN-US>MATH4260 Coding Theory and Cryptography</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Math2070</span><span style='font-family:
-"新細明體",serif'>&#22021;小小應用，其實唔難，重點係，你點樣用較少&#22021;</span><span lang=EN-US>data</span><span
-style='font-family:"新細明體",serif'>，去</span><span lang=EN-US>send</span><span
-style='font-family:"新細明體",serif'>一&#21874;</span><span lang=EN-US>data</span><span
-style='font-family:"新細明體",serif'>，而且由於有時有干擾，個</span><span lang=EN-US>code</span><span
-style='font-family:"新細明體",serif'>要有一&#21874;</span><span lang=EN-US>self correction</span><span
-style='font-family:"新細明體",serif'>&#22021;力量</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>學識左</span><span
-lang=EN-US>parity check </span><span style='font-family:"新細明體",serif'>同點</span><span
-lang=EN-US>chok</span><span style='font-family:"新細明體",serif'>&#21874;要解密&#22021;密碼（例如</span><span
-lang=EN-US>A</span><span style='font-family:"新細明體",serif'>＝</span><span
-lang=EN-US>00</span><span style='font-family:"新細明體",serif'>，</span><span
-lang=EN-US>B</span><span style='font-family:"新細明體",serif'>＝</span><span
-lang=EN-US>01</span><span style='font-family:"新細明體",serif'>，</span><span
-lang=EN-US>C</span><span style='font-family:"新細明體",serif'>＝</span><span
-lang=EN-US>11 etc</span><span style='font-family:"新細明體",serif'>）</span></p>
-
-<p class=1><span lang=EN-US>STAT2006 Basic Concepts in Statistics and
-Probability II</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>一哥上堂份</span><span
-lang=EN-US>notes</span><span style='font-family:"新細明體",serif'>幾恐怖，但其實考&#22021;野</span><span
-lang=EN-US>ok</span><span style='font-family:"新細明體",serif'>難度</span></p>
-
-<p class=1><span lang=EN-US>Year 4 sem1</span></p>
-
-<p class=1><span lang=EN-US>MED3011 Mathematics Curriculum and Teaching: Basic
-Theory and Practice </span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>谷</span><span
-lang=EN-US>project</span><span style='font-family:"新細明體",serif'>好煩</span></p>
-
-<p class=1><span lang=EN-US>EDUC4320 Classroom Management and School Discipline</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>有位師兄話依個</span><span
-lang=EN-US>course</span><span style='font-family:"新細明體",serif'>係少數</span><span
-lang=EN-US>EDU</span><span style='font-family:"新細明體",serif'>值得讀&#22021;</span><span
-lang=EN-US>course</span><span style='font-family:"新細明體",serif'>，所以</span><span
-lang=EN-US>wiki</span><span style='font-family:"新細明體",serif'>就讀了</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>谷</span><span
-lang=EN-US>project</span><span style='font-family:"新細明體",serif'>好煩，要兩三人一組拍片，其實同&#21873;&#22021;人做會幾</span><span
-lang=EN-US>fun</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>會學到點同人溝通</span></p>
-
-<p class=1><span lang=EN-US>MATH3080 Number Theory</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>千其唔好做</span><span
-lang=EN-US>number theory</span><span style='font-family:"新細明體",serif'>做上癮，你可以整張聲明書承諾自己唔會上癮</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>少數讀完</span><span
-lang=EN-US>1050</span><span style='font-family:"新細明體",serif'>可以讀&#22021;</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>少數我覺得讀到好似中學數學&#22021;</span><span
-lang=EN-US>course</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>會明白現代密碼學的一個算法</span><span
-lang=EN-US>RSA</span></p>
-
-<p class=1><span lang=EN-US>MATH4030 Differential Geometry</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>個教授一開始當你識</span><span
-lang=EN-US>3D differential geometry</span><span style='font-family:"新細明體",serif'>，一&#22175;就</span><span
-lang=EN-US>n</span><span style='font-family:"新細明體",serif'>維</span><span
-lang=EN-US>DG</span><span style='font-family:"新細明體",serif'>，搞到好辛苦</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>計</span><a><span
-lang=EN-US>Chrisawful</span></a><span class=MsoCommentReference><span
-lang=EN-US style='line-height:115%'><a class=msocomanchor id="_anchor_1"
-onmouseover="msoCommentShow('_anchor_1','_com_1')"
-onmouseout="msoCommentHide('_com_1')" href="#_msocom_1" language=JavaScript
-name="_msoanchor_1">[GU1]</a>&nbsp;</span></span><span lang=EN-US> symbols</span><span
-style='font-family:"新細明體",serif'>望落好恐怖，實際上還好</span></p>
-
-<p class=MsoNormal><span lang=ZH-HK style='font-family:"新細明體",serif'>愛因斯坦記數法好評，但複雜，好似變左物理系</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>有朋友投訴教授份</span><span
-lang=EN-US>notes</span><span style='font-family:"新細明體",serif'>五顏六色</span></p>
-
-<p class=1><span lang=EN-US>MATH4900 Seminar</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>睇運氣，抽到一個好教授就</span><span
-lang=EN-US>happy hour</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>首次自學</span></p>
-
-<p class=2><span lang=EN-US>Year 4 sem2 </span></p>
-
-<p class=1><span lang=EN-US>BMED3071 The Teaching of Probability and Statistics</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>谷</span><span
-lang=EN-US>project</span><span style='font-family:"新細明體",serif'>好煩</span></p>
-
-<p class=1><span lang=EN-US>&nbsp;BMED3081 The Teaching of Spatial Sense and
-Geometry</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>谷</span><span
-lang=EN-US>project</span><span style='font-family:"新細明體",serif'>好煩</span></p>
-
-<p class=1><span lang=EN-US>MATH4050 Real Analysis</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>教授教書</span><span
-lang=EN-US>40</span><span style='font-family:"新細明體",serif'>－</span><span
-lang=EN-US>50</span><span style='font-family:"新細明體",serif'>年，叫吳功夫（恭乎）好值得讀，</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>其實好好讀，背書就得，所以個</span><span
-lang=EN-US>mean</span><span style='font-family:"新細明體",serif'>好高</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>同</span><span
-lang=EN-US>math3280 </span><span style='font-family:"新細明體",serif'>一樣，個</span><span
-lang=EN-US>mean</span><span style='font-family:"新細明體",serif'>好高＝</span><span
-lang=EN-US>wiki</span><span style='font-family:"新細明體",serif'>爛龜</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>學識左</span><span
-lang=EN-US>measure theory</span><span style='font-family:"新細明體",serif'>，研究長度</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>學識左點</span><span
-lang=EN-US>in</span><span style='font-family:"新細明體",serif'>一&#21874;唔係</span><span
-lang=EN-US>interval</span><span style='font-family:"新細明體",serif'>&#22021;野（</span><span
-lang=EN-US>measurable set</span><span style='font-family:"新細明體",serif'>）</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>有樣野叫</span><span
-lang=EN-US>simple function</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Two runner</span><span style='font-family:
-"新細明體",serif'>‘</span><span lang=EN-US>s lemma </span><span style='font-family:
-"新細明體",serif'>又稱拍拖定理</span></p>
-
-<p class=MsoNormal><span lang=EN-US>Little wood principle </span><span
-style='font-family:"新細明體",serif'>小木人定理</span></p>
-
-<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
-
-<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
-
-<p class=1><span lang=EN-US>Misc</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>聽過有個朋友讀</span><span
-lang=EN-US>math course </span><span style='font-family:"新細明體",serif'>發現個教材有個</span><span
-lang=EN-US>proof</span><span style='font-family:"新細明體",serif'>寫錯，同教授講，個教授好好激動咁同佢講：依本係一本好</span><span
-lang=EN-US>standard</span><span style='font-family:"新細明體",serif'>&#22021;</span><span
-lang=EN-US>textbook</span><span style='font-family:"新細明體",serif'>，一定唔會錯！！仲話，如果你證明到佢錯&#22021;話，我畀個</span><span
-lang=EN-US>A grade</span><span style='font-family:"新細明體",serif'>你，後來佢真係寫左個</span><span
-lang=EN-US>proof</span><span style='font-family:"新細明體",serif'>出&#22175;，教授都發現佢個</span><span
-lang=EN-US>proof</span><span style='font-family:"新細明體",serif'>係&#21873;的，於是派</span><span
-lang=EN-US>grade</span><span style='font-family:"新細明體",serif'>就真係畀左個</span><span
-lang=EN-US>A</span><span style='font-family:"新細明體",serif'>佢</span></p>
-
-<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
-
-<p class=MsoNormal><span style='font-family:"新細明體",serif'>有傳聞話，如果你吃玉米是橫著吃的，那你就是代數派的，是豎著吃的，就是分析派的。而我完全不知道我是橫還是豎的。</span></p>
-
-</div>
-
-<div>
-
-<hr class=msocomoff align=left size=1 width="33%">
-
-<div>
-
-<div id="_com_1" class=msocomtxt language=JavaScript
-onmouseover="msoCommentShow('_anchor_1','_com_1')"
-onmouseout="msoCommentHide('_com_1')"><a name="_msocom_1"></a>
-
-<p class=MsoNormal><span lang=EN-US>&nbsp;<a href="#_msoanchor_1"
-class=msocomoff>[GU1]</a>Christoffel?</span></p>
-
-</div>
-
-</div>
-
-</div>
-
-</body>
-
+<!DOCTYPE html>
+<html lang="zh-HK">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WikiChan | University Life as a Math Major</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+	<script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div id="navbar-placeholder"></div>
+
+      <div class="reference-shell">
+        <div class="reference-grid">
+          <div class="shadow-band" aria-hidden="true"></div>
+
+          <main class="main-panel">
+            <div class="inner">
+              <article class="essay-shell">
+                <p class="section-label">Reflection & University Life</p>
+                <h1 class="section-title">Wiki's University Life as a Math Major</h1>
+                <p class="section-description">
+                  A chronicle of my journey through university math courses, professors, memes, and late-night study sessions.
+                </p>
+
+                <div class="article-divider" aria-hidden="true"></div>
+
+                <div class="article-body prose max-w-none">
+                  <p class="intro-note italic text-gray-600">
+                    This document showcases Wiki's life in university as a math major. If you want English subtitles, you can use the YouTube subtitle function.
+                  </p>
+
+                  <p>
+                    哇就快中六畢業啦，大學讀啊好呢，我嘅將來又要做咩工作呢？哇屌仲要考 DSE，成個中學生涯好似得數理科係叻……
+                  </p>
+                  
+                  <p>
+                    <strong>My Form 6 class teacher:</strong> 你想做數學老師？讀精研好啊，比數教仲好！<br />
+                    <em>（Chose 數精 for 面試）</em>
+                  </p>
+
+                  <blockquote class="my-4 pl-4 border-l-4 border-gray-400 bg-gray-50 p-2 italic">
+                    <p class="font-semibold mb-1">數學精研面試：</p>
+                    <p><strong>Dr Chan Hin Ning:</strong> Do you know what is differentiable?</p>
+                    <p>Do you know what function is not differentiable?</p>
+                    <p><strong>Wiki:</strong> Errrrr. $y = |x|$?</p>
+                    <p><strong>Dr Chan:</strong> What is the point of non-differentiability?</p>
+                    <p><strong>Wiki:</strong> $x = 0$?</p>
+                    <p><strong>Dr Chan:</strong> Why?</p>
+                    <p><strong>Wiki:</strong> Idk why?</p>
+                    <p><strong>Dr Chan:</strong> You get bonus marks!</p>
+                  </blockquote>
+
+                  <p class="text-sm text-gray-500 italic mb-6">
+                    (Did not get stars in HKDSE, failed to enter Math Enrichment, but entered the university)
+                  </p>
+
+                  <h2>Year 1 Sem 1</h2>
+                  
+                  <div class="course-block mb-4">
+                    <h3>MATH1010 University Mathematics</h3>
+                    <p>
+                      Hugo is a nice guy, but NDS kills you. I studied M2 so no big deal, but wow Taylor series is cool. I now know how to 送人入醫院, wow Sandwich theorem! Hea Wiki.
+                    </p>
+                  </div>
+
+                  <div class="course-block mb-4">
+                    <h3>MATH1030 Linear Algebra I</h3>
+                    <p>
+                      What? Is this M2? All about matrix. Wow I now know how to find the determinant of an $n \times n$ matrix. Professor uses a course website, is cool. Professor is very stylish!
+                    </p>
+                    <figure class="my-4">
+                      <img src="math major in a nutshell.files/image002.png" alt="Professor stylish diagram" class="rounded-lg border shadow-sm max-w-md mx-auto h-auto" />
+                      <figcaption class="text-center text-sm text-gray-500 mt-1">示意圖</figcaption>
+                    </figure>
+                    <ul>
+                      <li>No talking in class</li>
+                      <li>Stop playing with panels (in the midterm)</li>
+                      <li>Suppose blah blah blah, then bleh bleh bleh, then blih blih blih $\rightarrow$ Contradiction arises $\rightarrow$ Hence blah blah blah is not true</li>
+                    </ul>
+                  </div>
+
+                  <div class="course-block mb-6">
+                    <h3>STAT1011 Introduction to Statistics</h3>
+                    <p>
+                      Wa very hea course, it's M1. "Statistics is very easy." ── Chan Chun Man.
+                    </p>
+                    <p>
+                      If you need help going to the Stat major, I can help you. Lack of We梳實士. Please do the course evaluation, I don't want to work in McDonald's.
+                    </p>
+                  </div>
+
+                  <h2>Year 1 Sem 2</h2>
+
+                  <div class="course-block mb-4">
+                    <h3>MATH1050 Foundation of Modern Mathematics</h3>
+                    <p>
+                      Wow it's Dr Fong again! 少林掃地僧. Go to his office to get midterm paper; if you have poor grades, you <i>poor 街</i>, he will scold you. First forbidden and second forbidden is like magic for functions. 寫 proof 好難.
+                    </p>
+                    <blockquote class="my-3 pl-4 border-l-4 border-blue-400 bg-blue-50 p-3 text-sm">
+                      <p class="font-semibold mb-1">A friend's story:</p>
+                      <p>入去之前見到有一排人排隊拎卷，仲有個啱啱畀 DF 照肺，喊住咁行出嚟。</p>
+                      <p><strong>個 friend 入左去之後：</strong></p>
+                      <p>「你禁左制未啊？」</p>
+                      <p>「未啊……」</p>
+                      <p>「咁你要再唸唸喎！MI 又寫錯，你 M2 點讀番嚟㗎？」</p>
+                      <p>「我讀 M1……」</p>
+                      <p>「你英文攞幾多啊？」</p>
+                      <p>「4……」</p>
+                      <p>「你要學好啲英文喎，有冇唸住睇咩書咁啊？」</p>
+                      <p>「冇啊……」</p>
+                      <p>「睇吓本 <i>How to Study for a Mathematics Degree</i> 吧！」</p>
+                    </blockquote>
+                    <p>
+                      <strong>讀書會：</strong> Dr Fong 人突然入左嚟：Euclid 第一章 踏單車；第五章：買左法拉利 講 ratio 講左成個章，ratio 唔簡單；第 六章 用法拉利渣車。
+                    </p>
+                  </div>
+
+                  <div class="course-block mb-4">
+                    <h3>MATH2010 Advanced Calculus I</h3>
+                    <p>
+                      Chan Kai Leung. 聽聞之前係中學老師，為 MATH1010 同中學數學整左兩個遊戲。口頭禪係 "Still remember?" 少數會用 GeoGebra 教書嘅 Dr.
+                    </p>
+                    <div class="bg-gray-100 p-3 rounded-md text-sm border my-2">
+                      <p class="font-bold">Optional: FYHS 0001 First Year Honours Scheme</p>
+                      <p>
+                        免費補習問功課班，有師兄教你數。學番大學教授 expect 你識嘅 "school maths"，即是一啲 Pure Maths 的內容 ("You learnt this in high school maths")。
+                      </p>
+                      <p>
+                        好人的 Dr Ng 會用廣東話教你 Pure Maths 啲野，補番冇讀 M2 仔嘅殘缺，講吓 Dr Fong 壞話。Dr Fong 會不定時探訪，小心唔好講佢壞話！
+                      </p>
+                      <p>有個試考，考得好可以有 4 位數字嘅錢收。</p>
+                    </div>
+                  </div>
+
+                  <h2>Year 2 Sem 1</h2>
+
+                  <div class="course-block mb-4">
+                    <h3>MATH2020 Advanced Calculus II</h3>
+                    <p>
+                      Tom Wan 係我中學某 Miss 嘅偶像。個個都話佢考 midterm 難，但係係我少數考 midterm 高過 mean 的教授。口頭禪係 "Easy, right?"
+                    </p>
+                  </div>
+
+                  <div class="course-block mb-4">
+                    <h3>MATH2040 Linear Algebra II</h3>
+                    <p>
+                      第一堂佢係度教點做 RREF，之後就走左了。第二堂佢畀左幾個教 2040 嘅 condition：
+                    </p>
+                    <ul class="list-disc pl-5">
+                      <li>I have not used linear algebra for 5 years</li>
+                      <li>This is my first time teaching this course</li>
+                      <li>The TA is more experienced than I am</li>
+                      <li>Let's learn together</li>
+                    </ul>
+                    <p>
+                      教授是一個特工，考 midterm 我地成班係度等，佢遲左 20 分鐘，攞住個萬寧袋入去，仲話份卷係佢今朝新鮮整完的，係仲暖的。後來考 midterm，我個朋友係度唸，咩叫 linear product？佢考完之後上山下海左搵右搵，發現份卷係上網抄的，而 linear product 原來係 inner product！而且會出現未教完就考嘅情況。佢成日叫我地 "take a guess"，教識我地估吓估吓就計到數嘅道理。
+                    </p>
+                  </div>
+
+                  <div class="course-block mb-4">
+                    <h3>MATH2050 Mathematical Analysis I</h3>
+                    <p>
+                      細文俊（兩個教授都叫李文俊，一個叫 Martin Lee（大），一個叫細文俊）。
+                    </p>
+                    <ul>
+                      <li>學識左 Real number 係一個 completely ordered field</li>
+                      <li>學識左點證明 $a + a = 2a$</li>
+                      <li>只要知 $\limsup$ 好似啊媽煲比你飲啲湯咁，always exists 就夠</li>
+                      <li>我朋友發明左 fundamental law of math major: proof by contradiction</li>
+                      <li>學到 Supermum $\Leftrightarrow$ supremum</li>
+                    </ul>
+                  </div>
+
+                  <div class="course-block mb-6">
+                    <h3>STAT2005 Programming Languages for Statistics</h3>
+                    <p>水 course，教你用 R 同 SAS 打 Stat code。</p>
+                  </div>
+
+                  <h2>Year 2 Sem 2</h2>
+
+                  <div class="course-block mb-4">
+                    <h3>MATH2060 Mathematical Analysis II</h3>
+                    <p>
+                      Anal battle (Analysis by Bartle). 學會了 Tom Wan 的另一個口頭禪："Depends on your high school skill, complicated enough right?"
+                    </p>
+                    <p>
+                      當我地學緊 test for convergence 嘅時候，有好多 test（root test, ratio test, integral test, Raabe's test），跟住 Tom Wan 就話："I cannot calculate it, feel it."
+                    </p>
+                    <p>
+                      為左同朋友一齊上堂，朝早去聽一次，晏就又去聽另一個教授教多次（周軍），可以理解做 Wiki 強迫自己入腦的方法，而周軍的口音比較有趣：
+                    </p>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm bg-gray-50 p-3 rounded border">
+                      <li>Darboux integral $\Leftrightarrow$ double integral</li>
+                      <li>Convergence of cereals $\Leftrightarrow$ convergence of series</li>
+                      <li>Fourier analysis $\Leftrightarrow$ foolier analysis</li>
+                      <li>太拿 series $\Leftrightarrow$ Taylor series</li>
+                    </ul>
+                    <p class="mt-2">
+                      終於學識左 integral 嘅另一種 in 法，以及 Log 同 Trig function 嘅 definition。
+                    </p>
+                  </div>
+
+                  <div class="course-block mb-4">
+                    <h3>MATH2070 Algebraic Structures</h3>
+                    <p>
+                      學左 Group Theory。Charles Lee 是一個有好多故仔講嘅教授，成日會有一啲數學故仔。例如 Fermat 如何透過 number theory 防止自己自殺，成立左一個基金以此獎勵一啲數學發現，後來因為法郎貶值而蒸發；或者係數學 Algebra 人通常短命但有 girlfriend，而 Analysis 的人通常會好長命但 A0 dead。
+                    </p>
+                    <p>
+                      理想 $\Leftrightarrow$ ideal；場 $\Leftrightarrow$ field，明白原來可以擴張個場；愛因斯坦定理 $\Leftrightarrow$ Eisenstein's criterion。
+                    </p>
+                    <p>
+                      我朋友是一個超人：佢 midterm 得一個 SD，教授甚至想同佢開私人補習班。經此一事，個 friend 發奮圖強，最後成功係 final 力挽狂瀾，拎到個 B−。我另一個朋友認為佢番屋企自己睇書仲學得好，因為教授通常教好快。
+                    </p>
+                  </div>
+
+                  <div class="course-block mb-4">
+                    <h3>MATH2221 Mathematics Laboratory II</h3>
+                    <p>
+                      Hugo 係一個好人，佢會係 closed book exam 問你我要幫依幅代表溫度嘅 graph 上咩色（Sample: Turbo, Parula, Jet, Hsv）。冇背書嘅我第一次，都係最後一次考 final 因為唔識做而早左半個鐘出去。
+                    </p>
+                  </div>
+
+                  <div class="course-block mb-4">
+                    <h3>MATH2230 Complex Variables with Applications</h3>
+                    <p>終於學識點計 complex number 嘅 integral 同 $e^{i\pi} = -1$。</p>
+                  </div>
+
+                  <div class="course-block mb-6">
+                    <h3>STAT2001 Basic Concepts in Statistics and Probability I</h3>
+                    <p>
+                      Easy course，學識左 MGF, PDF 之類基本 probability 嘅詞語。讀 STAT2001 嘅朋友可以同時讀 MATH3280，學 嘅野差唔多。
+                    </p>
+                  </div>
+
+                  <h2>Year 3 Sem 1</h2>
+
+                  <div class="course-block mb-4">
+                    <h3>CHEM1070 Principles of Modern Chemistry</h3>
+                    <p>
+                      中學 Chem 加啲野，大學生涯唯一有 A grade 嘅 course。啲 TA 唔識整網站，佢地有個網站係好有問題的，例如無 save function，我要一次過做曬佢，唔覺意禁左 F5 就可以 bye bye（真係試過）。
+                    </p>
+                  </div>
+
+                  <div class="course-block mb-4">
+                    <h3>MATH3020 Axiomatic Set Theory and Applications</h3>
+                    <p>
+                      懷疑教授係一邊教一邊學，份 Notes 不定時更新。有次出面落雨，佢好 chill 咁著住對白襪好乾淨咁行入嚟。
+                    </p>
+                    <p>
+                      學識左 $1 + 1 = 2$、Turing machine、Principal of explosion、又學多次 MI (MI inside MI)、Attractive & stable function、Growth lemma。上堂試左一次 prove by voting。
+                    </p>
+                    <p>
+                      我同一個朋友是一個超人：佢 midterm 得個位分數，Mr Bean 話佢會攞 F。經此一事，個 friend 發奮圖強，最後成功係 final 靠寫一篇向非數學系解釋咩叫 Turing machine 同 Gödel's Incompleteness Theorem 嘅 essay 力挽狂瀾，拎到個 B−！
+                    </p>
+                  </div>
+
+                  <div class="course-block mb-4">
+                    <h3>MATH3270 Ordinary Differential Equations</h3>
+                    <p>
+                      Xiao JJ 教得好好，但有朋友話佢把聲好沉好舒服，好適合訓教。將 M2 solve 嘅 diff equation 更 general 化，好 grade course。
+                    </p>
+                  </div>
+
+                  <div class="course-block mb-6">
+                    <h3>MATH3280 Introductory Probability</h3>
+                    <p>
+                      妖邊個話 3280 靚龜，邊個話數學系唔識計數，我係咁計 probability 嘅 integral，個個都識計數計到個 mean 80 幾，我反而因為計錯 integral 而成為食 C range 嘅 course！
+                    </p>
+                  </div>
+
+                  <h2>Year 3 Sem 2</h2>
+
+                  <figure class="my-4">
+                    <img src="math major in a nutshell.files/image008.jpg" alt="Cheems vs Buff Doge" class="rounded-lg border shadow-sm max-w-md mx-auto h-auto" />
+                  </figure>
+
+                  <div class="course-block mb-4">
+                    <h3>MATH4250 Game Theory</h3>
+                    <p>
+                      一開始當你識咩叫黃金比例，用嚟嚇你，其實係數學系讀完 1050 就可以讀嘅 course。學識左點樣解決一個望落好複雜嘅問題：窮舉法。
+                    </p>
+                  </div>
+
+                  <div class="course-block mb-4">
+                    <h3>MATH4260 Coding Theory and Cryptography</h3>
+                    <p>
+                      MATH2070 嘅小小應用，其實唔難。重點係，你點樣用較少嘅 data 去 send 一啲 data，而且由於有時有干擾，個 code 要有一啲 self correction 嘅力量。學識左 parity check 同點 chok 啲要解密嘅密碼（例如 A=00, B=01, C=11 etc）。
+                    </p>
+                  </div>
+
+                  <div class="course-block mb-6">
+                    <h3>STAT2006 Basic Concepts in Statistics and Probability II</h3>
+                    <p>一哥上堂份 notes 幾恐怖，但其實考 嘅野 ok 難度。</p>
+                  </div>
+
+                  <h2>Year 4 Sem 1</h2>
+
+                  <div class="course-block mb-4">
+                    <h3>MED3011 Mathematics Curriculum and Teaching: Basic Theory and Practice</h3>
+                    <p>谷 project 好煩。</p>
+                  </div>
+
+                  <div class="course-block mb-4">
+                    <h3>EDUC4320 Classroom Management and School Discipline</h3>
+                    <p>
+                      有位師兄話依個 course 係少數 EDU 值得讀嘅 course，所以 Wiki 就讀了。谷 project 好煩，要兩三人一組拍片，其實同啱嘅人做會幾 fun。會學到點同人溝通。
+                    </p>
+                  </div>
+
+                  <div class="course-block mb-4">
+                    <h3>MATH3080 Number Theory</h3>
+                    <p>
+                      千其唔好做 Number Theory 做上癮，你可以整張聲明書承諾自己唔會上癮。少數讀完 1050 就可以讀嘅 course，少數我覺得讀到好似中學數學嘅 course。會明白現代密碼學的一個算法 RSA。
+                    </p>
+                  </div>
+
+                  <div class="course-block mb-4">
+                    <h3>MATH4030 Differential Geometry</h3>
+                    <p>
+                      個教授一開始當你識 3D differential geometry，一嚟就 $n$-維 DG，搞到好辛苦。計 Christoffel symbols 望落好恐怖，實際上還好。愛因斯坦記數法好評，但複雜，好似變左物理系。有朋友投訴教授份 notes 五顏六色。
+                    </p>
+                  </div>
+
+                  <div class="course-block mb-6">
+                    <h3>MATH4900 Seminar</h3>
+                    <p>睇運氣，抽到一個好教授就 happy hour。首次自學。</p>
+                  </div>
+
+                  <h2>Year 4 Sem 2</h2>
+
+                  <div class="course-block mb-4">
+                    <h3>BMED3071 The Teaching of Probability and Statistics</h3>
+                    <p>谷 project 好煩。</p>
+                  </div>
+
+                  <div class="course-block mb-4">
+                    <h3>BMED3081 The Teaching of Spatial Sense and Geometry</h3>
+                    <p>谷 project 好煩。</p>
+                  </div>
+
+                  <div class="course-block mb-6">
+                    <h3>MATH4050 Real Analysis</h3>
+                    <p>
+                      教授教書 40－50 年，叫吳功夫（恭乎）好值得讀。其實好好讀，背書就得，所以個 mean 好高。同 MATH3280 一樣，個 mean 好高 $=$ Wiki 爛龜。
+                    </p>
+                    <ul>
+                      <li>學識左 Measure Theory，研究長度</li>
+                      <li>學識左點 in 一啲唔係 interval 嘅野 (measurable set)</li>
+                      <li>有樣野叫 simple function</li>
+                      <li>Two runner's lemma 又稱拍拖定理</li>
+                      <li>Littlewood's principle 小木人定理</li>
+                    </ul>
+                  </div>
+
+                  <h2 class="mt-8 pt-4 border-t border-gray-200">Misc & Anecdotes</h2>
+                  
+                </div>
+              </article>
+            </div>
+          </main>
+
+          <div class="shadow-band right" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="nav.js"></script>
+  </body>
 </html>

@@ -50,66 +50,149 @@
 
               <section class="mt-12 grid gap-6 md:grid-cols-2">
             
-                <!-- Learning Resources Article -->
-                <article class="feature-card">
-                  <span class="feature-pill">Math</span>
-                  <span class="feature-pill">Secondary School</span>
-                  <h3 class="text-xl font-bold mt-2 mb-4">Learning Resources</h3>
+               <!-- Learning Resources Article (Full Width with Channel Images) -->
+                <article class="feature-card md:col-span-2">
+                  <div class="flex flex-wrap gap-2 mb-2">
+                    <span class="feature-pill">Math</span>
+                    <span class="feature-pill">Secondary School</span>
+                  </div>
+                  <h3 class="text-2xl font-bold mt-2 mb-4">Learning Resources</h3>
+                  <p class="text-gray-600 mb-6 text-base">A curated list of essential YouTube channels, platforms, and interactive tools for secondary and high school math.</p>
                   
-                  <div class="space-y-6">
-                    <!-- Subtitle 1: YouTube -->
+                  <div class="space-y-8">
+                    <!-- Section 1: YouTube Channels -->
                     <div>
-                      <h4 class="font-semibold text-purple-700 dark:text-purple-300 border-b border-purple-200 pb-1 mb-3">YouTube</h4>
-                      <ul class="space-y-3">
-                        <li>
-                          <a href="https://www.youtube.com/@zunda-theorem-en" target="_blank" rel="noopener noreferrer" class="font-medium hover:underline text-purple-600"> (Zundamon Theorem, eng voice)</a>
-                           <a href="https://www.youtube.com/@zunda-theorem" target="_blank" rel="noopener noreferrer" class="font-medium hover:underline text-purple-600">ずんだもんの数学解説 (Zundamon Theorem jp voice)</a>
-                          <p class="resource-desc">Uncommon math topics made easy.</p>
-                        </li>
-                        <li>
-                          <a href="https://www.youtube.com/@blackpenredpen" target="_blank" rel="noopener noreferrer" class="font-medium hover:underline text-purple-600">BlackPenRedPen</a>
-                          <p class="resource-desc">I improved my M2 by BPRP, he made math fun and enjoyable.</p>
-                        </li>
-                        <li>
-                          <a href="https://www.youtube.com/@3blue1brown" target="_blank" rel="noopener noreferrer" class="font-medium hover:underline text-purple-600">3Blue1Brown</a>
-                          <p class="resource-desc">I actually seldom watch him, but his videos explain university math easily. Perfect for secondary students who are interested.</p>
-                        </li>
-                        <li>
-                          <a href="https://www.youtube.com/@HermanYeung" target="_blank" rel="noopener noreferrer" class="font-medium hover:underline text-purple-600">Herman Yeung</a>
-                          <p class="resource-desc">Good for M2 and Math DSE, no explanation needed.</p>
-                        </li>
-                        <li>
-                          <span class="font-medium">數感實驗室 Number Lab</span> 
-                          (<a href="https://www.instagram.com/numeracylabtw/" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">Instagram</a> / 
-                          <a href="https://www.youtube.com/@NumeracyLab" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">YouTube</a>)
-                          <p class="resource-desc">Instagram: short videos, cool math knowledge. YouTube: long videos, cool math knowledge.</p>
-                        </li>
-                        <li>
-                          <a href="https://www.edb.gov.hk/tc/curriculum-development/kla/ma/res/treasure-trove.html" target="_blank" rel="noopener noreferrer" class="font-medium hover:underline text-purple-600">Hong Kong Education Bureau 數學百子櫃</a>
-                          <p class="resource-desc">Did you know the Education department made a website for you? I didn't know!</p>
-                        </li>
-                        <li>
-                          <a href="https://www.youtube.com/@webgoatguy" target="_blank" rel="noopener noreferrer" class="font-medium hover:underline text-purple-600">WebGoatGuy</a>
-                          <p class="resource-desc">3 truth and a lie shorts is funny math facts, he also thinks a lot on classic game designs innovation,e.g. turning rock paper scissors into a strategic game, design tick tack toe with hexagonal board, fun to watch.</p>
-                        </li>
-                      </ul>
+                      <h4 class="text-lg font-bold text-purple-700 dark:text-purple-300 border-b border-purple-200 pb-2 mb-4 flex items-center gap-2">
+                        <span>▶</span> YouTube Channels
+                      </h4>
+                      
+                      <div class="grid gap-4 sm:grid-cols-2">
+                        <!-- Zundamon Theorem -->
+                        <div class="p-4 border border-purple-100 rounded-xl bg-purple-50/30 hover:border-purple-300 transition-colors flex gap-4 items-start">
+                          <img src="https://yt3.googleusercontent.com/9jBVGnkFDq2XPNHmYpZdXFuE9XQc3hwlyjR7WgsKq9-go702wDV-8ohQz4oRmHmlFXuslfY=s160-c-k-c0x00ffffff-no-rj" alt="Zundamon Theorem" class="w-12 h-12 rounded-full object-cover border border-purple-200 flex-shrink-0 bg-purple-100" />
+                          <div class="flex-1">
+                            <div class="flex flex-wrap gap-x-2 gap-y-1 font-bold text-base">
+                              <a href="https://www.youtube.com/@zunda-theorem-en" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">ずんだもんの數學解説 (Eng Voice)</a>
+                              <span class="text-gray-400">/</span>
+                              <a href="https://www.youtube.com/@zunda-theorem" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:underline">JP Voice</a>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-1 leading-relaxed">
+                              Uncommon and advanced math topics explained effortlessly using engaging Zundamon animations and clear step-by-step breakdowns.
+                            </p>
+                          </div>
+                        </div>
+
+                        <!-- BlackPenRedPen -->
+                        <div class="p-4 border border-purple-100 rounded-xl bg-purple-50/30 hover:border-purple-300 transition-colors flex gap-4 items-start">
+                          <img src="https://yt3.googleusercontent.com/T9QUZGkM1U9iAKGhkTM9UXXENsVJA6qk5C7g8hIsm3aOn6SAIgrNjQnOdhzwNt8BYgyLuwwj=s160-c-k-c0x00ffffff-no-rj" alt="BlackPenRedPen" class="w-12 h-12 rounded-full object-cover border border-purple-200 flex-shrink-0 bg-purple-100" />
+                          <div class="flex-1">
+                            <a href="https://www.youtube.com/@blackpenredpen" target="_blank" rel="noopener noreferrer" class="font-bold text-base text-purple-600 hover:underline block">BlackPenRedPen</a>
+                            <p class="text-sm text-gray-600 mt-1 leading-relaxed">
+                              I improved my M2 significantly thanks to BPRP! He makes calculus, integrals, and general math insanely fun, energetic, and enjoyable.
+                            </p>
+                          </div>
+                        </div>
+
+                        <!-- 3Blue1Brown -->
+                        <div class="p-4 border border-purple-100 rounded-xl bg-purple-50/30 hover:border-purple-300 transition-colors flex gap-4 items-start">
+                          <img src="https://yt3.googleusercontent.com/ytc/AIdro_nFzZFPLxPZRHcE3SSwzdrbuWqfoWYwLAu0_2iO6blQYAU=s160-c-k-c0x00ffffff-no-rj" alt="3Blue1Brown" class="w-12 h-12 rounded-full object-cover border border-purple-200 flex-shrink-0 bg-purple-100" />
+                          <div class="flex-1">
+                            <a href="https://www.youtube.com/@3blue1brown" target="_blank" rel="noopener noreferrer" class="font-bold text-base text-purple-600 hover:underline block">3Blue1Brown</a>
+                            <p class="text-sm text-gray-600 mt-1 leading-relaxed">
+                              Unmatched visual intuition for university and advanced high school math. Perfect for curious secondary students who want to truly understand linear algebra, calculus, and geometry visually.
+                            </p>
+                          </div>
+                        </div>
+
+                        <!-- Herman Yeung -->
+                        <div class="p-4 border border-purple-100 rounded-xl bg-purple-50/30 hover:border-purple-300 transition-colors flex gap-4 items-start">
+                          <img src="https://yt3.googleusercontent.com/ytc/AIdro_nEzs2c9XDIN4yrRtM-xn6iGQZvxqR4AefSQTVL9SFQ_UY=s160-c-k-c0x00ffffff-no-rj" alt="Herman Yeung" class="w-12 h-12 rounded-full object-cover border border-purple-200 flex-shrink-0 bg-purple-100" />
+                          <div class="flex-1">
+                            <a href="https://www.youtube.com/@HermanYeung" target="_blank" rel="noopener noreferrer" class="font-bold text-base text-purple-600 hover:underline block">Herman Yeung</a>
+                            <p class="text-sm text-gray-600 mt-1 leading-relaxed">
+                              The go-to classic legend for HKDSE Compulsory Math and M2 syllabus revision. Comprehensive topic walkthroughs with no extra fluff needed.
+                            </p>
+                          </div>
+                        </div>
+
+                        <!-- 數感實驗室 Number Lab -->
+                        <div class="p-4 border border-purple-100 rounded-xl bg-purple-50/30 hover:border-purple-300 transition-colors flex gap-4 items-start">
+                          <img src="https://yt3.googleusercontent.com/ytc/AIdro_n6-g9o3A9aDV-W5_d72FMQmGBblpdCjZu6gi-lPqeK3kQ=s160-c-k-c0x00ffffff-no-rj" alt="數感實驗室" class="w-12 h-12 rounded-full object-cover border border-purple-200 flex-shrink-0 bg-purple-100" />
+                          <div class="flex-1">
+                            <span class="font-bold text-base text-gray-800">數感實驗室 Number Lab</span>
+                            <div class="text-xs space-x-1.5 text-purple-600 font-medium">
+                              <a href="https://www.instagram.com/numeracylabtw/" target="_blank" rel="noopener noreferrer" class="hover:underline">Instagram</a>
+                              <span class="text-gray-300">•</span>
+                              <a href="https://www.youtube.com/@NumeracyLab" target="_blank" rel="noopener noreferrer" class="hover:underline">YouTube</a>
+                            </div>
+                            <p class="text-sm text-gray-600 mt-1 leading-relaxed">
+                              Bite-sized, practical math trivia on Instagram Shorts, alongside deep-dive video essays on YouTube demonstrating how math integrates into everyday life.
+                            </p>
+                          </div>
+                        </div>
+
+                        <!-- WebGoatGuy -->
+                        <div class="p-4 border border-purple-100 rounded-xl bg-purple-50/30 hover:border-purple-300 transition-colors flex gap-4 items-start">
+                          <img src="https://yt3.googleusercontent.com/tbWDWdr6NJ68vaEl264rZi20rciqqOIkwBxyNbQ-wv_nIx11FlgSepyliEcX9Tz_3dF1Tfn-0Q=s160-c-k-c0x00ffffff-no-rj" alt="WebGoatGuy" class="w-12 h-12 rounded-full object-cover border border-purple-200 flex-shrink-0 bg-purple-100" />
+                          <div class="flex-1">
+                            <a href="https://www.youtube.com/@webgoatguy" target="_blank" rel="noopener noreferrer" class="font-bold text-base text-purple-600 hover:underline block">WebGoatGuy</a>
+                            <p class="text-sm text-gray-600 mt-1 leading-relaxed">
+                              Features hilarious "3 Truths and a Lie" math shorts alongside innovative game design explorations—like reimagining Rock-Paper-Scissors into a strategic deck game or redesigning Tic-Tac-Toe on hexagonal grids.
+                            </p>
+                          </div>
+                        </div>
+
+                        <!-- Hong Kong Education Bureau 數學百子櫃 -->
+                        <div class="p-4 border border-purple-100 rounded-xl bg-purple-50/30 hover:border-purple-300 transition-colors flex gap-4 items-start sm:col-span-2">
+                          <div class="w-12 h-12 rounded-xl bg-purple-100 border border-purple-200 flex items-center justify-center text-purple-700 font-bold text-xl flex-shrink-0">
+                            🏛️
+                          </div>
+                          <div class="flex-1">
+                            <a href="https://www.edb.gov.hk/tc/curriculum-development/kla/ma/res/treasure-trove.html" target="_blank" rel="noopener noreferrer" class="font-bold text-base text-purple-600 hover:underline block">
+                              Hong Kong Education Bureau 數學百子櫃 (Treasure Trove)
+                            </a>
+                            <p class="text-sm text-gray-600 mt-1 leading-relaxed">
+                              An official collection of enrichment learning activities, interactive tools, and historical context created directly by the HK Education Bureau. A hidden gem that most students never realize exists!
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
-                    <!-- Subtitle 2: Non-YouTube -->
+                    <!-- Section 2: Non-YouTube Platforms & Games -->
                     <div>
-                      <h4 class="font-semibold text-purple-700 dark:text-purple-300 border-b border-purple-200 pb-1 mb-3">Non-YouTube</h4>
-                      <ul class="space-y-2">
-                        <li><a href="https://www.geogebra.org/" target="_blank" rel="noopener noreferrer" class="hover:underline">GeoGebra</a></li>
-                        <li><a href="https://drive.google.com/drive/folders/1iZSEUNP1d93vlXWeiABTmEa7-qROrM0v?usp=drive_link" target="_blank" rel="noopener noreferrer" class="hover:underline">DSE PP Doc</a></li>
-                      </ul>
-                       <h4 class="font-semibold text-purple-700 dark:text-purple-300 border-b border-purple-200 pb-1 mb-3">Game</h4>
-<ul class="space-y-2">
-                        <li><a href="https://www.math.cuhk.edu.hk/~klchan/www/index.html" target="_blank" rel="noopener noreferrer" class="hover:underline">CUHK professor made a game for university math students</a></li>
-                      </ul>
+                      <h4 class="text-lg font-bold text-purple-700 dark:text-purple-300 border-b border-purple-200 pb-2 mb-4 flex items-center gap-2">
+                        <span>🛠️</span> Interactive Tools & Practice
+                      </h4>
+
+                      <div class="grid gap-4 sm:grid-cols-3">
+                        <div class="p-4 border border-purple-100 rounded-xl bg-gray-50/50 hover:border-purple-300 transition-colors flex gap-3 items-center">
+                          <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 font-bold flex items-center justify-center text-lg flex-shrink-0">📈</div>
+                          <div>
+                            <a href="https://www.geogebra.org/" target="_blank" rel="noopener noreferrer" class="font-bold text-sm text-purple-600 hover:underline block">GeoGebra</a>
+                            <p class="text-xs text-gray-500">2D & 3D graphing and geometry tools.</p>
+                          </div>
+                        </div>
+
+                        <div class="p-4 border border-purple-100 rounded-xl bg-gray-50/50 hover:border-purple-300 transition-colors flex gap-3 items-center">
+                          <div class="w-10 h-10 rounded-lg bg-amber-100 text-amber-600 font-bold flex items-center justify-center text-lg flex-shrink-0">📁</div>
+                          <div>
+                            <a href="https://drive.google.com/drive/folders/1iZSEUNP1d93vlXWeiABTmEa7-qROrM0v?usp=drive_link" target="_blank" rel="noopener noreferrer" class="font-bold text-sm text-purple-600 hover:underline block">DSE Past Paper Docs</a>
+                            <p class="text-xs text-gray-500">Shared Drive archives & past paper practice.</p>
+                          </div>
+                        </div>
+
+                        <div class="p-4 border border-purple-100 rounded-xl bg-gray-50/50 hover:border-purple-300 transition-colors flex gap-3 items-center">
+                          <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 font-bold flex items-center justify-center text-lg flex-shrink-0">🎮</div>
+                          <div>
+                            <a href="https://www.math.cuhk.edu.hk/~klchan/www/index.html" target="_blank" rel="noopener noreferrer" class="font-bold text-sm text-purple-600 hover:underline block">CUHK Math Interactive Game</a>
+                            <p class="text-xs text-gray-500">Browser game by a CUHK math professor. the link sometimes need some work to “work”</p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </article>
-
                 <!-- University Resources Article -->
                 <article class="feature-card">
                   <span class="feature-pill">University Resources</span>
@@ -139,7 +222,7 @@
                   <h3 class="text-xl font-bold mt-2 mb-2">Recommended YouTube Channels</h3>
                   <p class="mb-4">I like recommending good channels for others. Here are some of my favorite non-math channels:</p>
                   
-                  <ul class="grid gap-4 sm:grid-cols-2">
+                  <ul class="grid gap-4 sm:grid-cols-1">
                     <li class="col-span-full">
                       <a href="https://youtube.com/playlist?list=PLOBqrUL3iMEO_rWh_Tg_GTSDMtNO9cS_7&si=4OPSrPmMG8S9TrMP" target="_blank" rel="noopener noreferrer" class="font-bold text-purple-600 hover:underline">
                         📌 All-in-One Recommended Playlist
@@ -169,13 +252,14 @@
                 </article>
               </section>
 
+            
               <!-- RECOMMENDED BOOKS SECTION -->
               <section class="mt-12">
                 <article class="feature-card">
                   <span class="feature-pill">Reading</span>
                   <h2 class="text-2xl font-bold mb-6">Recommended Books</h2>
 
-                  <!-- Book Item 1 -->
+                  <!-- Book Item 1: 數學女孩 -->
                   <div class="flex flex-col md:flex-row gap-6 items-center border-b border-purple-100 pb-6 mb-6">
                     <div class="flex-1 space-y-2">
                       <span class="feature-pill">MATH</span>
@@ -198,17 +282,84 @@
                     </div>
                   </div>
 
-                  <!-- Book Item 2 -->
-                  <div class="flex flex-col md:flex-row gap-6 items-center">
+                  <!-- Book Item 2: 那些曠世天才的呢喃 -->
+                  <article class="feature-card">
+  <div class="flex flex-wrap gap-2 mb-2">
+    <span class="feature-pill">SCIENCE & MATH</span>
+    <span class="feature-pill">MEMES</span>
+  </div>
+
+  <!-- Flex wrapper: Stacked on mobile, side-by-side on medium screens and above -->
+  <div class="flex flex-col md:flex-row gap-6 items-start">
+    
+    <!-- Left Column: Book Details & Description -->
+    <div class="flex-1 space-y-4">
+      <h3 class="text-2xl font-bold">那些曠世天才的呢喃</h3>
+      <p class="text-sm text-gray-500 font-medium">一奈米的宇宙</p>
+      
+      <p class="text-gray-600 text-sm leading-relaxed">
+        想像那些中學高中學科知識背號的名人，在現代開設 Facebook 帳號，並發表貼文抱怨日常生活的樣子。
+        Physics, Chem, Bio 同 Math 嘅名人都有，當係 Memes 咁睇超級搞笑！
+      </p>
+
+      <blockquote class="border-l-4 border-purple-300 pl-4 py-1 italic text-gray-500 text-sm bg-purple-50/50 rounded-r-lg">
+        「這些天才科學家們在塗鴉牆上感嘆人生、討論科學，從語言中、在對話裡，他們走下了神壇，脫去了被歷史包裝的外衣，彷彿穿越時空來到我們的身旁，款款呢喃，告訴後來的人們，這才是他們的真實樣貌！」
+      </blockquote>
+
+      <div>
+        <p class="text-sm font-bold text-gray-700 mb-2">精選爆笑金句：</p>
+        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+          <li>「人的大腦其實符合用進廢退說，這解釋了人類智商最高點為什麼總是出現在高三下學期。」</li>
+          <li>庫侖：「我們都知道，物體要克服最大靜摩擦力之後才會移動，起床去讀書也是、下定決心吃少一點也是。」</li>
+          <li>愛因斯坦：「熬夜去上課是對自己加速到光速的反應，一眨眼怎麼就下課了。」</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Right Column: Book Cover Image Container -->
+    <div class="w-full md:w-48 flex-shrink-0 cursor-pointer group self-start" 
+         onclick="openLightbox([
+           'https://indiepublisher.tw/sites/default/files/styles/book/public/uploads/book/%E9%82%A3%E4%BA%9B%E6%9B%A0%E4%B8%96%E5%A4%A9%E6%89%8D%E7%9A%84%E5%91%A2%E5%96%83.png?itok=B8hK6Fcx',
+           'photos/天才1.jpg'
+         ])">
+      <div class="bg-white p-2 rounded-xl shadow-md border border-gray-100">
+        <img src="https://indiepublisher.tw/sites/default/files/styles/book/public/uploads/book/%E9%82%A3%E4%BA%9B%E6%9B%A0%E4%B8%96%E5%A4%A9%E6%89%8D%E7%9A%84%E5%91%A2%E5%96%83.png?itok=B8hK6Fcx" 
+             alt="那些曠世天才的呢喃 Book Cover" 
+             referrerpolicy="no-referrer"
+             class="w-full h-auto rounded-lg object-cover transition-transform group-hover:scale-105" />
+      </div>
+      <p class="click-hint text-xs text-center mt-2 text-gray-500">🔍 Click to enlarge & view photos</p>
+    </div>
+
+  </div>
+</article>
+
+                  <!-- Book Item 3: 生活的數學 從生活中尋覓數學的意義 -->
+                  <div class="flex flex-col md:flex-row gap-6 items-start">
                     <div class="flex-1 space-y-2">
-                      <h3 class="text-xl font-bold">Book Title 2</h3>
-                      <p class="text-sm text-gray-500 font-semibold">Author Name</p>
+                      <span class="feature-pill">MATH</span>
+                      <span class="feature-pill">CUHK</span>
+                      <h3 class="text-xl font-bold">生活的數學：從生活中尋覓數學的意義</h3>
+                      <p class="text-sm text-gray-500 font-semibold">羅浩源（CUHK 教授）</p>
                       <p class="text-gray-700 leading-relaxed">
-                        Add your book review or description here. Explain why you recommend this book, what key lessons you learned, or what kind of reader would enjoy it.
+                        顧名思義，由 CUHK 教授撰寫，將日常生活中看似簡單的現象用數學的角度解析，發現身邊隱藏的數學之美。
                       </p>
+                      <p class="text-xs font-bold text-purple-700 uppercase tracking-wide mt-2">書中超有趣例子：</p>
+                      <ol class="list-decimal list-inside text-sm text-gray-600 space-y-1.5 pl-1">
+                        <li><strong>樹木生長：</strong> 樹木枝幹的分枝規律其實符合 Fibonacci Sequence。</li>
+                        <li><strong>攤位遊戲：</strong> 擲彩虹 (拋階磚) 贏獎品的背後幾何概率計算。</li>
+                        <li><strong>法律與數理：</strong> 為什麼法律陪審團需要 7-10 個人，而非 3 個人？</li>
+                        <li><strong>防錯機制：</strong> 書本 ISBN 以及香港身份證括號內檢查碼 (Check Digit) 的數學原理。</li>
+                        <li><strong>濃度悖論：</strong> 兩碗紅豆沙與芝麻糊，互換四湯匙後（兩下紅豆沙去芝麻糊，兩下芝麻糊去紅豆沙），兩碗之間的混合百分比竟然相同！</li>
+                        <li><strong>摺紙幾何：</strong> 簡單用摺紙飛機的方式就可以把任意角度三等分（高中適用）。</li>
+                      </ol>
                     </div>
-                    <div class="w-full md:w-48 flex-shrink-0">
-                      <img src="photos/books/book2.jpg" alt="Book Title 2 Cover" class="w-full h-auto rounded-lg shadow-md object-cover" />
+                    <div class="w-full md:w-48 flex-shrink-0 cursor-pointer group" 
+                         onclick="openLightbox([
+                          'photos/生活的數學.jpg'
+                         ])">
+                      <img src="photos\生活的數學.jpg" alt="Book cover" class="w-full h-auto rounded-lg shadow-md object-cover transition-transform group-hover:scale-105" />
+                      <p class="click-hint text-xs text-center mt-2 text-gray-500">🔍 Click to enlarge & view photos</p>
                     </div>
                   </div>
 
@@ -227,7 +378,7 @@
                     <div class="p-4 border border-purple-100 rounded-lg hover:border-purple-300 transition-colors">
                       <h3 class="font-bold text-purple-700"> Old Playlist</h3>
                       <p class="resource-desc">i made this long ago, not updated</p>
-                      <a href="https://youtube.com/playlist?list=PLOBqrUL3iMEMFXXPLx2UusKl1x7m1CFnp&si=m-mGg2TpXbgJ6i43" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-xs font-semibold text-purple-600 hover:underline">Listen on Spotify / YouTube →</a>
+                      <a href="https://youtube.com/playlist?list=PLOBqrUL3iMEMFXXPLx2UusKl1x7m1CFnp&si=m-mGg2TpXbgJ6i43" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 text-xs font-semibold text-purple-600 hover:underline">Listen on YouTube →</a>
                     </div>
 
                     <div class="p-4 border border-purple-100 rounded-lg hover:border-purple-300 transition-colors">
@@ -247,13 +398,15 @@
     </div>
 
     <!-- LIGHTBOX MODAL POPUP -->
-    <div id="lightbox" class="lightbox-modal" onclick="closeLightbox(event)">
-      <div class="relative bg-white p-6 rounded-2xl max-w-4xl w-11/12 max-h-[90vh] overflow-y-auto shadow-2xl" onclick="event.stopPropagation()">
-        <button onclick="closeLightbox()" class="absolute top-3 right-4 text-2xl font-bold text-gray-500 hover:text-black">&times;</button>
-        <h3 class="text-lg font-bold text-gray-800 mb-4 text-center">Book Photo Gallery</h3>
-        <div id="lightbox-gallery" class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center"></div>
-      </div>
-    </div>
+    <!-- Replace your current lightbox modal HTML with this -->
+<div id="lightbox" class="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="relative bg-white p-6 rounded-2xl max-w-4xl w-11/12 max-h-[90vh] overflow-y-auto shadow-2xl" onclick="event.stopPropagation()">
+    <button onclick="closeLightbox()" class="absolute top-3 right-4 text-2xl font-bold text-gray-500 hover:text-black">&times;</button>
+    <h3 class="text-lg font-bold text-gray-800 mb-4 text-center">Book Photo Gallery</h3>
+    <!-- Updated line below: flex layout centers 1 image, wraps dynamically if there are more -->
+    <div id="lightbox-gallery" class="flex flex-wrap justify-center items-center gap-4"></div>
+  </div>
+</div>
 
     <!-- Lightbox Script -->
     <script>
