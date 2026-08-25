@@ -1824,3 +1824,15 @@ body.lightbox-open {
   height: auto !important;
   overflow: visible !important;
 }
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+.accordion-content.open {
+  max-height: 1000px; /* Big enough to fit the content */
+  opacity: 1;
+  transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, padding 0.3s ease-in-out;
+}
