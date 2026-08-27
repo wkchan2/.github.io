@@ -18,7 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
       { href: "math.html", label: "Math" },
       { href: "piano.html", label: "Piano" },
       { href: "contacts.html", label: "Contact" },
-      { href: "gallery.html", label: "Gallery" },
+      { href: "gallery.html", label: "Gallery",
+        submenu: [
+          { href: "Sister.html", label: "Sister" },
+          { href: "art.html", label: "Art / Drawing" },
+          { href: "meme.html", label: "Meme" },
+          { href: "mathgallery.html", label: "Math" },
+        ],
+      },
       { href: "mathtrivial.html", label: "Game" },
     ];
 
