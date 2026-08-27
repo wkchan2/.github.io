@@ -1836,3 +1836,53 @@ body.lightbox-open {
   opacity: 1;
   transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, padding 0.3s ease-in-out;
 }
+/* Accordion Styles */
+.collapsible-card {
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* 1. Set the default title styles and smooth transition */
+.collapsible-header h2,
+.collapsible-header h3 {
+  color: inherit; /* Keeps standard color initially */
+  transition: color 0.3s ease-in-out; /* Controls the speed and smoothness */
+}
+
+/* 2. Change color gradually on hover */
+.collapsible-card:hover .collapsible-header h2,
+.collapsible-card:hover .collapsible-header h3 {
+  color: var(--accent-soft, #c084fc); /* Fades into light purple on hover */
+}
+
+/* 3. Keep the light purple color active when opened/expanded */
+.collapsible-card.active .collapsible-header h2,
+.collapsible-card.active .collapsible-header h3 {
+  color: var(--accent-soft, #c084fc);
+}
+
+.toggle-icon {
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+  color: #6b7280;
+}
+
+/* Hidden by default */
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+  opacity: 0;
+}
+
+/* Expanded state */
+.collapsible-card.active .collapsible-content {
+  max-height: 5000px; /* Big enough to fit long section content */
+  opacity: 1;
+  transition: max-height 0.5s ease-in, opacity 0.3s ease-in;
+  margin-top: 1rem;
+}
+
+.collapsible-card.active .toggle-icon {
+  transform: rotate(180deg);
+}
