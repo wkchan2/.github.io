@@ -6,6 +6,7 @@
     <title>WikiChan | Works</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
+    
   </head>
   <body>
     <div class="page-shell">
@@ -102,19 +103,19 @@
                 <article class="feature-card" id="mc-breen">
                   <div class="flex flex-col md:flex-row gap-6 items-start justify-between">
                     <div class="flex-1">
-  <span class="feature-pill">Professor</span>
-  <span class="feature-pill">CUHK</span>
-  <span class="feature-pill">Mr Bean</span>
+                      <span class="feature-pill">Professor</span>
+                      <span class="feature-pill">CUHK</span>
+                      <span class="feature-pill">Mr Bean</span>
 
-  <h3 class="session-title2">Professor Mc Breen (Mr Bean)</h3>
+                      <h3 class="session-title2">Professor Mc Breen (Mr Bean)</h3>
 
-  <p class="article-body">
-    A nice and powerful professor who once did not wear shoes to the lecture <strong>DURING A RAINY DAY</strong>,
-    my brother in law mocked that mathematicians are too poor to afford shoes!
-    <br><br>
-    I said he is powerful because some said he haven't learnt about MATH3020(axiomatic set theory and turing machine) and he taught us MATH3020, so we basically learn together and he typed the lecture notes dynamically as we learn, if he is learning for the first time, i think he actually did a okay job, the TA though, he played <a href="https://youtu.be/AWVUp12XPpU?si=BHvVmB55Fd3UuGqA" target="_blank" class="text-blue-500 hover:underline">this song</a> during our first tutorial.
-  </p>
-</div>
+                      <p class="article-body">
+                        A nice and powerful professor who once did not wear shoes to the lecture <strong>DURING A RAINY DAY</strong>,
+                        my brother in law mocked that mathematicians are too poor to afford shoes!
+                        <br><br>
+                        I said he is powerful because some said he haven't learnt about MATH3020(axiomatic set theory and turing machine) and he taught us MATH3020, so we basically learn together and he typed the lecture notes dynamically as we learn, if he is learning for the first time, i think he actually did a okay job, the TA though, he played <a href="https://youtu.be/AWVUp12XPpU?si=BHvVmB55Fd3UuGqA" target="_blank" class="text-blue-500 hover:underline">this song</a> during our first tutorial.
+                      </p>
+                    </div>
 
                     <figure class="w-full md:w-56 shrink-0 text-center">
                       <img 
@@ -129,7 +130,6 @@
                     </figure>
                   </div>
                 </article>
-
 
                 <!-- Friend's Drawing Card (Directly below Mr Breen) -->
                 <article class="feature-card">
@@ -148,7 +148,7 @@
                   </div>
                 </article>
 
-                 <article class="feature-card">
+                <article class="feature-card">
                   <div class="flex flex-col md:flex-row gap-6 items-start justify-between">
                     <div class="flex-1">
                       <span class="feature-pill">Professor</span>
@@ -159,7 +159,7 @@
                       <ul class="piano-list"> 
                         <li>over 80 , taught for 40+years, but still teaches MATH4050</li>
                         <li>friendly and apparently will even phone calls the students</li>
-                        <li> MATH4050 and MATH2050，Use The Great Bay Area to teach MATH4050
+                        <li> MATH4050 and MATH2050，Use The Great Bay Area to teach MATH4050</li>
                       </ul>
 
                       <p class="article-quote-text">In my friend's math shao ling world, he is the 師尊who is responsible for maintaining the stability of the math world</p>
@@ -180,106 +180,202 @@
                 </article>
               </section>
 
+              <!-- INCIDENTS SECTION -->
               <section class="space-y-6 mt-12">
+                <!-- Keep Big Section Title unchanged -->
                 <h1 class="section-title">Incidents</h1>
 
+                <!-- INCIDENT 1 -->
                 <article class="feature-card">
-                  <!-- Related people line -->
-                  <div class="flex items-center gap-6 mb-3">
-                    <h2 class="session-title2">方丈好小氣，好彩無事</h2>
-                    <span style="font-size: 0.74rem; font-weight: 600; letter-spacing: 0.12em; text-transform: none; color: var(--muted);">
-                      Related people:
-                    </span>
-                    <span class="feature-pill2">
-                      <a href="#dr-fong" style="color: var(--accent-soft); text-decoration: none;">Dr Fong</a>
-                    </span>
+                  <div class="cursor-pointer flex items-center justify-between select-none" onclick="toggleStory('incident-1', this)">
+                    <div class="flex items-center gap-6">
+                      <h2 class="session-title2" style="margin: 0;">方丈好小氣，好彩無事</h2>
+                      <span style="font-size: 0.74rem; font-weight: 600; letter-spacing: 0.12em; text-transform: none; color: var(--muted);">
+                        Related people:
+                      </span>
+                      <span class="feature-pill2" onclick="event.stopPropagation()">
+                        <a href="#dr-fong" style="color: var(--accent-soft); text-decoration: none;">Dr Fong</a>
+                      </span>
+                    </div>
+                    <span class="chevron text-sm text-gray-500 transition-transform duration-300">▼</span>
                   </div>
 
-                  <!-- Story content styled with article-body -->
-                  <div class="article-body">
-                    <p>
-                      Dr Fong likes to go to a restaurant called "蘭苑" one time I ate lunch with my roommate in there, and i heard the waitress saying "幫方Sir 做啲野先", i was excited talking to my roommate, as a result, i said,"咩方Sir啊，Dr Fong啊嘩？" when i look at my back, i saw Dr Fong sitting in the chair, staring at me, I immediately look away, I thought I am going to die, 方丈好小氣，好彩無事。
-                    </p>
-                  </div>
-                </article>
-
-                <article class="feature-card">
-                  <!-- Related people line -->
-                  <div class="flex items-center gap-6 mb-3">
-                    <h2 class="session-title2" style="margin: 0;">方丈生氣了</h2>
-                    <span class="text-sm font-semibold text-gray-700">Related people:</span>
-                    <span class="feature-pill2 whitespace-nowrap">
-                      <a href="#dr-fong" class="hover:underline">Dr Fong</a>
-                    </span>
-                  </div>
-
-                  <!-- Story content styled with article-body -->
-                  <div class="article-body">
-                    <p>
-                      Dr Fong has good hearing, he claims that students talking in his lesson will make him unable to think clearly, therefore, everytime he hears students talking, he will shout at them "keep Quiet!!!", Moreover, during my Mid term, someone was making noise with the panels of the infamous "雞髀凳", DF shouted fiercely:
-                    </p>
-
-                    <blockquote>
-                      “NO PLAYING WITH PANELS”
-                    </blockquote>
-
-                    <p>
-                      which broke the silence of the Lecture Hall.
-                    </p>
-                  </div>
-                </article>
-
-                <article class="feature-card">
-                  <!-- Related people / Section Title Block -->
-                  <div class="flex items-center gap-6 mb-3">
-                    <h2 class="session-title2">Friend‘s Legend</h2>
-                    <span style="font-size: 0.74rem; font-weight: 600; letter-spacing: 0.12em; text-transform: none; color: var(--muted);">
-                      Related people:
-                    </span>
-                    <span class="feature-pill2">
-                      <span style="color: var(--accent-soft);">My friend</span>
-                    </span>
-                  </div>
-
-                  <!-- Story content with Score Image -->
-                  <div class="flex flex-col md:flex-row gap-6 items-start justify-between">
-                    <div class="article-body flex-1">
+                  <div id="incident-1" class="accordion-content article-body">
+                    <div class="pt-3">
                       <p>
-                        My friend was a pretty smart man, though not in math, he got 2 incidences where he thought he would have failed the course， MATH2070 and MATH3020， in the mid term of MATH3020， he got a score of single 1 sd, you may see the statistics for our course MATH3020, it is the standard deviation, not the score being inside 1 sd, he tried very hard in the final, wrote a great article(the final question requires us to either do a math problem or write an article about Gödel's incompleteness theorems and turing machines to non math major, why it matters) and rescued his grade, i think it was B-
-                        <br><br>Another time in MATH2070 he has also 1 sd, or within 2 sd, i forgot, but the funny thing is, he was asked by Charles Lee to have private tuition because Charles is kind, i find it funny that professor will have private tuition with his students, so much love, and so much terror, you see, Dr Fong's Office is Charles' office, Charles' office is Dr Fong's office,they are the same, and Dr Fong is scary, so much fear...
+                        Dr Fong likes to go to a restaurant called "蘭苑" one time I ate lunch with my roommate in there, and i heard the waitress saying "幫方Sir 做啲野先", i was excited talking to my roommate, as a result, i said,"咩方Sir啊，Dr Fong啊嘩？" when i look at my back, i saw Dr Fong sitting in the chair, staring at me, I immediately look away, I thought I am going to die, 方丈好小氣，好彩無事。
                       </p>
                     </div>
-
-                    <figure class="w-full md:w-56 shrink-0 text-center">
-                      <img 
-                        src="photos/life/80.jpg" 
-                        alt="MATH3020 Score Statistics" 
-                        class="w-full rounded-lg border border-[var(--border)] shadow-sm object-cover cursor-pointer hover:opacity-90 transition-opacity"
-                        onclick="openLightbox(['photos/life/80.jpg'])"
-                      />
-                      <figcaption class="mt-2 text-xs italic text-[var(--muted)]">
-                        MATH3020 score statistics (click to enlarge)
-                      </figcaption>
-                    </figure>
                   </div>
                 </article>
 
-                <blockquote class="my-4 pl-4 border-l-4 border-amber-400 bg-amber-50 p-3 text-sm">
-                    <p class="mb-2">
-                      聽過有個朋友讀 math course 發現個教材有個 proof 寫錯，同教授講，個教授好激動咁同佢講：「依本係一本好 standard 嘅 textbook，一定唔會錯！！如果你證明到佢錯嘅話，我畀個 A grade 你。」後來佢真係寫左個 proof 出嚟，教授都發現佢個 proof 係啱的，於是派 grade 就真係畀左個 A 佢。
-                    </p>
-                
-                  </blockquote>
-              </section>
+                <!-- INCIDENT 2 -->
+                <article class="feature-card">
+                  <div class="cursor-pointer flex items-center justify-between select-none" onclick="toggleStory('incident-2', this)">
+                    <div class="flex items-center gap-6">
+                      <h2 class="session-title2" style="margin: 0;">方丈生氣了</h2>
+                      <span class="text-sm font-semibold text-gray-700">Related people:</span>
+                      <span class="feature-pill2 whitespace-nowrap" onclick="event.stopPropagation()">
+                        <a href="#dr-fong" class="hover:underline">Dr Fong</a>
+                      </span>
+                    </div>
+                    <span class="chevron text-sm text-gray-500 transition-transform duration-300">▼</span>
+                  </div>
 
-            </div>
-          </main>
+                  <div id="incident-2" class="accordion-content article-body">
+                    <div class="pt-3">
+                      <p>
+                        Dr Fong has good hearing, he claims that students talking in his lesson will make him unable to think clearly, therefore, everytime he hears students talking, he will shout at them "keep Quiet!!!", Moreover, during my Mid term, someone was making noise with the panels of the infamous "雞髀凳", DF shouted fiercely:
+                      </p>
 
-          <div class="shadow-band right" aria-hidden="true"></div>
-        </div>
-      </div>
+                      <blockquote>
+                        “NO PLAYING WITH PANELS”
+                      </blockquote>
+
+                      <p>
+                        which broke the silence of the Lecture Hall.
+                      </p>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- INCIDENT 3 -->
+                <article class="feature-card">
+                  <div class="cursor-pointer flex items-center justify-between select-none" onclick="toggleStory('incident-3', this)">
+                    <div class="flex items-center gap-6">
+                      <h2 class="session-title2" style="margin: 0;">Friend‘s Legend</h2>
+                      <span style="font-size: 0.74rem; font-weight: 600; letter-spacing: 0.12em; text-transform: none; color: var(--muted);">
+                        Related people:
+                      </span>
+                      <span class="feature-pill2" onclick="event.stopPropagation()">
+                        <span style="color: var(--accent-soft);">My friend</span>
+                      </span>
+                    </div>
+                    <span class="chevron text-sm text-gray-500 transition-transform duration-300">▼</span>
+                  </div>
+
+                  <div id="incident-3" class="accordion-content">
+                    <div class="flex flex-col md:flex-row gap-6 items-start justify-between pt-3">
+                      <div class="article-body flex-1">
+                        <p>
+                          My friend was a pretty smart man, though not in math, he got 2 incidences where he thought he would have failed the course， MATH2070 and MATH3020， in the mid term of MATH3020， he got a score of single 1 sd, you may see the statistics for our course MATH3020, it is the standard deviation, not the score being inside 1 sd, he tried very hard in the final, wrote a great article(the final question requires us to either do a math problem or write an article about Gödel's incompleteness theorems and turing machines to non math major, why it matters) and rescued his grade, i think it was B-
+                          <br><br>Another time in MATH2070 he has also 1 sd, or within 2 sd, i forgot, but the funny thing is, he was asked by Charles Lee to have private tuition because Charles is kind, i find it funny that professor will have private tuition with his students, so much love, and so much terror, you see, Dr Fong's Office is Charles' office, Charles' office is Dr Fong's office,they are the same, and Dr Fong is scary, so much fear...
+                        </p>
+                      </div>
+
+                      <figure class="w-full md:w-56 shrink-0 text-center">
+                        <img 
+                          src="photos/life/80.jpg" 
+                          alt="MATH3020 Score Statistics" 
+                          class="w-full rounded-lg border border-[var(--border)] shadow-sm object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                          onclick="openLightbox(['photos/life/80.jpg'])"
+                        />
+                        <figcaption class="mt-2 text-xs italic text-[var(--muted)]">
+                          MATH3020 score statistics (click to enlarge)
+                        </figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- INCIDENT 4 -->
+                <article class="feature-card">
+                  <div class="cursor-pointer flex items-center justify-between select-none" onclick="toggleStory('incident-4', this)">
+                    <h2 class="session-title2" style="margin: 0;">Textbook Proof Grade A Story</h2>
+                    <span class="chevron text-sm text-gray-500 transition-transform duration-300">▼</span>
+                  </div>
+
+                  <div id="incident-4" class="accordion-content">
+                    <div class="pt-3">
+                      <blockquote class="my-2 pl-4 border-l-4 border-amber-400 bg-amber-50 p-3 text-sm">
+                        <p>
+                          聽過有個朋友讀 math course 發現個教材有個 proof 寫錯，同教授講，個教授好激動咁同佢講：「依本係一本好 standard 嘅 textbook，一定唔會錯！！如果你證明到佢錯嘅話，我畀個 A grade 你。」後來佢真係寫左個 proof 出嚟，教授都發現佢個 proof 係啱的，於是派 grade 就真係畀左個 A 佢。
+                        </p>
+                      </blockquote>
+                    </div>
+                  </div>
+                </article>
+
+<!-- INCIDENT 5: 兩個李文俊 -->
+<!-- INCIDENT 5: 兩個李文俊 -->
+<article class="feature-card">
+  <div class="cursor-pointer flex items-center justify-between select-none" onclick="toggleStory('incident-5', this)">
+    <div class="flex items-center gap-6">
+      <h2 class="session-title2" style="margin: 0;">兩個李文俊</h2>
+      <span style="font-size: 0.74rem; font-weight: 600; letter-spacing: 0.12em; text-transform: none; color: var(--muted);">
+        Related people:
+      </span>
+      <span class="feature-pill2" onclick="event.stopPropagation()">
+        <span style="color: var(--accent-soft);">李文俊</span>
+      </span>
     </div>
+    <span class="chevron text-sm text-gray-500 transition-transform duration-300">▼</span>
+  </div>
 
+  <!-- Added inline height flexibility to avoid bottom clipping when open -->
+  <div id="incident-5" class="accordion-content">
+    <!-- Changed pt-4 space-y-4 to include bottom padding pb-6 -->
+    <div class="pt-4 pb-6 space-y-4">
+      <div class="flex items-center gap-2">
+        <span class="feature-pill">CUHK</span>
+        <span class="feature-pill">PROFESSOR</span>
+      </div>
+
+      <!-- Photos Side-by-Side -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-4">
+        <figure class="text-center flex flex-col items-center">
+          <div class="w-full flex items-center justify-center bg-gray-50 rounded-lg p-2 border border-[var(--border)] overflow-hidden">
+            <img 
+              src="https://tse1.mm.bing.net/th/id/OIP.hWhU2K6akL3tC4PavAD7OAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" 
+              alt="李文俊" 
+              class="max-h-64 w-auto h-auto object-contain rounded cursor-pointer hover:opacity-90 transition-opacity"
+              onclick="openLightbox(['https://tse1.mm.bing.net/th/id/OIP.hWhU2K6akL3tC4PavAD7OAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3'])"
+            />
+          </div>
+          <figcaption id="caption-photo-1" class="mt-2 text-xs italic text-[var(--muted)]">Photo 1</figcaption>
+        </figure>
+
+        <figure class="text-center flex flex-col items-center">
+          <div class="w-full flex items-center justify-center bg-gray-50 rounded-lg p-2 border border-[var(--border)] overflow-hidden">
+            <img 
+              src="https://www.math.cuhk.edu.hk/sites/default/files/people/mclee2022.jpg" 
+              alt="李文俊" 
+              class="max-h-64 w-auto h-auto object-contain rounded cursor-pointer hover:opacity-90 transition-opacity"
+              onclick="openLightbox(['https://www.math.cuhk.edu.hk/sites/default/files/people/mclee2022.jpg'])"
+            />
+          </div>
+          <figcaption id="caption-photo-2" class="mt-2 text-xs italic text-[var(--muted)]">Photo 2</figcaption>
+        </figure>
+      </div>
+
+      <h2 class="text-center font-medium text-sm my-2">Take a moment to guess who is the true Lee Man Chun!</h2>
+
+      <!-- Reveal Button -->
+      <div class="text-center my-3">
+        <button 
+          type="button" 
+          onclick="
+            document.getElementById('caption-photo-1').innerHTML = '<strong>大文俊</strong> (Martin Lee)';
+            document.getElementById('caption-photo-2').innerHTML = '<strong>細文俊</strong> (Lee Man Chun)';
+          " 
+          class="px-4 py-2 bg-accent hover:bg-accent text-white text-xs font-semibold rounded-md transition-colors cursor-pointer shadow-sm"
+        >
+          🔍 Reveal Who is Who
+        </button>
+      </div>
+
+     <!-- Story Text with Interactive Poll -->
+<div class="article-body pb-2">
+  <p class="mb-3">
+    There are actually two professors named <strong>李文俊</strong> in CUHK Mathematics Department! We call one of them 大文俊, one of them 細文俊. Both of them graduated from CUHK, and both returned to teach at CUHK — what an incredible coincidence!
+  </p>
+  <p class="font-medium text-gray-800 dark:text-gray-200">
+    In math department, we all agree that Martin Lee is the most Handsome math professor. Do you agree?
+  </p>
+
+ 
+</article>
+</div>
     <!-- Lightbox Slider Modal -->
     <div 
       id="lightbox" 
@@ -331,6 +427,25 @@
     </div>
 
     <script src="nav.js"></script>
+
+    <!-- Toggle Script (referenced from mathmajorin a nutshell) -->
+    <script>
+      function toggleStory(id, element) {
+        const content = document.getElementById(id);
+        const chevron = element.querySelector('.chevron');
+        
+        // Toggle the smooth accordion class
+        if (content) {
+          content.classList.toggle('open');
+        }
+        
+        // Rotate the arrow icon smoothly
+        if (chevron) {
+          chevron.classList.toggle('rotate-180');
+        }
+      }
+    </script>
+
     <script>
       let currentGallery = [];
       let currentIndex = 0;
@@ -391,5 +506,10 @@
         if (e.key === 'ArrowLeft') prevImage();
       });
     </script>
+   
+    
+
+  </body>
+</html>
   </body>
 </html>

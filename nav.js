@@ -228,3 +228,12 @@ async function fetchDiscordStatus() {
 // Fetch immediately and update every 30 seconds
 fetchDiscordStatus();
 setInterval(fetchDiscordStatus, 30000);
+
+
+// Automatically load oneko.js across all pages
+document.addEventListener("DOMContentLoaded", () => {
+  const nekoScript = document.createElement("script");
+  nekoScript.src = "https://cdn.jsdelivr.net/gh/adryd325/oneko.js/oneko.js";
+  nekoScript.setAttribute("data-cat", "https://cdn.jsdelivr.net/gh/adryd325/oneko.js/oneko.gif");
+  document.body.appendChild(nekoScript);
+});
