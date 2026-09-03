@@ -83,63 +83,76 @@
 
     <script src="nav.js"></script>
     <script>
-      // 1. Photos already used in other sections to filter out
-      const usedPhotos = [80, 122, 130, 132, 133, 139, 148];
+     const photoCaptions = {
+  "83.jpg": "",
+  "84.jpg": "Late night coding in the lab",
+  "85.jpg": "",
+  "87.png": "",
+  "114.jpg": "",
+  "116.png": "",
+  "117.jpg": "",
+  "119.jpg": "",
+  "120.jpg": "",
+  "121.jpg": "",
+  "122.jpg": "",
+  "123.jpg": "",
+  "125.jpg": "",
+  "126.jpg": "",
+  "128.jpg": "",
+  "129.jpg": ""
+};
 
-      // 2. Custom Captions Mapping (Images 80 through 130)
-      //    - Write your caption string inside quotes to show it below the photo.
-      //    - Leave as "" or omit the line completely to leave it BLANK (no caption container).
-      const photoCaptions = {
-        81: "Library study spot during finals week",
-        82: "Campus sunset near the science building",
-        83: "", // Blank -> No caption shown
-        84: "Late night coding in the lab",
-        85: "", // Blank -> No caption shown
-        86: "Coffee break with friends",
-        // Add or edit captions for any photo number (80-130) here:
-        // 90: "My favorite spot on campus",
-        // 105: "Rainy day walk",
-      };
+const filenames = [
+  "83.jpg",
+  "84.jpg",
+  "85.jpg",
+  "87.png",
+  "114.jpg",
+  "116.png",
+  "117.jpg",
+  "119.jpg",
+  "120.jpg",
+  "121.jpg",
+  "122.jpg",
+  "123.jpg",
+  "125.jpg",
+  "126.jpg",
+  "128.jpg",
+  "129.jpg"
+];
 
-      // 3. Build filtered image objects array
-      const galleryData = [];
-      for (let i = 80; i <= 130; i++) {
-        if (!usedPhotos.includes(i)) {
-          galleryData.push({
-            src: `photos/life/${i}.jpg`,
-            id: i,
-            caption: photoCaptions[i] ? photoCaptions[i].trim() : ""
-          });
-        }
-      }
+const galleryData = filenames.map((filename, index) => ({
+  src: `photos/life/${filename}`,
+  id: index + 1,
+  caption: photoCaptions[filename]?.trim() || ""
+}));
 
-      // 4. Render gallery cards dynamically
-      const gridContainer = document.getElementById('gallery-grid');
-      const lightboxImages = galleryData.map(item => item.src);
+const gridContainer = document.getElementById("gallery-grid");
+const lightboxImages = galleryData.map((item) => item.src);
 
-      galleryData.forEach((item, idx) => {
-        const article = document.createElement('article');
-        article.className = 'feature-card p-3 text-center flex flex-col justify-between';
-        
-        // Conditionally render <figcaption> only if a caption exists
-        const captionHTML = item.caption 
-          ? `<figcaption class="mt-3 text-xs italic text-[var(--muted)]">${item.caption}</figcaption>` 
-          : '';
+galleryData.forEach((item, index) => {
+  const article = document.createElement("article");
+  article.className =
+    "feature-card p-3 text-center flex flex-col justify-between";
 
-        article.innerHTML = `
-          <div class="overflow-hidden rounded-lg border border-[var(--border)]">
-            <img 
-              src="${item.src}" 
-              alt="Life photo ${item.id}" 
-              class="w-full h-48 object-cover cursor-pointer hover:scale-105 transition-transform duration-200"
-              onclick="openLightbox(lightboxImages, ${idx})"
-            />
-          </div>
-          ${captionHTML}
-        `;
-        gridContainer.appendChild(article);
-      });
+  const captionHTML = item.caption
+    ? `<figcaption class="mt-3 text-xs italic text-[var(--muted)]">${item.caption}</figcaption>`
+    : "";
 
+  article.innerHTML = `
+    <div class="overflow-hidden rounded-lg border border-[var(--border)]">
+      <img
+        src="${item.src}"
+        alt="Life photo ${item.id}"
+        class="w-full h-48 object-cover cursor-pointer hover:scale-105 transition-transform duration-200"
+        onclick="openLightbox(lightboxImages, ${index})"
+      />
+    </div>
+    ${captionHTML}
+  `;
+
+  gridContainer.appendChild(article);
+});
       // 5. Lightbox functionality
       let currentGallery = [];
       let currentIndex = 0;

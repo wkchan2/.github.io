@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WikiChan | Meme Gallery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="page-shell">
+      <div id="navbar-placeholder"></div>
+
+      <div class="reference-shell">
+        <div class="reference-grid">
+          <div class="shadow-band" aria-hidden="true"></div>
+
+          <main class="main-panel p-6">
+            <h1 class="text-3xl font-bold mb-6">Memes</h1>
+            <div
+              id="gallery-grid"
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            ></div>
+          </main>
+
+          <div class="shadow-band right" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="lightbox"
+      class="fixed inset-0 bg-black/90 hidden z-50 flex items-center justify-center p-4"
+      onclick="closeLightbox()"
+    >
+      <div
+        class="relative max-w-5xl w-full flex items-center justify-center"
+        onclick="event.stopPropagation()"
+      >
+        <button
+          class="absolute left-2 sm:left-6 text-white text-4xl z-10"
+          onclick="prevImage()"
+          aria-label="Previous photo"
+        >&#10094;</button>
+
+        <img
+          id="lightbox-active-img"
+          class="max-w-full max-h-[85vh] object-contain rounded-lg"
+          alt="Selected meme"
+        />
+
+        <button
+          class="absolute right-2 sm:right-6 text-white text-4xl z-10"
+          onclick="nextImage()"
+          aria-label="Next photo"
+        >&#10095;</button>
+
+        <button
+          class="absolute -top-12 right-0 text-white text-3xl"
+          onclick="closeLightbox()"
+          aria-label="Close"
+        >&times;</button>
+      </div>
+
+      <div
+        id="lightbox-counter"
+        class="absolute bottom-6 text-white/80 text-sm"
+      ></div>
+    </div>
+
+    <script src="nav.js"></script>
+
+    <script>
+      const photoCaptions = {
+        "81.jpg": "",
+        "93.jpg": "",
+        "102.jpg": "",
+        "108.jpg": "",
+        "110.jpg": "",
+        "111.jpg": ""
+      };
+
+      const filenames = [
+        "81.jpg",
+        "93.jpg",
+        "102.jpg",
+        "108.jpg",
+        "110.jpg",
+        "111.jpg"
+      ];
+
+      const galleryData = filenames.map((filename, index) => ({
+        src: `photos/life/meme/${filename}`,
+        id: index + 1,
+        caption: photoCaptions[filename].trim()
+      }));
+
+      const gridContainer = document.getElementById("gallery-grid");
+      const lightboxImages = galleryData.map((item) => item.src);
+
+      galleryData.forEach((item, index) => {
+        const article = document.createElement("article");
+        article.className =
+          "feature-card p-3 text-center flex flex-col justify-between";
+
+        const captionHTML = item.caption
+          ? `<figcaption class="mt-3 text-xs italic text-[var(--muted)]">${item.caption}</figcaption>`
+          : "";
+
+        article.innerHTML = `
+          <div class="overflow-hidden rounded-lg border border-[var(--border)]">
+            <img
+              src="${item.src}"
+              alt="Meme ${item.id}"
+              class="w-full h-48 object-cover cursor-pointer hover:scale-105 transition-transform duration-200"
+              onclick="openLightbox(${index})"
+            />
+          </div>
+          ${captionHTML}
+        `;
+
+        gridContainer.appendChild(article);
+      });
+
+      let currentIndex = 0;
+
+      function openLightbox(index) {
+        currentIndex = index;
+        updateLightboxImage();
+        document.getElementById("lightbox").classList.remove("hidden");
+      }
+
+      function updateLightboxImage() {
+        document.getElementById("lightbox-active-img").src =
+          lightboxImages[currentIndex];
+
+        document.getElementById("lightbox-counter").textContent =
+          `${currentIndex + 1} / ${lightboxImages.length}`;
+      }
+
+      function nextImage() {
+        currentIndex = (currentIndex + 1) % lightboxImages.length;
+        updateLightboxImage();
+      }
+
+      function prevImage() {
+        currentIndex =
+          (currentIndex - 1 + lightboxImages.length) % lightboxImages.length;
+        updateLightboxImage();
+      }
+
+      function closeLightbox() {
+        document.getElementById("lightbox").classList.add("hidden");
+      }
+
+      document.addEventListener("keydown", (event) => {
+        if (document.getElementById("lightbox").classList.contains("hidden")) {
+          return;
+        }
+
+        if (event.key === "Escape") closeLightbox();
+        if (event.key === "ArrowRight") nextImage();
+        if (event.key === "ArrowLeft") prevImage();
+      });
+    </script>
+  </body>
+</html>
