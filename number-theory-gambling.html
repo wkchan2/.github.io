@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Theory | The Fermat–Pascal Gambling Problem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div id="navbar-placeholder"></div>
+
+      <div class="reference-shell">
+        <div class="reference-grid">
+          <div class="shadow-band" aria-hidden="true"></div>
+
+          <main class="main-panel">
+            <div class="inner">
+              <div id="article-root"></div>
+            </div>
+          </main>
+
+          <div class="shadow-band right" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="nav.js"></script>
+    <script>
+      const articleData = {
+        label: "Number Theory",
+        title: "The Fermat–Pascal Gambling Problem",
+        description: "How a game interrupted before the end led to the birth of probability theory.",
+        intro: "In 1654, a gambler named the Chevalier de Méré asked how the stakes of an unfinished game should be divided fairly.",
+        sections: [
+          {
+            id: "problem",
+            heading: "The unfair interruption",
+            items: [
+              {
+                title: "Sharing the stakes fairly",
+                text: "If a game stops midway, how should the money be divided? The answer is not obvious, since each player has a different chance of winning the remainder of the game.",
+                type: "paragraph"
+              },
+              {
+                title: "The idea behind fair division",
+                text: "Pascal and Fermat solved the problem by listing possible remaining outcomes and assigning probabilities to them. Their approach was systematic, precise, and revolutionary.",
+                type: "paragraph"
+              }
+            ]
+          },
+          {
+            id: "legacy",
+            heading: "Why this matters",
+            items: [
+              {
+                title: "The birth of modern probability",
+                text: "This exchange is often regarded as the beginning of modern probability theory. Instead of guessing, mathematicians learned to reason with counting and chance.",
+                type: "paragraph"
+              },
+              {
+                title: "From gambling to science",
+                text: "The same logic later spread into statistics, insurance, physics, and even social behavior. A gambler’s question became a framework for understanding uncertainty itself.",
+                type: "paragraph"
+              }
+            ]
+          }
+        ]
+      };
+
+      function renderBlocks(blocks) {
+        return blocks.map((block) => {
+          if (block.type === "quote") return `<blockquote class="archive-quote"><p>${block.text}</p></blockquote>`;
+          if (block.type === "list") return `<ul class="archive-list">${block.items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+          if (block.type === "image") return `<figure class="archive-figure"><img src="${block.src}" alt="${block.alt || block.title}" /><figcaption>${block.title}</figcaption></figure>`;
+          return `<div class="course-block mb-4"><h3>${block.title}</h3><p>${block.text}</p></div>`;
+        }).join("");
+      }
+
+      function renderArticle(data) {
+        const root = document.getElementById("article-root");
+        if (!root) return;
+
+        root.innerHTML = `
+          <article class="essay-shell">
+            <header>
+              <p class="section-label">${data.label}</p>
+              <h1 class="section-title">${data.title}</h1>
+              <p class="section-description">${data.description}</p>
+              <div class="article-divider" aria-hidden="true"></div>
+            </header>
+            <div class="article-body prose max-w-none">
+              <p class="intro-note italic text-gray-600">${data.intro}</p>
+              ${data.sections.map((section) => `
+                <h2 class="archive-section-toggle cursor-pointer flex items-center justify-between select-none" onclick="toggleStory('${section.id}', this)">
+                  <span>${section.heading}</span>
+                  <span class="chevron text-sm text-gray-500 transition-transform duration-300" style="transform: rotate(-90deg);" aria-hidden="true">▼</span>
+                </h2>
+                <div id="${section.id}" class="accordion-content article-body">
+                  <div class="pt-2">${renderBlocks(section.items)}</div>
+                </div>
+              `).join("")}
+            </div>
+          </article>
+        `;
+      }
+
+      window.toggleStory = function (id, trigger) {
+        const content = document.getElementById(id);
+        const chevron = trigger?.querySelector(".chevron");
+        if (!content) return;
+        const isOpen = !content.classList.contains("hidden");
+        content.classList.toggle("hidden", isOpen);
+        content.classList.toggle("open", !isOpen);
+        if (chevron) chevron.style.transform = isOpen ? "rotate(-90deg)" : "rotate(0deg)";
+      };
+
+      document.addEventListener("DOMContentLoaded", () => renderArticle(articleData));
+    </script>
+  </body>
+</html>

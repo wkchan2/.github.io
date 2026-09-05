@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Theory | The Earth's Circumference and the Meter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div id="navbar-placeholder"></div>
+
+      <div class="reference-shell">
+        <div class="reference-grid">
+          <div class="shadow-band" aria-hidden="true"></div>
+
+          <main class="main-panel">
+            <div class="inner">
+              <div id="article-root"></div>
+            </div>
+          </main>
+
+          <div class="shadow-band right" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="nav.js"></script>
+    <script>
+      const articleData = {
+        label: "Number Theory",
+        title: "The Earth's Circumference and the Meter",
+        description: "Why a unit of length was tied to the Earth itself and how measurement became a global standard.",
+        intro: "The meter was not chosen by accident. It was designed as a universal unit that could be reproduced scientifically, not just inherited from tradition.",
+        sections: [
+          {
+            id: "origin",
+            heading: "Why the meter was created",
+            items: [
+              {
+                title: "A new standard after the Revolution",
+                text: "In the late 18th century, French scientists wanted a measurement system grounded in nature rather than royal custom or local tradition. They believed a universal unit should be objective and reproducible across the world.",
+                type: "paragraph"
+              },
+              {
+                title: "The idea behind one ten-millionth",
+                text: "They defined one meter as one ten-millionth of the distance from the North Pole to the Equator along a meridian passing through Paris. That was a bold move: the Earth itself would become the measuring tape.",
+                type: "paragraph"
+              }
+            ]
+          },
+          {
+            id: "impact",
+            heading: "Why this mattered",
+            items: [
+              {
+                title: "A scientific idea with global consequences",
+                text: "The Earth was enormous, but the idea was elegant: if the planet's size was fixed and observable, then a unit of length could be built from it. This helped launch the metric system and eventually shaped modern science and trade.",
+                type: "paragraph"
+              },
+              {
+                title: "The Earth as a reference frame",
+                text: "By tying a unit to a natural quantity, mathematicians and scientists moved away from arbitrary standards. It was a reminder that even in measurement, geometry and the physical world are deeply connected.",
+                type: "paragraph"
+              }
+            ]
+          }
+        ]
+      };
+
+      function renderBlocks(blocks) {
+        return blocks
+          .map((block) => {
+            if (block.type === "quote") return `<blockquote class="archive-quote"><p>${block.text}</p></blockquote>`;
+            if (block.type === "list") return `<ul class="archive-list">${block.items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+            if (block.type === "image") return `<figure class="archive-figure"><img src="${block.src}" alt="${block.alt || block.title}" /><figcaption>${block.title}</figcaption></figure>`;
+            return `<div class="course-block mb-4"><h3>${block.title}</h3><p>${block.text}</p></div>`;
+          })
+          .join("");
+      }
+
+      function renderArticle(data) {
+        const root = document.getElementById("article-root");
+        if (!root) return;
+
+        root.innerHTML = `
+          <article class="essay-shell">
+            <header>
+              <p class="section-label">${data.label}</p>
+              <h1 class="section-title">${data.title}</h1>
+              <p class="section-description">${data.description}</p>
+              <div class="article-divider" aria-hidden="true"></div>
+            </header>
+
+            <div class="article-body prose max-w-none">
+              <p class="intro-note italic text-gray-600">${data.intro}</p>
+
+              ${data.sections
+                .map(
+                  (section) => `
+                    <h2 class="archive-section-toggle cursor-pointer flex items-center justify-between select-none" onclick="toggleStory('${section.id}', this)">
+                      <span>${section.heading}</span>
+                      <span class="chevron text-sm text-gray-500 transition-transform duration-300" style="transform: rotate(-90deg);" aria-hidden="true">▼</span>
+                    </h2>
+                    <div id="${section.id}" class="accordion-content article-body">
+                      <div class="pt-2">${renderBlocks(section.items)}</div>
+                    </div>
+                  `
+                )
+                .join("")}
+            </div>
+          </article>
+        `;
+      }
+
+      window.toggleStory = function (id, trigger) {
+        const content = document.getElementById(id);
+        const chevron = trigger?.querySelector(".chevron");
+        if (!content) return;
+        const isOpen = !content.classList.contains("hidden");
+        content.classList.toggle("hidden", isOpen);
+        content.classList.toggle("open", !isOpen);
+        if (chevron) chevron.style.transform = isOpen ? "rotate(-90deg)" : "rotate(0deg)";
+      };
+
+      document.addEventListener("DOMContentLoaded", () => renderArticle(articleData));
+    </script>
+  </body>
+</html>

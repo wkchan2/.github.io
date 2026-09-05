@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Theory | The Martingale Strategy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div id="navbar-placeholder"></div>
+
+      <div class="reference-shell">
+        <div class="reference-grid">
+          <div class="shadow-band" aria-hidden="true"></div>
+
+          <main class="main-panel">
+            <div class="inner">
+              <div id="article-root"></div>
+            </div>
+          </main>
+
+          <div class="shadow-band right" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="nav.js"></script>
+    <script>
+      const articleData = {
+        label: "Number Theory",
+        title: "The Martingale Strategy",
+        description: "A classic betting idea that looks clever in theory but fails badly in real life.",
+        intro: "The Martingale strategy promises a simple recipe: after every loss, double the next bet. In theory, one win should recover everything and leave a profit.",
+        sections: [
+          {
+            id: "theory",
+            heading: "Why it looks so tempting",
+            items: [
+              {
+                title: "The idea behind doubling",
+                text: "If you keep doubling after each loss, then a single win will recover the previous losses and add the original stake as profit. On paper, it feels mathematically unbeatable.",
+                type: "paragraph"
+              },
+              {
+                title: "The trap",
+                text: "The flaw is not in arithmetic but in reality: players have finite money, and casinos impose table limits. The streak of losses needed to bankrupt the strategy can happen, and the losses grow explosively.",
+                type: "paragraph"
+              }
+            ]
+          },
+          {
+            id: "probability",
+            heading: "Probability and risk",
+            items: [
+              {
+                title: "Small gain, huge risk",
+                text: "The strategy often creates many small wins, which makes it seem safe. But the probability of eventually suffering a catastrophic loss is built into the method itself.",
+                type: "paragraph"
+              },
+              {
+                title: "A lesson in stochastic thinking",
+                text: "Mathematics does not say that a strategy is good just because it is elegant. Real systems involve constraints, tails, and finite resources. That is the key lesson behind the Martingale.",
+                type: "paragraph"
+              }
+            ]
+          }
+        ]
+      };
+
+      function renderBlocks(blocks) {
+        return blocks.map((block) => {
+          if (block.type === "quote") return `<blockquote class="archive-quote"><p>${block.text}</p></blockquote>`;
+          if (block.type === "list") return `<ul class="archive-list">${block.items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+          if (block.type === "image") return `<figure class="archive-figure"><img src="${block.src}" alt="${block.alt || block.title}" /><figcaption>${block.title}</figcaption></figure>`;
+          return `<div class="course-block mb-4"><h3>${block.title}</h3><p>${block.text}</p></div>`;
+        }).join("");
+      }
+
+      function renderArticle(data) {
+        const root = document.getElementById("article-root");
+        if (!root) return;
+
+        root.innerHTML = `
+          <article class="essay-shell">
+            <header>
+              <p class="section-label">${data.label}</p>
+              <h1 class="section-title">${data.title}</h1>
+              <p class="section-description">${data.description}</p>
+              <div class="article-divider" aria-hidden="true"></div>
+            </header>
+            <div class="article-body prose max-w-none">
+              <p class="intro-note italic text-gray-600">${data.intro}</p>
+              ${data.sections.map((section) => `
+                <h2 class="archive-section-toggle cursor-pointer flex items-center justify-between select-none" onclick="toggleStory('${section.id}', this)">
+                  <span>${section.heading}</span>
+                  <span class="chevron text-sm text-gray-500 transition-transform duration-300" style="transform: rotate(-90deg);" aria-hidden="true">▼</span>
+                </h2>
+                <div id="${section.id}" class="accordion-content article-body">
+                  <div class="pt-2">${renderBlocks(section.items)}</div>
+                </div>
+              `).join("")}
+            </div>
+          </article>
+        `;
+      }
+
+      window.toggleStory = function (id, trigger) {
+        const content = document.getElementById(id);
+        const chevron = trigger?.querySelector(".chevron");
+        if (!content) return;
+        const isOpen = !content.classList.contains("hidden");
+        content.classList.toggle("hidden", isOpen);
+        content.classList.toggle("open", !isOpen);
+        if (chevron) chevron.style.transform = isOpen ? "rotate(-90deg)" : "rotate(0deg)";
+      };
+
+      document.addEventListener("DOMContentLoaded", () => renderArticle(articleData));
+    </script>
+  </body>
+</html>

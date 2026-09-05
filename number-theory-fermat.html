@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Theory | Fermat's Last Theorem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div id="navbar-placeholder"></div>
+
+      <div class="reference-shell">
+        <div class="reference-grid">
+          <div class="shadow-band" aria-hidden="true"></div>
+
+          <main class="main-panel">
+            <div class="inner">
+              <div id="article-root"></div>
+            </div>
+          </main>
+
+          <div class="shadow-band right" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="nav.js"></script>
+    <script>
+      const articleData = {
+        label: "Number Theory",
+        title: "Fermat's Last Theorem",
+        description: "A simple-looking equation that challenged mathematicians for 358 years.",
+        intro: "In 1637, Pierre de Fermat wrote a note in the margin of a book that would become one of the most famous problems in mathematics.",
+        sections: [
+          {
+            id: "equation",
+            heading: "The statement",
+            items: [
+              {
+                title: "A classic equation",
+                text: "The statement is that the equation a^n + b^n = c^n has no positive integer solutions when n > 2. It looks simple enough to state, but it hides enormous mathematical depth.",
+                type: "paragraph"
+              },
+              {
+                title: "Why it mattered",
+                text: "The problem sits at the intersection of algebra, number theory, and modern proof techniques. It became a symbol of how a tiny puzzle could fuel centuries of mathematical innovation.",
+                type: "paragraph"
+              }
+            ]
+          },
+          {
+            id: "history",
+            heading: "The long search",
+            items: [
+              {
+                title: "The famous margin note",
+                text: "Fermat claimed he had a marvelous proof, but the margin was too small to contain it. He never wrote the proof down. That sentence became an open challenge for generations of mathematicians.",
+                type: "paragraph"
+              },
+              {
+                title: "A problem that shaped mathematics",
+                text: "From the work of Euler and Gauss to the breakthroughs of modern algebraic geometry, the search for a proof created new branches of mathematics. The problem was not just a theorem; it became a driver of research.",
+                type: "paragraph"
+              }
+            ]
+          },
+          {
+            id: "solution",
+            heading: "The final proof",
+            items: [
+              {
+                title: "Andrew Wiles and modular forms",
+                text: "In 1995, Andrew Wiles completed the proof using deep ideas from modular forms and elliptic curves. It was a triumph of modern mathematics, confirming that the theorem was true after centuries of effort.",
+                type: "paragraph"
+              }
+            ]
+          }
+        ]
+      };
+
+      function renderBlocks(blocks) {
+        return blocks
+          .map((block) => {
+            if (block.type === "quote") return `<blockquote class="archive-quote"><p>${block.text}</p></blockquote>`;
+            if (block.type === "list") return `<ul class="archive-list">${block.items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+            if (block.type === "image") return `<figure class="archive-figure"><img src="${block.src}" alt="${block.alt || block.title}" /><figcaption>${block.title}</figcaption></figure>`;
+            return `<div class="course-block mb-4"><h3>${block.title}</h3><p>${block.text}</p></div>`;
+          })
+          .join("");
+      }
+
+      function renderArticle(data) {
+        const root = document.getElementById("article-root");
+        if (!root) return;
+
+        root.innerHTML = `
+          <article class="essay-shell">
+            <header>
+              <p class="section-label">${data.label}</p>
+              <h1 class="section-title">${data.title}</h1>
+              <p class="section-description">${data.description}</p>
+              <div class="article-divider" aria-hidden="true"></div>
+            </header>
+
+            <div class="article-body prose max-w-none">
+              <p class="intro-note italic text-gray-600">${data.intro}</p>
+
+              ${data.sections
+                .map(
+                  (section) => `
+                    <h2 class="archive-section-toggle cursor-pointer flex items-center justify-between select-none" onclick="toggleStory('${section.id}', this)">
+                      <span>${section.heading}</span>
+                      <span class="chevron text-sm text-gray-500 transition-transform duration-300" style="transform: rotate(-90deg);" aria-hidden="true">▼</span>
+                    </h2>
+                    <div id="${section.id}" class="accordion-content article-body">
+                      <div class="pt-2">${renderBlocks(section.items)}</div>
+                    </div>
+                  `
+                )
+                .join("")}
+            </div>
+          </article>
+        `;
+      }
+
+      window.toggleStory = function (id, trigger) {
+        const content = document.getElementById(id);
+        const chevron = trigger?.querySelector(".chevron");
+        if (!content) return;
+        const isOpen = !content.classList.contains("hidden");
+        content.classList.toggle("hidden", isOpen);
+        content.classList.toggle("open", !isOpen);
+        if (chevron) chevron.style.transform = isOpen ? "rotate(-90deg)" : "rotate(0deg)";
+      };
+
+      document.addEventListener("DOMContentLoaded", () => renderArticle(articleData));
+    </script>
+  </body>
+</html>

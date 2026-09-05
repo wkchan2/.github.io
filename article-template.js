@@ -128,8 +128,7 @@ function renderArticle(data) {
                 onclick="toggleStory('${section.id}', this)"
               >
                 <span>${section.heading}</span>
-                <span class="chevron text-sm text-gray-500 transition-transform duration-300">▼</span>
-              </h2>
+<span class="chevron text-sm text-gray-500 transition-transform duration-300" style="transform: rotate(-90deg);" aria-hidden="true">▼</span>              </h2>
               <div id="${section.id}" class="accordion-content article-body">
                 <div class="pt-2">
                   ${renderBlocks(section.items)}
@@ -152,6 +151,7 @@ window.toggleStory = function (id, trigger) {
   const isOpen = !content.classList.contains("hidden");
 
   content.classList.toggle("hidden", isOpen);
+  content.classList.toggle("open", !isOpen);
 
   if (chevron) {
     chevron.style.transform = isOpen ? "rotate(-90deg)" : "rotate(0deg)";

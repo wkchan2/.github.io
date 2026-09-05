@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WikiChan | Mathematics, Probability & Statistics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"] , ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+          processEscapes: true,
+          tags: "ams"
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div id="navbar-placeholder"></div>
+
+      <div class="reference-shell">
+        <div class="reference-grid">
+          <div class="shadow-band" aria-hidden="true"></div>
+
+          <main class="main-panel">
+            <div class="inner math-statistics-page">
+              <div id="article-root"></div>
+            </div>
+          </main>
+
+          <div class="shadow-band right" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="nav.js"></script>
+    <script src="math-statistics.js"></script>
+  </body>
+</html>

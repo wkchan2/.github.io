@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Theory | Hyper in Mathematics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div id="navbar-placeholder"></div>
+
+      <div class="reference-shell">
+        <div class="reference-grid">
+          <div class="shadow-band" aria-hidden="true"></div>
+
+          <main class="main-panel">
+            <div class="inner">
+              <div id="article-root"></div>
+            </div>
+          </main>
+
+          <div class="shadow-band right" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="nav.js"></script>
+    <script>
+      const articleData = {
+        label: "Number Theory",
+        title: "Hyper in Mathematics",
+        description: "Why mathematicians love adding the prefix hyper to describe spaces, shapes, and operations beyond ordinary dimensions.",
+        intro: "The prefix hyper is a kind of mathematical exaggeration: it means beyond the ordinary, beyond the familiar, and beyond three-dimensional intuition.",
+        sections: [
+          {
+            id: "meaning",
+            heading: "The word itself",
+            items: [
+              {
+                title: "From everyday language to mathematical structure",
+                text: "In speech, the idea of hyper often means excessive or beyond the usual. In mathematics, the same spirit survives: a hyperspace or hypercube extends familiar ideas into a richer setting.",
+                type: "paragraph"
+              },
+              {
+                title: "Why it is useful",
+                text: "When a system becomes more general, a new name helps mathematicians see the pattern. Hypercube, hypersphere, hyperplane, hypergraph, and hyperoperation all point to a family of broader concepts.",
+                type: "paragraph"
+              }
+            ]
+          },
+          {
+            id: "examples",
+            heading: "Examples",
+            items: [
+              {
+                title: "Hypercube and hypersphere",
+                text: "A hypercube generalizes a cube to higher dimensions, while a hypersphere generalizes a sphere to n-dimensional space. These objects are natural extensions of familiar geometry.",
+                type: "paragraph"
+              },
+              {
+                title: "Hyperoperations and hyperreals",
+                text: "A hyperoperation continues the sequence of arithmetic operations beyond addition, multiplication, and exponentiation. Hyperreal numbers extend the real numbers to include infinitesimals and infinities in a rigorous framework.",
+                type: "paragraph"
+              }
+            ]
+          }
+        ]
+      };
+
+      function renderBlocks(blocks) {
+        return blocks.map((block) => {
+          if (block.type === "quote") return `<blockquote class="archive-quote"><p>${block.text}</p></blockquote>`;
+          if (block.type === "list") return `<ul class="archive-list">${block.items.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+          if (block.type === "image") return `<figure class="archive-figure"><img src="${block.src}" alt="${block.alt || block.title}" /><figcaption>${block.title}</figcaption></figure>`;
+          return `<div class="course-block mb-4"><h3>${block.title}</h3><p>${block.text}</p></div>`;
+        }).join("");
+      }
+
+      function renderArticle(data) {
+        const root = document.getElementById("article-root");
+        if (!root) return;
+
+        root.innerHTML = `
+          <article class="essay-shell">
+            <header>
+              <p class="section-label">${data.label}</p>
+              <h1 class="section-title">${data.title}</h1>
+              <p class="section-description">${data.description}</p>
+              <div class="article-divider" aria-hidden="true"></div>
+            </header>
+            <div class="article-body prose max-w-none">
+              <p class="intro-note italic text-gray-600">${data.intro}</p>
+              ${data.sections.map((section) => `
+                <h2 class="archive-section-toggle cursor-pointer flex items-center justify-between select-none" onclick="toggleStory('${section.id}', this)">
+                  <span>${section.heading}</span>
+                  <span class="chevron text-sm text-gray-500 transition-transform duration-300" style="transform: rotate(-90deg);" aria-hidden="true">▼</span>
+                </h2>
+                <div id="${section.id}" class="accordion-content article-body">
+                  <div class="pt-2">${renderBlocks(section.items)}</div>
+                </div>
+              `).join("")}
+            </div>
+          </article>
+        `;
+      }
+
+      window.toggleStory = function (id, trigger) {
+        const content = document.getElementById(id);
+        const chevron = trigger?.querySelector(".chevron");
+        if (!content) return;
+        const isOpen = !content.classList.contains("hidden");
+        content.classList.toggle("hidden", isOpen);
+        content.classList.toggle("open", !isOpen);
+        if (chevron) chevron.style.transform = isOpen ? "rotate(-90deg)" : "rotate(0deg)";
+      };
+
+      document.addEventListener("DOMContentLoaded", () => renderArticle(articleData));
+    </script>
+  </body>
+</html>

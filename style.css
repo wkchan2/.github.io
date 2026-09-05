@@ -1836,6 +1836,199 @@ body.lightbox-open {
   opacity: 1;
   transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, padding 0.3s ease-in-out;
 }
+
+.archive-category .accordion-content.open {
+  max-height: 5000px;
+}
+
+.math-statistics-page {
+  --archive-text: #756c88;
+  --archive-heading: #66518f;
+}
+
+.math-statistics-page .archive-category {
+  margin-top: 1.5rem;
+  padding: 1.75rem;
+  animation: archive-card-reveal 0.7s ease both;
+  animation-delay: var(--archive-delay, 0ms);
+}
+
+.math-statistics-page .archive-category-subtitle {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--archive-text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.math-statistics-page .archive-category .session-title2 {
+  color: var(--archive-heading);
+  font-size: clamp(1.65rem, 2.4vw, 2.2rem);
+  line-height: 1.18;
+}
+
+.math-statistics-page .archive-section-toggle {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.math-statistics-page .archive-topic-block {
+  margin: 1rem 0;
+}
+
+.math-statistics-page .archive-topic-block h4 {
+  margin: 0 0 0.3rem;
+  color: var(--archive-heading);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.math-statistics-page .archive-topic-question {
+  padding: 0.85rem 1rem;
+  border-left: 3px solid var(--accent-soft);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.math-statistics-page .archive-topic-question p {
+  color: var(--archive-heading);
+  font-weight: 600;
+}
+
+.math-statistics-page .archive-takeaway {
+  margin: 1.2rem 0 0;
+  padding: 0.85rem 1rem;
+  border-radius: 0.8rem;
+  background: rgba(194, 158, 245, 0.1);
+  color: var(--archive-text);
+}
+
+.math-statistics-page .archive-takeaway strong {
+  color: var(--archive-heading);
+}
+
+.math-statistics-page .visual-placeholder {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 1.25rem 0;
+  padding: 1rem;
+  border: 1px dashed rgba(141, 106, 222, 0.3);
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.48);
+  color: var(--archive-heading);
+  text-align: center;
+}
+
+.math-statistics-page .visual-placeholder span,
+.math-statistics-page .visual-placeholder b {
+  display: inline-flex;
+  min-width: 3rem;
+  min-height: 2.4rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid rgba(141, 106, 222, 0.2);
+  border-radius: 0.55rem;
+  background: rgba(246, 240, 255, 0.9);
+  font-weight: 700;
+}
+
+.math-statistics-page .visual-placeholder small {
+  flex-basis: 100%;
+  color: var(--archive-text);
+  font-size: 0.82rem;
+}
+
+.math-statistics-page .sample-space-table,
+.math-statistics-page .comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--archive-text);
+}
+
+.math-statistics-page .sample-space-table caption,
+.math-statistics-page .comparison-table caption {
+  margin-bottom: 0.55rem;
+  color: var(--archive-heading);
+  font-weight: 700;
+}
+
+.math-statistics-page .sample-space-table td,
+.math-statistics-page .comparison-table th,
+.math-statistics-page .comparison-table td {
+  padding: 0.55rem;
+  border: 1px solid rgba(141, 106, 222, 0.18);
+  text-align: center;
+}
+
+.math-statistics-page .sample-space-table tfoot td,
+.math-statistics-page .comparison-table tfoot td {
+  color: var(--archive-text);
+  font-size: 0.82rem;
+}
+
+.math-statistics-page .archive-category .article-body,
+.math-statistics-page .archive-topic p {
+  color: var(--archive-text);
+}
+
+.math-statistics-page .archive-topic {
+  margin: 1.35rem 0 1.75rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid rgba(141, 106, 222, 0.12);
+}
+
+.math-statistics-page .archive-topic:last-child {
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.math-statistics-page .archive-topic h3 {
+  margin: 0 0 0.55rem;
+  color: var(--archive-heading);
+  font-size: clamp(1.3rem, 1.8vw, 1.65rem);
+}
+
+.math-statistics-page .archive-topic-chinese {
+  color: var(--archive-text);
+  font-family: inherit;
+}
+
+.math-statistics-page .archive-topic p {
+  margin-bottom: 0;
+}
+
+@keyframes archive-card-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .math-statistics-page .archive-category {
+    animation: none;
+  }
+}
 /* Accordion Styles */
 .collapsible-card {
   cursor: pointer;
