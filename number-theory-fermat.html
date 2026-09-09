@@ -6,6 +6,13 @@
     <title>Number Theory | Fermat's Last Theorem</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+        options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+      };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </head>
   <body>
     <div class="page-shell">
@@ -40,7 +47,7 @@
             items: [
               {
                 title: "A classic equation",
-                text: "The statement is that the equation a^n + b^n = c^n has no positive integer solutions when n > 2. It looks simple enough to state, but it hides enormous mathematical depth.",
+                text: "The statement is that the equation $a^n + b^n = c^n$ has no positive integer solutions when $n > 2$. It looks simple enough to state, but it hides enormous mathematical depth.",
                 type: "paragraph"
               },
               {

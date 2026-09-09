@@ -30,22 +30,27 @@
     <script>
       const articleData = {
         label: "Number Theory",
-        title: "Euler and the Derangement Problem",
-        description: "Why a random shuffle has a surprisingly stable chance of producing zero matches.",
-        intro: "The derangement problem asks: if everyone is randomly assigned a new position, what is the chance that nobody ends up in their original place?",
+        title: "Euler, Derangements, and Mating",
+        description: "What can a random matching game teach us about finding a partner?",
+        intro: "Imagine a finite group of people with a fixed list of possible matches. If everyone is randomly assigned one intended partner, what is the chance that nobody receives the match meant for them?",
         sections: [
           {
             id: "idea",
             heading: "The setup",
             items: [
               {
-                title: "No one gets their own place",
-                text: "In a derangement, every participant is displaced. For a group of n people, you are asking for the probability that in a random permutation, no one lands in the original slot.",
+                title: "A random mating game",
+                text: "Suppose four people each have one intended match. We shuffle the names and give one name to each person. A derangement happens when everyone gets a different name from the one intended for them. This is a mathematical matching game, not a prediction about real relationships.",
                 type: "paragraph"
               },
               {
-                title: "The 37% coincidence",
-                text: "As n grows, this probability approaches 1/e, which is about 0.3679. In other words, the chance of a perfect mismatch is roughly 37%, while the chance of at least one accidental match is about 63%.",
+                title: "A four-person example",
+                text: "With four people, there are 4! = 24 possible assignments. Exactly 9 of them give nobody their intended match, so the probability is 9/24 = 37.5%. Even this small example is already very close to the famous 37% result.",
+                type: "paragraph"
+              },
+              {
+                title: "The 37% pattern",
+                text: "As the group becomes larger, the chance of a complete mismatch approaches 1/e, which is about 0.3679. In other words, it stays close to 37%, while the chance of at least one match is about 63%.",
                 type: "paragraph"
               }
             ]
@@ -55,13 +60,18 @@
             heading: "Why it matters",
             items: [
               {
-                title: "A beautiful limit",
-                text: "This is a classic example of how combinatorics produces elegant constants. The number e appears naturally in a problem about permutations and misplacements.",
+                title: "What mating has to do with mathematics",
+                text: "The word mating makes the problem feel personal, but Euler's mathematics is really studying a carefully controlled matching experiment. We assume a finite group, one fixed list of intended matches, and a completely random assignment. These rules let us calculate what can happen instead of guessing from personal experience.",
                 type: "paragraph"
               },
               {
-                title: "Life and coincidence",
-                text: "The result feels surprisingly human: even in a random world, complete mismatch is common enough to occur often, and at least one accidental match is even more likely.",
+                title: "What the 37% really means",
+                text: "The 37% does not mean that a person has a 37% chance of finding a partner in real life. Real relationships are not random assignments, and people do not have only one possible match. It means that, under these simplified rules, a large random matching has about a 37% chance of producing no intended matches at all.",
+                type: "paragraph"
+              },
+              {
+                title: "Why probability surprises us",
+                text: "Adding more people does not make a complete mismatch almost impossible. The probability settles near the same value, 37%. The same idea appears in classroom partner activities, gift exchanges, secret friends, and other situations where people or objects are randomly assigned.",
                 type: "paragraph"
               }
             ]

@@ -1,0 +1,135 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WikiChan | Math History Legends & Stories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+        <script src="nav.js"></script>
+
+  </head>
+  <body>
+    <div class="page-shell">
+      <div id="navbar-placeholder"></div>
+
+      <div class="reference-shell">
+        <div class="reference-grid">
+          <!-- Left Shadow -->
+          <img src="photos/shadow-left.png" class="shadow-band left" alt="" aria-hidden="true" />
+
+          <main class="main-panel">
+            <div class="inner">
+              <section class="space-y-6">
+                <p class="section-label">short articles</p>
+                <h1 class="section-title"> life jokes</h1>
+                <p class="section-description">
+                  An archive of conversation that i found interesting.
+                </p>
+              </section>
+
+              <section class="small-page-list mt-12">
+
+                <div class="editorial-note-band my-4">
+                  <span class="note-tag">context</span>
+                  <p>I was talking to my friend about his experience in "what the students listen to the most in lesson" and he came up with these.</p>
+                </div>
+
+                <article class="feature-card">
+                  <div class="flex items-center gap-4 mb-2">
+                    <span class="feature-pill">Math</span>
+                  </div>
+                  <h2 class="session-title2 cursor-pointer flex items-center justify-between select-none" onclick="toggleStory('concept', this)">
+                    <span>advanced math concepts</span>
+                    <span class="chevron text-sm text-gray-500 transition-transform duration-300">▼</span>
+                  </h2>
+                  <div id="concept" class="accordion-content article-body">
+                    <div class="pt-4 border-t mt-3">
+                      <p>
+                        My friend was questioning the existence of "i" the complex number, and he started rambling about non-syllabus math knowledge — from the cubic formula that led to the invention of i, to the idea of a math dual age, to i as a root in algebraic structures.
+                        <br /><br />
+                        And the students were genuinely interested.
+                      </p>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="feature-card">
+                  <div class="flex items-center gap-4 mb-2">
+                    <span class="feature-pill">中國文化</span>
+                  </div>
+                  <h2 class="session-title2 cursor-pointer flex items-center justify-between select-none" onclick="toggleStory('Pythchinese', this)">
+                    <span>Pythagoras theorem 同 中國 「股」的關係</span>
+                    <span class="chevron text-sm text-gray-500 transition-transform duration-300">▼</span>
+                  </h2>
+                  <div id="Pythchinese" class="accordion-content article-body">
+                    <div class="pt-4 border-t mt-3">
+                      <p>
+                        日前與朋友茶餘飯後聊起國安教育與數學，朋友突發奇想：「國安教育強調中華文化，而畢氏定理中的『股』在文言文中是指人的手，四書五經說古人喜歡用身體部位命名，所以畢氏定理其實也是中華文化國安教育的一部分！」
+                        <br /><br />
+                        聽完我不禁啞然失笑，這位朋友的文化熱情值得鼓勵，但考證實在不敢恭維。
+                        <br /><br />
+                        首先，文言文中的「股」絕非手臂，而是大腿（看看「懸梁刺股」就知道了，若刺的是手，恐怕早已寫不出字）。古人確實講究《易經》所說的「近取諸身，遠取諸物」，所以用彎曲的「勾」與較長的「股」（大腿）來形象化直角三角形的兩條直角邊。
+                        <br /><br />
+                        不過，朋友的直覺倒有一點沒說錯：勾股定理確實與國安教育中的「文化安全」息息相關。
+                        <br /><br />
+                        早在《周髀算經》中，商高與周公論數，就記錄了「勾三股四弦五」的幾何原理。在國安教育的框架下，推廣中華優秀傳統科技成就，正是樹立文化自信、保障文化安全的重要實踐。只不過，我們在弘揚國粹時，可千萬別把「大腿」當成了「手臂」呀！
+                      </p>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="feature-card">
+                  <div class="flex items-center gap-4 mb-2">
+                    <span class="feature-pill">logically fallacy</span>
+                  </div>
+                  <h2 class="session-title2 cursor-pointer flex items-center justify-between select-none" onclick="toggleStory('human', this)">
+                    <span>人是非理性的</span>
+                    <span class="chevron text-sm text-gray-500 transition-transform duration-300">▼</span>
+                  </h2>
+                  <div id="human" class="accordion-content article-body">
+                    <div class="pt-4 border-t mt-3">
+                      <p>
+                        想想你由香港去美國，你會選擇坐飛機還是坐船？你會選擇坐飛機，因為你知道飛機比船快（坐船要30日），但如果你是一個理性的人，你應該會用方法避免危險的事，那麼你會選擇坐船，因為你知道飛機的死亡率比船高。甚至我的另一個朋友會說：「你應該行路過去。」這個例子說明了人是非理性的。
+                        <br /><br />
+                        或者說，效率這東西也挺重要的，喂同學，你計數又有沒有效率啊？
+                      </p>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="feature-card">
+                  <div class="flex items-center gap-4 mb-2">
+                    <span class="feature-pill">Statistics</span>
+                  </div>
+                  <h2 class="session-title2 cursor-pointer flex items-center justify-between select-none" onclick="toggleStory('idk', this)">
+                    <span>Normal distribution 的笑話</span>
+                    <span class="chevron text-sm text-gray-500 transition-transform duration-300">▼</span>
+                  </h2>
+                  <div id="idk" class="accordion-content article-body">
+                    <div class="pt-4 border-t mt-3">
+                      <p>
+                        記得當年朋友上 M1 講到正態分佈時，老師突發奇想，一臉醍醐灌頂地對全班說：
+                        <br /><br />
+                        「DSE 成績咪又係 Normal Distribution！你睇下，數學拎5** 嘅人得 0.5%；咁拎 U 呢？得 0.05% 咋！你知道 U 代表咩？在數學世界，U 係代表 Undefined！未定義嘅嘢先係最勁！所以如果你哋考到全 U，抬高頭去見老師——你根本比 DSE 狀元更強大，你已經跳超出咗常規數學嘅定義！」
+                      </p>
+                    </div>
+                  </div>
+                </article>
+
+                <!-- Toggle Script -->
+    <script>
+      function toggleStory(id, element) {
+        const content = document.getElementById(id);
+        const chevron = element.querySelector('.chevron');
+        
+        // Toggle the smooth accordion class
+        content.classList.toggle('open');
+        
+        // Rotate the arrow icon smoothly
+        if (chevron) {
+          chevron.classList.toggle('rotate-180');
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -6,6 +6,13 @@
     <title>Number Theory | Proving the Trapezoid Area Formula</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css" />
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+        options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+      };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </head>
   <body>
     <div class="page-shell">
@@ -45,7 +52,7 @@
               },
               {
                 title: "Area as a pattern",
-                text: "The formula A = (a + b)h / 2 comes from recognizing that the trapezoid is built from average-length pieces stretched across the same height. The geometry reveals the linear relationship directly.",
+                text: "The formula $A = \\frac{(a + b)h}{2}$ comes from recognizing that the trapezoid is built from average-length pieces stretched across the same height. The geometry reveals the linear relationship directly.",
                 type: "paragraph"
               }
             ]
