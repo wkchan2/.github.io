@@ -40,7 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="brand-sub">A little side project of Wiki</div>
           </div>
 
-          <nav class="top-nav" aria-label="Main navigation">
+          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">
+            <span class="nav-toggle-icon" aria-hidden="true">☰</span>
+            <span>Menu</span>
+          </button>
+
+          <nav id="main-navigation" class="top-nav" aria-label="Main navigation">
             ${links
               .map((link) => {
                 const mailAttr = link.href.startsWith("mailto:")
@@ -72,6 +77,30 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>
       </header>
     `;
+
+    const navToggle = navContainer.querySelector(".nav-toggle");
+    const mainNavigation = navContainer.querySelector("#main-navigation");
+
+    if (navToggle && mainNavigation) {
+      const closeNavigation = () => {
+        navToggle.setAttribute("aria-expanded", "false");
+        mainNavigation.classList.remove("is-open");
+      };
+
+      navToggle.addEventListener("click", () => {
+        const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+        navToggle.setAttribute("aria-expanded", String(!isOpen));
+        mainNavigation.classList.toggle("is-open", !isOpen);
+      });
+
+      mainNavigation.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeNavigation);
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeNavigation();
+      });
+    }
   }
 
   // --- 2. DAILY QUOTE GENERATOR ---
